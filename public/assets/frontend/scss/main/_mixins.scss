@@ -1,0 +1,798 @@
+// mixin for button
+
+// Mixin for generating new styles
+@mixin btn-styles($btn-color, $btn-states-color) {
+    background-color: $btn-color;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active,
+    &:active:focus,
+    &:active:hover,
+    &.active:focus,
+    &.active:hover,
+    .show > &.dropdown-toggle,
+    .show > &.dropdown-toggle:focus,
+    .show > &.dropdown-toggle:hover {
+        //background-color: $btn-states-color;
+        //color: $white-color;
+        box-shadow: none;
+    }
+
+    &:hover{
+        box-shadow:  0 3px 8px 0 rgba($dark,0.17);
+    }
+
+    &.disabled,
+    &:disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &,
+        &:hover,
+        &:focus,
+        &.focus,
+        &:active,
+        &.active {
+            background-color: $btn-color;
+            border-color: $btn-color;
+        }
+    }
+
+    // btn-neutral style
+    @if $btn-color == $white-color{
+        color: $primary-color;
+
+        &.btn-danger{
+            color: $danger-color;
+
+            &:hover,
+            &:focus,
+            &:active{
+                color: $danger-states-color;
+            }
+        }
+
+        &.btn-info{
+            color: $info-color;
+
+            &:hover,
+            &:focus,
+            &:active{
+                color: $info-states-color;
+            }
+        }
+
+        &.btn-warning{
+            color: $warning-color;
+
+            &:hover,
+            &:focus,
+            &:active{
+                color: $warning-states-color;
+            }
+        }
+
+        &.btn-success{
+            color: $success-color;
+
+            &:hover,
+            &:focus,
+            &:active{
+                color: $success-states-color;
+            }
+        }
+
+        &.btn-default{
+            color: $default-color;
+
+            &:hover,
+            &:focus,
+            &:active{
+                color: $default-states-color;
+            }
+        }
+
+        &.active,
+        &:active,
+        &:active:focus,
+        &:active:hover,
+        &.active:focus,
+        &.active:hover,
+        .show > &.dropdown-toggle,
+        .show > &.dropdown-toggle:focus,
+        .show > &.dropdown-toggle:hover {
+            background-color: $white-color;
+            color: $primary-states-color;
+            box-shadow: none;
+        }
+
+        &:hover,
+        &:focus{
+            color: $primary-states-color;
+
+            &:not(.nav-link){
+                box-shadow: none;
+            }
+        }
+
+    } @else {
+        color: $white-color;
+    }
+
+    &.btn-simple{
+        color: $btn-color;
+        border-color: $btn-color;
+
+        &:hover,
+        &:focus,
+        &:active{
+            background-color: $transparent-bg;
+            color: $btn-states-color;
+            border-color: $btn-states-color;
+            box-shadow: none;
+        }
+    }
+
+    &.btn-link{
+        color: $btn-color;
+
+        &:hover,
+        &:focus,
+        &:active{
+            background-color: $transparent-bg;
+            color: $btn-states-color;
+            text-decoration: none;
+            box-shadow: none;
+        }
+    }
+}
+
+
+@mixin btn-size($padding-vertical, $padding-horizontal, $font-size, $border){
+   font-size: $font-size;
+   border-radius: $border;
+   padding: $padding-vertical $padding-horizontal;
+
+   &.btn-simple{
+       padding: $padding-vertical - 1 $padding-horizontal - 1;
+   }
+}
+
+//mixin for prefixes
+
+@mixin box-shadow($shadow...) {
+    -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
+            box-shadow: $shadow;
+  }
+  
+  @mixin transition-input-focus-color() {
+      -webkit-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+      -moz-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+      -o-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+      -ms-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+      transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  }
+  
+  
+  @mixin transition($time, $type){
+      -webkit-transition: all $time $type;
+      -moz-transition: all $time $type;
+      -o-transition: all $time $type;
+      -ms-transition: all $time $type;
+      transition: all $time $type;
+  }
+  
+  @mixin rotate-180(){
+      filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+      -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      transform: rotate(180deg);
+  }
+  
+  
+  @mixin transform-translate-x($value){
+       -webkit-transform:  translate3d($value, 0, 0);
+          -moz-transform: translate3d($value, 0, 0);
+          -o-transform: translate3d($value, 0, 0);
+          -ms-transform: translate3d($value, 0, 0);
+          transform: translate3d($value, 0, 0);
+  }
+  
+  @mixin transform-translate-y($value){
+       -webkit-transform:  translate3d(0,$value,0);
+          -moz-transform: translate3d(0,$value,0);
+          -o-transform: translate3d(0,$value,0);
+          -ms-transform: translate3d(0,$value,0);
+          transform: translate3d(0,$value,0);
+  }
+  
+  @mixin bar-animation($type){
+       -webkit-animation: $type 500ms linear 0s;
+       -moz-animation: $type 500ms linear 0s;
+       animation: $type 500ms 0s;
+       -webkit-animation-fill-mode: forwards;
+       -moz-animation-fill-mode: forwards;
+       animation-fill-mode: forwards;
+  }
+  
+  @mixin topbar-x-rotation(){
+      @keyframes topbar-x {
+        0% {top: 0px; transform: rotate(0deg); }
+        45% {top: 6px; transform: rotate(145deg); }
+        75% {transform: rotate(130deg); }
+        100% {transform: rotate(135deg); }
+      }
+      @-webkit-keyframes topbar-x {
+        0% {top: 0px; -webkit-transform: rotate(0deg); }
+        45% {top: 6px; -webkit-transform: rotate(145deg); }
+        75% {-webkit-transform: rotate(130deg); }
+        100% { -webkit-transform: rotate(135deg); }
+      }
+      @-moz-keyframes topbar-x {
+        0% {top: 0px; -moz-transform: rotate(0deg); }
+        45% {top: 6px; -moz-transform: rotate(145deg); }
+        75% {-moz-transform: rotate(130deg); }
+        100% { -moz-transform: rotate(135deg); }
+      }
+  }
+  
+  @mixin topbar-back-rotation(){
+      @keyframes topbar-back {
+        0% { top: 6px; transform: rotate(135deg); }
+        45% { transform: rotate(-10deg); }
+        75% { transform: rotate(5deg); }
+        100% { top: 0px; transform: rotate(0); }
+      }
+  
+      @-webkit-keyframes topbar-back {
+        0% { top: 6px; -webkit-transform: rotate(135deg); }
+        45% { -webkit-transform: rotate(-10deg); }
+        75% { -webkit-transform: rotate(5deg); }
+        100% { top: 0px; -webkit-transform: rotate(0); }
+      }
+  
+      @-moz-keyframes topbar-back {
+        0% { top: 6px; -moz-transform: rotate(135deg); }
+        45% { -moz-transform: rotate(-10deg); }
+        75% { -moz-transform: rotate(5deg); }
+        100% { top: 0px; -moz-transform: rotate(0); }
+      }
+  }
+  
+  @mixin bottombar-x-rotation(){
+      @keyframes bottombar-x {
+        0% {bottom: 0px; transform: rotate(0deg);}
+        45% {bottom: 6px; transform: rotate(-145deg);}
+        75% {transform: rotate(-130deg);}
+        100% {transform: rotate(-135deg);}
+      }
+      @-webkit-keyframes bottombar-x {
+        0% {bottom: 0px; -webkit-transform: rotate(0deg);}
+        45% {bottom: 6px; -webkit-transform: rotate(-145deg);}
+        75% {-webkit-transform: rotate(-130deg);}
+        100% {-webkit-transform: rotate(-135deg);}
+      }
+      @-moz-keyframes bottombar-x {
+        0% {bottom: 0px; -moz-transform: rotate(0deg);}
+        45% {bottom: 6px; -moz-transform: rotate(-145deg);}
+        75% {-moz-transform: rotate(-130deg);}
+        100% {-moz-transform: rotate(-135deg);}
+      }
+  }
+  
+  @mixin bottombar-back-rotation{
+      @keyframes bottombar-back {
+        0% { bottom: 6px;transform: rotate(-135deg);}
+        45% { transform: rotate(10deg);}
+        75% { transform: rotate(-5deg);}
+        100% { bottom: 0px;transform: rotate(0);}
+      }
+      @-webkit-keyframes bottombar-back {
+        0% {bottom: 6px;-webkit-transform: rotate(-135deg);}
+        45% {-webkit-transform: rotate(10deg);}
+        75% {-webkit-transform: rotate(-5deg);}
+        100% {bottom: 0px;-webkit-transform: rotate(0);}
+      }
+      @-moz-keyframes bottombar-back {
+        0% {bottom: 6px;-moz-transform: rotate(-135deg);}
+        45% {-moz-transform: rotate(10deg);}
+        75% {-moz-transform: rotate(-5deg);}
+        100% {bottom: 0px;-moz-transform: rotate(0);}
+      }
+  
+  }
+  
+  
+  @mixin nc-rotate($degrees, $rotation) {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=#{$rotation});
+    -webkit-transform: rotate($degrees);
+    -moz-transform: rotate($degrees);
+    -ms-transform: rotate($degrees);
+    -o-transform: rotate($degrees);
+    transform: rotate($degrees);
+  }
+  
+  @mixin nc-flip($horiz, $vert, $rotation) {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=#{$rotation});
+    -webkit-transform: scale($horiz, $vert);
+    -moz-transform: scale($horiz, $vert);
+    -ms-transform: scale($horiz, $vert);
+    -o-transform: scale($horiz, $vert);
+    transform: scale($horiz, $vert);
+  }
+
+//mixin for input
+
+@mixin input-size($padding-vertical, $padding-horizontal){
+    padding: $padding-vertical $padding-horizontal;
+}
+
+@mixin form-control-placeholder($color, $opacity){
+   .form-control::-moz-placeholder{
+       color: $color;
+       @include opacity(1);
+   }
+   .form-control:-moz-placeholder{
+       color: $color;
+       @include opacity(1);
+   }
+   .form-control::-webkit-input-placeholder{
+       color: $color;
+       @include opacity(1);
+   }
+   .form-control:-ms-input-placeholder{
+       color: $color;
+       @include opacity(1);
+   }
+}
+
+@mixin light-form(){
+    border-radius: 0;
+    border:0;
+    padding: 0;
+    background-color: $transparent-bg;
+}
+
+@mixin input-lg-padding($padding-vertical, $padding-horizontal) {
+    .form-group.form-group-no-border.input-lg,
+    .input-group.form-group-no-border.input-lg{
+        .input-group-addon{
+            padding: $padding-vertical 0 $padding-vertical $padding-horizontal;
+        }
+
+        .form-control{
+            padding: $padding-vertical $padding-horizontal;
+
+            & + .input-group-addon{
+                padding: $padding-vertical $padding-horizontal $padding-vertical 0;
+            }
+        }
+    }
+
+    .form-group.input-lg,
+    .input-group.input-lg{
+        .form-control{
+            padding: $padding-vertical - 1 $padding-horizontal - 1;
+
+            & + .input-group-addon{
+                padding: $padding-vertical - 1 $padding-horizontal - 1 $padding-vertical - 1 0;
+            }
+        }
+
+        .input-group-addon{
+            padding: $padding-vertical - 1 0 $padding-vertical $padding-horizontal - 1;
+
+            & + .form-control{
+                padding: $padding-vertical  $padding-horizontal - 1 $padding-vertical $padding-horizontal - 3;
+            }
+        }
+    }
+}
+
+@mixin input-base-padding($padding-vertical, $padding-horizontal) {
+    .form-group.form-group-no-border,
+    .input-group.form-group-no-border{
+        .form-control{
+            padding: $padding-vertical $padding-horizontal;
+
+            & + .input-group-addon{
+                padding: $padding-vertical $padding-horizontal $padding-vertical 0;
+            }
+        }
+
+        .input-group-addon{
+            padding: $padding-vertical 0 $padding-vertical $padding-horizontal;
+        }
+    }
+
+    .form-group,
+    .input-group{
+        .form-control{
+            padding: $padding-vertical - 1 $padding-horizontal - 1 $padding-vertical - 1 $padding-horizontal - 1;
+
+            & + .input-group-addon{
+                padding: $padding-vertical - 1 $padding-horizontal - 1 $padding-vertical - 1 0;
+            }
+        }
+
+        .input-group-addon{
+            padding: $padding-vertical - 1 0 $padding-vertical - 1 $padding-horizontal - 1;
+
+            & + .form-control,
+            & ~ .form-control{
+                padding:$padding-vertical - 1 $padding-horizontal $padding-vertical $padding-horizontal - 3;
+            }
+        }
+    }
+}
+
+//color1 = $opacity-5
+//color2 = $opacity-8
+//color3 = $white-color
+//color4 = $transparent-bg
+//color5 = $opacity-1
+//color6 = $opacity-2
+
+@mixin input-coloured-bg($color1, $color2, $color3, $color4, $color5, $color6) {
+    @include form-control-placeholder(darken($color2, 8%), 1);
+
+    .form-control{
+        border-color: $color1;
+        color: $color2;
+
+        &:focus{
+            border-color: $color3;
+            background-color: $color4;
+            color: $color3;
+        }
+    }
+
+    .has-success,
+    .has-danger{
+        &:after{
+            color: $color3;
+        }
+    }
+
+    .has-danger{
+        .form-control{
+            background-color: $color4;
+        }
+    }
+
+    .input-group-addon{
+        background-color: $color4;
+        border-color: $color1;
+        color: $color2;
+    }
+
+    .input-group-focus{
+        .input-group-addon{
+            background-color: $color4;
+            border-color: $color3;
+            color: $color3;
+        }
+    }
+
+    .form-group.form-group-no-border,
+    .input-group.form-group-no-border{
+        .form-control{
+            background-color: $color5;
+            color: $color2;
+
+            &:focus,
+            &:active,
+            &:active{
+                background-color: $color6;
+                color: $color3;
+            }
+        }
+
+        .form-control + .input-group-addon{
+            background-color: $color5;
+
+            &:focus,
+            &:active,
+            &:active{
+                background-color: $color6;
+                color: $color3;
+            }
+        }
+
+        .form-control{
+            &:focus{
+                & + .input-group-addon{
+                    background-color: $color6;
+                    color: $color3;
+                }
+            }
+        }
+
+        .input-group-addon{
+            background-color: $color5;
+            border: none;
+            color: $color2;
+        }
+
+        &.input-group-focus{
+            .input-group-addon{
+                background-color: $color6;
+                color: $color3;
+            }
+        }
+    }
+}
+
+//mixin for dropdown
+
+@mixin dropdown-colors($brand-color, $dropdown-header-color, $dropdown-color, $background-color ) {
+    background-color: $brand-color;
+
+    &:before{
+        color: $brand-color;
+    }
+
+    .dropdown-header:not([href]):not([tabindex]){
+        color: $dropdown-header-color;
+    }
+
+    .dropdown-item{
+        color: $dropdown-color;
+
+        &:hover,
+        &:focus{
+            background-color: $background-color;
+        }
+    }
+
+    .dropdown-divider{
+        background-color: $background-color;
+    }
+}
+
+//mixin for nav
+
+@mixin navbar-responsive() {
+    .navbar{
+        .navbar-nav{           
+
+            .nav-link{
+                padding-top: 0.75rem;
+                padding-bottom: .75rem;
+            }
+        }
+
+        .dropdown.show .dropdown-menu,
+        .dropdown .dropdown-menu{
+            background-color: $transparent-bg;
+            border: 0;
+            transition: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            width: auto;
+            margin: 0 1rem;
+            margin-bottom: 15px;
+            padding-top: 0;
+            height: 150px;
+            overflow-y: scroll;
+
+            &:before{
+                display: none;
+            }
+        }
+
+        .dropdown{
+            .dropdown-item{
+                padding-left: 2.5rem;
+            }
+
+            .dropdown-menu{
+               display: none;
+           }
+
+           &.show .dropdown-menu{
+               display: block;
+           }
+        }
+
+        .dropdown-menu .dropdown-item:focus,
+        .dropdown-menu .dropdown-item:hover{
+            color: $white-color;
+        }
+
+        .navbar-translate{
+            @include transform-translate-x(0px);
+            @include transition (0.50s, cubic-bezier(0.685, 0.0473, 0.346, 1));
+            width: 100%;
+            position: relative;
+            display: flex;
+            -ms-flex-pack: justify!important;
+            justify-content: space-between!important;
+            -ms-flex-align: center;
+            align-items: center;            
+        }
+
+        .navbar-toggler-bar{
+            display: block;
+            position: relative;
+            width: 22px;
+            height: 1px;
+            border-radius: 1px;
+            background: $white;
+
+            & + .navbar-toggler-bar{
+                margin-top: 7px;
+            }
+
+            &.bar2{
+                width: 17px;
+                transition: width .2s linear;
+            }
+        }
+
+        &.bg-white:not(.navbar-transparent) .navbar-toggler-bar{
+            background: $default-color;
+        }
+
+        & .toggled .navbar-toggler-bar{
+            width: 24px;
+
+            & + .navbar-toggler-bar{
+                margin-top: 5px;
+            }
+        }
+
+    }
+
+    .bar1,
+    .bar2,
+    .bar3 {
+        outline: 1px solid transparent;
+    }
+    .bar1 {
+        top: 0px;
+        @include bar-animation($topbar-back);
+    }
+    .bar2 {
+        opacity: 1;
+    }
+    .bar3 {
+        bottom: 0px;
+        @include bar-animation($bottombar-back);
+    }
+    .toggled .bar1 {
+        top: 6px;
+        @include bar-animation($topbar-x);
+    }
+    .toggled .bar2 {
+        opacity: 0;
+    }
+    .toggled .bar3 {
+        bottom: 6px;
+        @include bar-animation($bottombar-x);
+    }
+
+    @include topbar-x-rotation();
+    @include topbar-back-rotation();
+    @include bottombar-x-rotation();
+    @include bottombar-back-rotation();
+
+    @-webkit-keyframes fadeIn {
+      0% {opacity: 0;}
+      100% {opacity: 1;}
+    }
+    @-moz-keyframes fadeIn {
+      0% {opacity: 0;}
+      100% {opacity: 1;}
+    }
+    @keyframes fadeIn {
+      0% {opacity: 0;}
+      100% {opacity: 1;}
+    }
+}
+
+@mixin navbar-collapse() {
+    .navbar-collapse{
+        position: fixed;
+        display: block;
+        top: 0;
+        height: 100% !important;
+        width: 300px;
+        right: 0;
+        z-index: 1032;
+        visibility: visible;
+        background-color: #999;
+        overflow-y: visible;
+        border-top: none;
+        text-align: left;
+
+        max-height: none !important;
+
+        @include transform-translate-x(300px);
+        @include transition (0.50s, cubic-bezier(0.685, 0.0473, 0.346, 1));
+
+        &:before{
+            background: $brand-primary; /* For browsers that do not support gradients */
+            background: -webkit-linear-gradient(45deg, #49cdd0, #00bcd4); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(45deg, #49cdd0, #00bcd4); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(45deg, #49cdd0, #00bcd4); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(45deg, #49cdd0, #00bcd4); /* Standard syntax (must be last) */
+            box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+            @include opacity(.76);
+
+            display: block;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .dropdown-menu .dropdown-item{
+            color: $white-color;
+        }
+    }
+
+    @include navbar-responsive();
+
+
+    [class*="navbar-expand-"] .navbar-collapse{
+        width: 300px;
+    }
+
+    .wrapper{
+        @include transition (0.50s, cubic-bezier(0.685, 0.0473, 0.346, 1));
+    }
+
+    #bodyClick{
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        opacity: 1;
+        top: 0;
+        left: auto;
+        right: 300px;
+        content: "";
+        z-index: 9999;
+        overflow-x: hidden;
+        background-color: $transparent-bg;
+        @include transition (0.50s, cubic-bezier(0.685, 0.0473, 0.346, 1));
+    }
+}
+
+
+//mixin for popover
+
+@mixin popover-color($color, $text-color) {
+    background-color: $color;
+
+    .popover-body{
+        color: $text-color;
+    }
+
+
+    &.bs-popover-right .arrow:after{
+        border-right-color:$color;
+    }
+
+    &.bs-popover-top .arrow:after{
+        border-top-color:$color;
+    }
+
+    &.bs-popover-bottom .arrow:after{
+        border-bottom-color:$color;
+    }
+
+    &.bs-popover-left .arrow:after{
+        border-left-color:$color;
+    }
+
+    .popover-header{
+        color: $text-color;
+        opacity: .6;
+    }
+}
+

@@ -1,0 +1,47 @@
+/*-----------------------------------------------------------------------------------
+    Template Name: Template - 
+    Description: Template - Template HTML5 Template
+    Author: Asif imtiaz udoy
+    Version: 1.0
+-----------------------------------------------------------------------------------
+    CSS INDEX
+    ===================
+    1. Font
+    2. Icons
+    3. Default css
+    4. Common css
+    5. Index page
+    6. 
+    7. 
+    8. 
+
+    font-family: 'SolaimanLipi', Arial, sans-serif !important;
+
+    -----------------------------------------------------------------------------------*/
+
+
+    /*------ Font ------*/
+    @import 'main/font';
+
+
+    /*----- Icons -----*/
+    @import 'icons/materialicons';
+    @import 'icons/themify';
+
+
+    /*----- Default css -----*/
+    @import 'main/variable';
+    @import 'main/mixins';
+    @import 'main/default';
+
+
+    /*----- Common css -----*/
+    @import 'main/global';
+
+
+    /*----- Index page -----*/
+    @import 'pages/index';
+
+
+    /*----- Responsive -----*/
+    @import 'main/responsive';

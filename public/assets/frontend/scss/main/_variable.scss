@@ -1,0 +1,136 @@
+//Fonts Family
+$body-font-family:  'Quicksand', sans-serif, kalpurush;
+$title-font-family: 'Quicksand', sans-serif, kalpurush;
+$font-size:         14px;
+$title-font-size:   22px;
+
+//Color
+$grey-50:       #f5f5f5 !default;
+$grey-100:      #f7f7f7 !default;
+$grey-200:      #f0f0f0 !default;
+$grey-300:      #eeeeee !default;
+$grey-400:      #bdbdbd !default;
+$grey-500:      #999999 !default;
+$grey-600:      #777777 !default;
+$grey-700:      #666666 !default;
+$grey-800:      #444444 !default;
+$grey-900:      #222222 !default;
+
+$blue-grey-50:  #eceff1 !default;
+$blue-grey-100: #cfd8dc !default;
+$blue-grey-200: #b0bec5 !default;
+$blue-grey-300: #90a4ae !default;
+$blue-grey-400: #78909c !default;
+$blue-grey-500: #607d8b !default;
+$blue-grey-600: #546e7a !default;
+$blue-grey-700: #455a64 !default;
+$blue-grey-800: #37474f !default;
+$blue-grey-900: #263238 !default;
+
+$red:           #ee2558 !default;
+$purple:        #6f42c1 !default;
+$indigo:        #9988ff !default;
+$orange:        #FF9948 !default;
+$amber:         #f9bd65 !default;
+$yellow:        #fdd932 !default;
+$green:         #04BE5B !default;
+$lime:          #82c885 !default;
+$blue:          #46b6fe !default;
+$blush:         #e47297 !default;
+$pink:          #ff4dab !default;
+$aqua:          #1cbfd0 !default;
+$cyan:          #5CC5CD !default;
+$dark:          #292a33 !default;
+$black:         #000000 !default;
+$white:         #ffffff !default;
+
+//Define color
+$bg-color:          #F0F6F6;
+$section-bg:        #daecdb;
+$main-color:        #711011;
+$font-color:        #222;
+$title-font-color:  $white;
+$border:            #E7E7E7;
+
+// Breakpoints
+$break-xsmall:  640px;
+$break-small:   768px;
+$break-medium:  992px;
+$break-1024:    1024px;
+$break-large:   1200px;
+$break-1280:    1280px;
+$break-xlarge:  1440px;
+
+//Colors
+$colors:(
+    red: #ee2558,
+    pink: #ff4dab,
+    purple: #6f42c1,
+    deep-purple: #673AB7,
+    blue: #46b6fe,
+    cyan: #5CC5CD,
+    green: #04BE5B,
+    light-green: #8BC34A,
+    yellow: #fdd932,
+    orange: #FF9948,
+    deep-orange: #f83600,
+    grey: #9E9E9E,
+    blue-grey: #607D8B,
+    indigo: #9988ff,
+    light-blue: #03A9F4,
+    teal: #009688,
+    lime: #82c885,
+    amber: #FFC107,
+    brown: #795548,
+    blush: #e47297,
+    black: #000000,
+    white: #ffffff ) !default;
+
+$default-color:              #888888 !default;
+$default-hover:              darken($default-color, 6%) !default;
+
+$primary-color:              #12A0C6  !default;
+$primary-hover:              darken($primary-color, 6%) !default;
+
+$success-color:              $green !default;
+$success-hover:              darken($success-color, 6%) !default;
+
+$info-color:                 $aqua !default;
+$info-hover:                 darken($info-color, 6%) !default;
+
+$warning-color:              $orange !default;
+$warning-hover:              darken($warning-color, 6%) !default;
+
+$danger-color:               $red !default;
+$danger-hover:               darken($danger-color, 6%) !default;
+
+/*     brand Colors              */
+$brand-primary:              $primary-color !default;
+$brand-info:                 $info-color    !default;
+$brand-success:              $success-color !default;
+$brand-warning:              $warning-color !default;
+$brand-danger:               $danger-color  !default;
+$brand-inverse:              $black   !default;
+
+$font-size-h1:                 32px         !default;
+$font-size-h2:                 24px         !default;
+$font-size-h3:                 18px         !default;
+$font-size-h4:                 16px         !default;
+$font-size-h5:                 13px         !default;
+$font-size-h6:                 10px         !default;
+
+$border-radius-top:        10px 10px 0 0     !default;
+$border-radius-bottom:     0 0 10px 10px     !default;
+
+// Social icons color
+$social-twitter:                   #55acee !default;
+$social-twitter-hover:               darken($social-twitter, 5%) !default;
+
+$social-facebook: 			       #4267B2 !default;
+$social-facebook-hover:              darken($social-facebook, 5%) !default;
+
+$social-google: 			       #DB4437 !default;
+$social-google-hover:                darken($social-google, 5%) !default;
+
+$social-linkedin: 			       #0077B5 !default;
+$social-linkedin-hover:              darken($social-linkedin, 5%) !default;
