@@ -32,13 +32,16 @@
                                     <td class="text-center">{{ $loop->index + 1 }}</td>
                                     <td class="text-center">
                                         {{ $add->ad_category == 1 ? 'top left sidebar' : '' }}
-                                        {{ $add->ad_category == 2 ? 'job/notice/advertisement' : '' }}
-                                        {{ $add->ad_category == 3 ? 'under first news section' : '' }}
-                                        {{ $add->ad_category == 4 ? 'under second news section' : '' }}
-                                        {{ $add->ad_category == 5 ? 'top of the video section' : '' }}
-                                        {{ $add->ad_category == 6 ? 'under the motamot section' : '' }}
-                                        {{ $add->ad_category == 7 ? 'top of the photo gallery section' : '' }}
+                                        {{ $add->ad_category == 2 ? 'top left sidebar mini' : '' }}
+                                        {{ $add->ad_category == 3 ? 'job/notice/advertisement' : '' }}
+                                        {{ $add->ad_category == 4 ? 'top of sofol person news section' : '' }}
+                                        {{ $add->ad_category == 5 ? 'under the sofol person news section' : '' }}
+                                        {{ $add->ad_category == 6 ? 'under unnoyoner ongshider section' : '' }}
+                                        {{ $add->ad_category == 7 ? 'under the motamot news section' : '' }}
                                         {{ $add->ad_category == 8 ? 'Under the photo gallery section' : '' }}
+                                        {{ $add->ad_category == 9 ? 'top right section of news details' : '' }}
+                                        {{ $add->ad_category == 10 ? 'bottom of the news details page' : '' }}
+                                        {{ $add->ad_category == 11 ? 'top right sidebar of category details page' : '' }}
 
                                     </td>
 
@@ -87,14 +90,16 @@
                                         <option value="" selected disabled>--select category--</option>
 
                                         <option value="1">top left sidebar</option>
-                                        <option value="2">job/notice/advertisement</option>
-                                        <option value="3">under first news section</option>
-                                        <option value="4">under second news section</option>
-                                        <option value="5">top of the video section</option>
-                                        <option value="6">under the motamot section</option>
-                                        <option value="7">top of the photo gallery section</option>
+                                        <option value="2">top left sidebar mini</option>
+                                        <option value="3">job/notice/advertisemen</option>
+                                        <option value="4">top of the sofol news section</option>
+                                        <option value="5">under the sofol news section</option>
+                                        <option value="6">under unnoyoner ongshidar section</option>
+                                        <option value="7">under motamot section</option>
                                         <option value="8">Under the photo gallery section</option>
-
+                                        <option value="9">top right section of news details page</option>
+                                        <option value="10">bottom of the news details page</option>
+                                        <option value="11">top right sidebar of category details page</option>
                                     </select>
                                     @if ($errors->has('ad_category'))
                                         <span style="color:red">{{ $errors->first('ad_category') }}</span>

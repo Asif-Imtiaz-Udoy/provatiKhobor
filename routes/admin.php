@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\Advertisement\AdvertisementController;
 use App\Http\Controllers\Backend\Category\CategoryController;
+use App\Http\Controllers\Backend\Development\DevelopmentController;
 use App\Http\Controllers\Backend\Error\ErrorController;
 use App\Http\Controllers\Backend\Home\HomeController;
 use App\Http\Controllers\Backend\KhasKhobor\KhashKhoborController;
@@ -49,6 +50,13 @@ Route::name('admin.')->group(function () {
         Route::get('khashKhobor/create', [KhashKhoborController::class, 'create'])->name('khashKhobor.create');
         Route::get('khashKhobor/edit/{id}', [KhashKhoborController::class, 'edit'])->name('khashKhobor.edit');
         Route::DELETE('khashKhobor/destroy/{id}', [KhashKhoborController::class, 'destroy'])->name('khashKhobor.destroy');
+
+
+        // motamot news ===============
+        Route::get('development', [DevelopmentController::class, 'index'])->name('development');
+        Route::get('development/create', [DevelopmentController::class, 'create'])->name('development.create');
+        Route::get('development/edit/{id}', [DevelopmentController::class, 'edit'])->name('development.edit');
+        Route::DELETE('development/destroy/{id}', [DevelopmentController::class, 'destroy'])->name('development.destroy');
 
         // advertisement route=================
         Route::resource('advertisement', AdvertisementController::class, ['names' => 'advertisement']);

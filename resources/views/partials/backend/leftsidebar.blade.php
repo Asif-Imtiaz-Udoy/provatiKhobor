@@ -21,7 +21,7 @@
             <span>সকল সংবাদ</span>
         </a>
         <div id="news"
-            class="collapse {{ Route::is('admin.news.index') || route::is('admin.motamot') || route::is('admin.sofolPerson') ? 'show' : '' }}"
+            class="collapse {{ Route::is('admin.news.*') ||route::is('admin.motamot') ||route::is('admin.motamot.create') ||route::is('admin.motamot.edit') ||route::is('admin.sofolPerson') ||route::is('admin.sofolPerson.create') ||route::is('admin.sofolPerson.edit') ||route::is('admin.development') ||route::is('admin.development.create') ||route::is('admin.development.edit') ||Route::is('admin.khashKhobor') ||Route::is('admin.khashKhobor.create') ||Route::is('admin.khashKhobor.edit')? 'show': '' }}"
             aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 @can('admin.news.index')
@@ -29,51 +29,51 @@
                         href="{{ route('admin.news.index') }}">সংবাদ</a>
                 @endcan
                 @can('admin.motamot')
-                    <a class="collapse-item Route::is('admin.motamot')?'active':''"
+                    <a class="collapse-item {{ Route::is('admin.motamot') ? 'active' : '' }}"
                         href="{{ route('admin.motamot') }}">মতামত</a>
                 @endcan
                 @can('admin.sofolPerson')
-                    <a class="collapse-item Route::is('admin.sofolPerson')?'active':''"
+                    <a class="collapse-item {{ Route::is('admin.sofolPerson') ? 'active' : '' }}"
                         href="{{ route('admin.sofolPerson') }}">সফল যারা</a>
                 @endcan
                 @can('admin.khashKhobor')
-                    <a class="collapse-item Route::is('admin.khashKhobor')?'active':''"
+                    <a class="collapse-item {{ Route::is('admin.khashKhobor') ? 'active' : '' }}"
                         href="{{ route('admin.khashKhobor') }}">খাস খবর</a>
+                @endcan
+                @can('admin.development')
+                    <a class="collapse-item {{ Route::is('admin.development') ? 'active' : '' }}"
+                        href="{{ route('admin.development') }}">উন্নয়নের অংশীদার</a>
                 @endcan
             </div>
         </div>
     </li>
     @can('admin.category.index')
-        <li class="nav-item">
-            <a class="nav-link collapsed{{ Route::is('admin.category.*') ? '' : 'selected' }}"
-                href="{{ route('admin.category.index') }}">
+        <li class="nav-item {{ Route::is('admin.category.*') ? 'active' : '' }}">
+            <a class="nav-link collapsed" href="{{ route('admin.category.index') }}">
                 <i class="far fa-fw fa-window-maximize"></i>
                 <span>নিউজ ক্যাটাগরি</span>
             </a>
         </li>
     @endcan
     @can('admin.advertisement.index')
-        <li class="nav-item">
-            <a class="nav-link collapsed{{ Route::is('admin.advertisement.*') ? '' : 'selected' }}"
-                href="{{ route('admin.advertisement.index') }}">
+        <li class="nav-item {{ Route::is('admin.advertisement.*') ? 'active' : '' }}">
+            <a class="nav-link collapsed " href="{{ route('admin.advertisement.index') }}">
                 <i class="far fa-fw fa-window-maximize"></i>
                 <span>বিজ্ঞাপন</span>
             </a>
         </li>
     @endcan
     @can('admin.prayer.index')
-        <li class="nav-item">
-            <a class="nav-link collapsed{{ Route::is('admin.prayer.*') ? '' : 'selected' }}"
-                href="{{ route('admin.prayer.index') }}">
+        <li class="nav-item {{ Route::is('admin.prayer.*') ? 'active' : '' }}">
+            <a class="nav-link collapsed" href="{{ route('admin.prayer.index') }}">
                 <i class="far fa-fw fa-window-maximize"></i>
                 <span>নামাজের সময় সূচী</span>
             </a>
         </li>
     @endcan
     @can('admin.multimedia.index')
-        <li class="nav-item">
-            <a class="nav-link collapsed{{ Route::is('admin.multimedia.*') ? '' : 'selected' }}"
-                href="{{ route('admin.multimedia.index') }}">
+        <li class="nav-item {{ Route::is('admin.multimedia.*') ? 'active' : '' }}">
+            <a class="nav-link collapsed" href="{{ route('admin.multimedia.index') }}">
                 <i class="far fa-fw fa-window-maximize"></i>
                 <span>মাল্টিমিডিয়া</span>
             </a>
@@ -91,15 +91,15 @@
                 <span>সকল এডমিন এবং পারমিশন</span>
             </a>
             <div id="up_report"
-                class="collapse {{ Route::is('admin.user.index') || Route::is('admin.role.*') ? 'show' : '' }}"
+                class="collapse {{ Route::is('admin.user.*') || Route::is('admin.role.*') ? 'show' : '' }}"
                 aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     @can('admin.user.index')
-                        <a class="collapse-item {{ Route::is('admin.user.index') ? 'active' : '' }}"
+                        <a class="collapse-item {{ Route::is('admin.user.*') ? 'active' : '' }}"
                             href="{{ route('admin.user.index') }}">এডমিন</a>
                     @endcan
                     @can('admin.role.index')
-                        <a class="collapse-item Route::is(''admin.role.index')?'active':''"
+                        <a class="collapse-item {{ Route::is('admin.role.*') ? 'active' : '' }}"
                             href="{{ route('admin.role.index') }}">রোল পারমিশন</a>
                     @endcan
                 </div>

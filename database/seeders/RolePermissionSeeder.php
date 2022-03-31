@@ -60,6 +60,11 @@ class RolePermissionSeeder extends Seeder
             'admin.khashKhobor.edit',
             'admin.khashKhobor.destroy',
 
+            'admin.development',
+            'admin.development.create',
+            'admin.development.edit',
+            'admin.development.destroy',
+
 
             'admin.advertisement.index',
             'admin.advertisement.create',

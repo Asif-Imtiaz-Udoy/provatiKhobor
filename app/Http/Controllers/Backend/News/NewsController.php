@@ -105,6 +105,8 @@ class NewsController extends Controller
             return redirect()->route('admin.sofolPerson')->with('success', 'সংবাদটি সফলভাবে আপলোড হয়েছে');
         } elseif ($news->type == 3) {
             return redirect()->route('admin.khashKhobor')->with('success', 'সংবাদটি সফলভাবে আপলোড হয়েছে');
+        } elseif ($news->type == 4) {
+            return redirect()->route('admin.development')->with('success', 'সংবাদটি সফলভাবে আপলোড হয়েছে');
         }
     }
 
@@ -229,6 +231,8 @@ class NewsController extends Controller
             return redirect()->route('admin.sofolPerson')->with('success', 'সংবাদটি সফলভাবে আপডেট করা হয়েছে');
         } elseif ($news->type == 3) {
             return redirect()->route('admin.khashKhobor')->with('success', 'সংবাদটি সফলভাবে আপডেট করা হয়েছে');
+        }elseif ($news->type == 4) {
+            return redirect()->route('admin.development')->with('success', 'সংবাদটি সফলভাবে আপডেট করা হয়েছে');
         }
     }
 

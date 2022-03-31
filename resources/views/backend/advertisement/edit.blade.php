@@ -18,22 +18,29 @@
                                     <label for="ad_category">বিজ্ঞাপনের ক্যাটাগরি নির্বাচন করুন</label>
                                     <select class="form-control" name="ad_category" id="ad_category">
 
+
                                         <option value="1" {{ $advertisement->ad_category == 1 ? 'selected' : '' }}>top
                                             left sidebar</option>
-                                        <option value="2" {{ $advertisement->ad_category == 2 ? 'selected' : '' }}>
-                                            job/notice/advertisement</option>
-                                        <option value="3" {{ $advertisement->ad_category == 3 ? 'selected' : '' }}>under
-                                            first news section</option>
-                                        <option value="4" {{ $advertisement->ad_category == 4 ? 'selected' : '' }}>under
-                                            second news section</option>
-                                        <option value="5" {{ $advertisement->ad_category == 5 ? 'selected' : '' }}>top of
-                                            the video section</option>
+                                        <option value="2" {{ $advertisement->ad_category == 2 ? 'selected' : '' }}>top
+                                            left sidebar mini</option>
+                                        <option value="3" {{ $advertisement->ad_category == 3 ? 'selected' : '' }}>
+                                            job/notice/advertisemen</option>
+                                        <option value="4" {{ $advertisement->ad_category == 4 ? 'selected' : '' }}>top of
+                                            the sofol news section</option>
+                                        <option value="5" {{ $advertisement->ad_category == 5 ? 'selected' : '' }}>under
+                                            the sofol news section</option>
                                         <option value="6" {{ $advertisement->ad_category == 6 ? 'selected' : '' }}>under
-                                            the motamot section</option>
-                                        <option value="7" {{ $advertisement->ad_category == 7 ? 'selected' : '' }}>top of
-                                            the photo gallery section</option>
+                                            unnoyoner ongshidar section</option>
+                                        <option value="7" {{ $advertisement->ad_category == 7 ? 'selected' : '' }}>under
+                                            motamot section</option>
                                         <option value="8" {{ $advertisement->ad_category == 8 ? 'selected' : '' }}>Under
                                             the photo gallery section</option>
+                                        <option value="9" {{ $advertisement->ad_category == 9 ? 'selected' : '' }}>top
+                                            right section of news details page</option>
+                                        <option value="10" {{ $advertisement->ad_category == 10 ? 'selected' : '' }}>
+                                            bottom of the news details page</option>
+                                        <option value="11" {{ $advertisement->ad_category == 11 ? 'selected' : '' }}>top
+                                            right sidebar of category details page</option>
 
                                     </select>
                                     @if ($errors->has('ad_category'))
@@ -75,7 +82,7 @@
                             {{-- --------add type input script field start --}}
                             <div class="col-5" id="add_script_div"
                                 style="{{ $advertisement->add_type == 2 ? 'display:block' : 'display:none' }}"">
-                                                <div class="    form-group">
+                                                        <div class="      form-group">
                                 <label for="add_script">বিজ্ঞাপন স্ক্রিপ্ট</label>
                                 <textarea class="form-control summernote" name="add_script" id="add_script">{!! $advertisement->add_script !!}</textarea>
                                 @if ($errors->has('add_script'))
