@@ -15,32 +15,32 @@
 /*--
     - Top news
 -----------------------------------------*/
-.top-news-bg{
+.top-news-bg {
     background-color: #f4f4f4;
 
     .top-news {
         margin: 5px 0 10px;
-    
+
         span {
             font-size: 18px;
             font-weight: 500;
             color: $black;
             white-space: nowrap;
-    
+
             i {
                 color: $black;
                 margin-right: 5px;
             }
         }
-    
+
         .top-news-left {
             color: $black;
             padding: 5px 10px;
         }
-    
+
         marquee {
             padding: 5px 0;
-    
+
             span {
                 margin-right: 20px;
             }
@@ -88,15 +88,54 @@
 }
 
 /*--
-    - Footer
+    - SuccessFul
 -----------------------------------------*/
 .successful {
 
     .successful-item {
+        padding: 15px 20px;
+        border-radius: 5px;
 
-        .thumbnail{
+        .thumbnail {
             width: 80px;
             height: 80px;
+        }
+    }
+}
+
+/*--
+    - Develop Partner
+-----------------------------------------*/
+.develop-partner {
+
+    .develop-item {
+        position: relative;
+        padding: 4px;
+        border-radius: 5px;
+        height: 150px;
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+
+            &::before,
+            &::after{
+                content: '';
+                position: absolute;
+                width: 50px;
+                height: 2px;
+                top: 0;
+                right: 0;
+                background: $main-color;
+                z-index: 99;
+            }
+
+            &::after{
+                width: 2px;
+                height: 70px;
+                top: 0;
+                right: 0;
+            }
         }
     }
 }
@@ -115,48 +154,48 @@ footer {
 /*--
     - News Details
 -----------------------------------------*/
-.details{
+.details {
 
-    .details-header{
+    .details-header {
         margin-bottom: 20px;
         padding: 20px 15px;
         border-bottom: 1px solid $grey-300;
 
-        .news-info{
+        .news-info {
             margin: 10px 0;
             padding: 10px 0;
             justify-content: start;
             align-items: center;
-    
-            .author-img{
+
+            .author-img {
                 width: 38px;
                 height: 38px;
                 border-radius: 100%;
                 margin-right: 10px;
             }
-    
-            .reporter{
-    
-                p{
+
+            .reporter {
+
+                p {
                     display: block;
                     margin-bottom: 0;
                 }
             }
         }
-    
-        .share{
+
+        .share {
             padding-left: 10px;
             border-left: 1px solid $grey-300;
-    
-            li{
+
+            li {
                 margin-right: 10px;
                 background: $grey-300;
                 border-radius: 5px;
-    
-                a{
+
+                a {
                     padding: 10px;
-    
-                    i{
+
+                    i {
                         font-size: 20px;
                     }
                 }
@@ -164,13 +203,13 @@ footer {
         }
     }
 
-    .news-details{
+    .news-details {
 
-        p{
+        p {
             font-size: 18px;
         }
 
-        img{
+        img {
             max-width: 100%;
         }
     }

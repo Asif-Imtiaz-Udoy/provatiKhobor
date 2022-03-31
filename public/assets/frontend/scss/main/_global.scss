@@ -4,11 +4,11 @@
     box-sizing: border-box;
 }
 
-button:focus{
+button:focus {
     outline: none;
 }
 
-body{
+body {
     font-family: $body-font-family;
     font-size: 16px;
     line-height: 1.8;
@@ -21,17 +21,17 @@ h2,
 h3,
 h4,
 h5,
-h6{
+h6 {
     font-family: $title-font-family;
     font-weight: 700;
 }
 
-a{
+a {
     color: $black;
     text-decoration: none;
 }
 
-a:hover{
+a:hover {
     color: #711011;
     text-decoration: none;
 }
@@ -42,15 +42,15 @@ ol {
 }
 
 input,
-button{
+button {
 
     &:focus-visible,
-    &:focus{
+    &:focus {
         outline: none;
     }
 }
 
-.preloader{
+.preloader {
     display: flex;
     width: 100%;
     height: 100%;
@@ -61,4 +61,62 @@ button{
     top: 0;
     left: 0;
     z-index: 9999;
+}
+
+.sec-heading {
+
+    h3 {
+        position: absolute;
+        top: -20px;
+        left: 20px;
+        background: #fcf1e7;
+        padding: 0 15px;
+    }
+
+    a {
+        position: absolute;
+        top: -18px;
+        right: 30px;
+        padding: 0 10px 0 50px;
+        border-radius: 100px;
+        background: #fcf1e7;
+
+        i {
+            font-size: 28px;
+            color: #dee2e6;
+        }
+    }
+}
+
+.list-news-item {
+    display: flex;
+    margin: 0 5px;
+
+    .thumbnail {
+        display: flex;
+        align-items: center;
+        max-width: 30%;
+        margin-right: 10px;
+    }
+
+    a {
+        font-size: $font-size;
+        font-weight: 500;
+    }
+}
+
+.divider {
+    width: 50%;
+    height: 1px;
+    background: $main-color;
+}
+
+.thumbnail-rounded{
+    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+}
+
+.text-main{
+    color: $main-color;
 }

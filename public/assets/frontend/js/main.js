@@ -56,9 +56,27 @@
     }
   });
 
+    /*-------------------------------------------
+    02. Initialize Slick
+  --------------------------------------------- */
+  $('.feature-slider').slick({
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    prevArrow: '<div class="left-arrows lh-1"><button type="button" class="prev-arrow bg-secondary lh-0"><i class="zmdi zmdi-arrow-left"></i></button></div>',
+    nextArrow: '<div class="right-arrows lh-1"><button type="button" class="next-arrow bg-secondary lh-0"><i class="zmdi zmdi-arrow-right"></i></button></div>',
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          arrows: false
+        }
+      },
+    ]
+  });
 
   /*-------------------------------------------
-    02. Initialize Swiper
+    03. Initialize Swiper
   --------------------------------------------- */
   var swiper = new Swiper(".mySwiper", {
     effect: "coverflow",
@@ -80,32 +98,5 @@
     autoplay: {
       delay: 3000,
     },
-  });
-
-  /*-------------------------------------------
-    03. Initialize Slick
-  --------------------------------------------- */
-  $('.prev-arrow').on('click', function () {
-    var prev = $(this).attr('id');
-  });
-
-  $('.next-arrow').on('click', function () {
-    var next = $(this).attr('id');
-  });
-
-  $('.feature-slider').slick({
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    prevArrow: '<div class="left-arrows lh-1"><button type="button" class="prev-arrow bg-secondary"><i class="zmdi zmdi-arrow-left"></i></button></div>',
-    nextArrow: '<div class="right-arrows lh-1"><button type="button" class="next-arrow bg-secondary"><i class="zmdi zmdi-arrow-right"></i></button></div>',
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: {
-          arrows: false
-        }
-      },
-    ]
   });
 })(jQuery);
