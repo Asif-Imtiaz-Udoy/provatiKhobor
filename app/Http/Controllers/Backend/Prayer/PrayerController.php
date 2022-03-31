@@ -58,8 +58,6 @@ class PrayerController extends Controller
                 'ashor' => 'required',
                 'magriv' => 'required',
                 'esha' => 'required',
-                'sunrise' => 'required',
-                'sunset' => 'string'
             ]
         );
 

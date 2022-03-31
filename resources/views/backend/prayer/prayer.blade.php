@@ -89,32 +89,6 @@
                                             class="fas fa-trash"></i></button>
                                 </td>
                             </tr>
-                            <tr class="text-center">
-                                <th> সূর্যদয়</th>
-                                <th> : </th>
-                                <td> {{ $prayer->sunrise }} <span>am</span></td>
-                                <td class="text-center">
-                                    <a class="btn btn-sm btn-link text-primary"
-                                        href="{{ route('admin.prayer.edit', $prayer->id) }}"><i
-                                            class="fas fa-pencil-alt"></i></a>
-                                    <button id="{{ $prayer->id }}" data-toggle="modal" data-target="#deleteModal"
-                                        class="btn btn-sm btn-link text-danger delete" type="button"><i
-                                            class="fas fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr class="text-center">
-                                <th> সূর্যাস্ত</th>
-                                <th> : </th>
-                                <td> {{ $prayer->sunset }} <span>pm</span></td>
-                                <td class="text-center">
-                                    <a class="btn btn-sm btn-link text-primary"
-                                        href="{{ route('admin.prayer.edit', $prayer->id) }}"><i
-                                            class="fas fa-pencil-alt"></i></a>
-                                    <button id="{{ $prayer->id }}" data-toggle="modal" data-target="#deleteModal"
-                                        class="btn btn-sm btn-link text-danger delete" type="button"><i
-                                            class="fas fa-trash"></i></button>
-                                </td>
-                            </tr>
                         </table>
                     @endforeach
                 </div>
@@ -185,28 +159,6 @@
                         </div>
                     </div>
 
-
-                    <div class="modal-body">
-                        <div class="form-group row">
-                            <label for="sunrise" class="col-sm-3 col-form-label text-nowrap">সূর্যদয় <span
-                                    class="text-danger"> *</span></label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="sunrise" id="sunrise">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="modal-body">
-                        <div class="form-group row d-flex">
-                            <label for="sunset" class="col-sm-3 col-form-label text-nowrap">সূর্যাস্ত<span
-                                    class="text-danger"> *</span></label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="sunset" id="sunset"
-                                    placeholder="Insert Order Id">
-                                </select>
-                            </div>
-                        </div>
-                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-primary" data-dismiss="modal">বাতিল</button>
                         <button type="submit" class="btn btn-primary">সংযুক্ত করুন</button>

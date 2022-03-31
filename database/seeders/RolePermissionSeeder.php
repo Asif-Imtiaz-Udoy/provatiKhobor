@@ -37,12 +37,6 @@ class RolePermissionSeeder extends Seeder
             'admin.category.update',
             'admin.category.destroy',
 
-
-            'admin.subCategory.store',
-            'admin.subCategory.edit',
-            'admin.subCategory.update',
-            'admin.subCategory.destroy',
-
             'admin.news.index',
             'admin.news.create',
             'admin.news.store',

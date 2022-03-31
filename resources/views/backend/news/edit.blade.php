@@ -93,24 +93,7 @@
                                 @endif
                             </div>
 
-                            <div class="col-sm-6 pl-5 pr-5">
-                                <label for="sub_category" class=" col-form-label text-nowrap">সাব-ক্যাটগরি<span
-                                        class="text-danger">
-                                        *</span></label>
-                                <div class="">
-                                    <select class="custom-select" name="sub_category" value="{!! old('sub_category') !!}">
-                                        <option selected>সাব-ক্যাটাগরি নির্বাচন করুন</option>
-                                        @foreach ($sub_categories as $sub_cat)
-                                            <option value="{{ $sub_cat->id }}"  {{ $sub_cat->id == $news->sub_category ? 'selected' : '' }}>{{ $sub_cat->sub_name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                @if ($errors->has('sub_category'))
-                                    <span style="color:red">{!! $errors->first('sub_category') !!}</span>
-                                @endif
-                            </div>
-
-                            <div class="col-sm-6 pt-2">
+                            <div class="col-sm-3 pt-2">
                                 <div class="text-center">
                                     <label for="lead_news" class="form-label text-center mt-2">লিড নিউজ <span
                                             class="text-danger">*</span></label>
@@ -126,7 +109,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-sm-6 pt-2">
+                            <div class="col-sm-3 pt-2">
                                 <div class="text-center">
                                     <label for="news_box" class="form-label text-center mt-2">নিউজ বক্স <span
                                             class="text-danger">*</span></label>
@@ -158,20 +141,12 @@
 
         $(document).ready(function() {
             tinymce.init({
-                selector: 'textarea.tinymce-editor',
-                height: 300,
-                width: 1080,
-                menubar: false,
-                plugins: [
-                    'advlist autolink lists link image charmap print preview anchor',
-                    'searchreplace visualblocks code fullscreen',
-                    'insertdatetime media table paste code help wordcount'
-                ],
-                toolbar: 'undo redo | formatselect | ' +
-                    'bold italic backcolor | alignleft aligncenter ' +
-                    'alignright alignjustify | bullist numlist outdent indent | ' +
-                    'removeformat | help',
-                content_css: '//www.tiny.cloud/css/codepen.min.css'
+                selector: 'textarea',
+                plugins: 'a11ychecker advcode casechange export formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+                toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter pageembed permanentpen table',
+                toolbar_mode: 'floating',
+                tinycomments_mode: 'embedded',
+                tinycomments_author: 'Author name',
             });
         });
     </script>

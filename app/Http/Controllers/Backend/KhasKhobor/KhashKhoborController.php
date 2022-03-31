@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\KhasKhobor;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\News;
 use Illuminate\Http\Request;
 use Auth;
@@ -27,8 +28,8 @@ class KhashKhoborController extends Controller
         if (!Auth::user()->can('admin.khashKhobor.create')) {
             return redirect()->route('admin.error');
         }
-
-        return view('backend.khash.create');
+        $categories = Category::orderBy('id', 'DESC')->get();
+        return view('backend.khash.create', compact('categories'));
     }
 
     public function edit($id)
@@ -36,9 +37,9 @@ class KhashKhoborController extends Controller
         if (!Auth::user()->can('admin.khashKhobor.edit')) {
             return redirect()->route('admin.error');
         }
-
+        $categories = Category::orderBy('id', 'DESC')->get();
         $news = News::findOrFail(intval($id));
-        return view('backend.khash.edit', compact('news'));
+        return view('backend.khash.edit', compact('news', 'categories'));
     }
 
     public function destroy($id)

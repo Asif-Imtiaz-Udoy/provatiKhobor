@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\SofolPerson;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\News;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
@@ -27,8 +28,8 @@ class SofolPersonController extends Controller
         if (!Auth::user()->can('admin.sofolPerson.create')) {
             return redirect()->route('admin.error');
         }
-
-        return view('backend.sofolPerson.create');
+        $categories = Category::orderBy('id', 'DESC')->get();
+        return view('backend.sofolPerson.create', compact('categories'));
     }
 
     public function edit($id)
@@ -36,8 +37,9 @@ class SofolPersonController extends Controller
         if (!Auth::user()->can('admin.sofolPerson.edit')) {
             return redirect()->route('admin.error');
         }
+        $categories = Category::orderBy('id', 'DESC')->get();
         $news = News::findOrFail(intval($id));
-        return view('backend.sofolPerson.edit', compact('news'));
+        return view('backend.sofolPerson.edit', compact('news', 'categories'));
     }
 
     public function destroy($id)

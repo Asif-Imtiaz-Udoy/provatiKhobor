@@ -68,29 +68,6 @@
                             </div>
                         </div>
 
-
-                        <div class="modal-body">
-                            <div class="form-group row">
-                                <label for="sunrise" class="col-sm-1 col-form-label text-nowrap">সূর্যদয় <span
-                                        class="text-danger"> *</span></label>
-                                <div class="col-sm-4">
-                                    <input type="text" class="form-control" name="sunrise" id="sunrise"
-                                        value={{ $prayer->sunrise }}>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="modal-body">
-                            <div class="form-group row d-flex">
-                                <label for="sunset" class="col-sm-1 col-form-label text-nowrap">সূর্যাস্ত<span
-                                        class="text-danger"> *</span></label>
-                                <div class="col-sm-4">
-                                    <input type="text" class="form-control" name="sunset" id="sunset"
-                                        value={{ $prayer->sunset }}>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
                         <div class="modal-footer">
                             <a href="{{ route('admin.prayer.index') }}" type="button" class="btn btn-outline-primary"
                                 data-dismiss="modal">বাতিল</a>

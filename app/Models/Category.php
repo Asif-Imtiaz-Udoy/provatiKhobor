@@ -10,13 +10,9 @@ class Category extends Model
     use HasFactory;
     protected $fillable = [
         'name',
+        'slug',
         'order_id',
         'feature'
     ];
 
-
-    public function sub()
-    {
-        return $this->hasMany('App\Models\SubCategory', 'category_id');
-    }
 }
