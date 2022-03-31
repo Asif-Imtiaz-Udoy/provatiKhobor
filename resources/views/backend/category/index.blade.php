@@ -1,4 +1,11 @@
 @extends('layouts.backend')
+@section('breadcrumbs')
+<h1 class="h3 mb-0 text-gray-800 font-kalpurush">ক্যাটগরির তালিকা</h1>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Category</li>
+</ol>
+@endsection
 @section('contents')
     <div class="row">
         <!-- DataTable with Hover -->
@@ -81,25 +88,18 @@
                             <label for="order_id" class="col-sm-3 col-form-label text-nowrap">অর্ডার আইডি<span
                                     class="text-danger"> *</span></label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="order_id" id="order_id"
-                                    placeholder="Insert Order Id">
+                                <input type="text" class="form-control" name="order_id" id="order_id">
                                 </select>
                             </div>
                         </div>
                     </div>
-                    <div class="modal-body">
-                        <div class="form-group row d-flex">
-                            <label for="order_id" class="col-sm-4 col-form-label text-nowrap">ফিচার করবেন কি না ?<span
-                                    class="text-danger"> *</span></label>
-                            <div class="col-sm-8 p-2 pl-5">
-                                <input class="form-check-input" type="radio" name="feature" id="feature" value="1">
-                                <label class="form-check-label" for="feature">হ্যা</label>
-                                </select>
+                    <div class="modal-footer d-flex justify-content-between align-item-center">
+                        <div class="form-group mb-0">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" name="feature" id="feature" value="1">
+                              <label class="custom-control-label" for="feature">ফিচার</label>
                             </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">বাতিল</button>
+                          </div>
                         <button type="submit" class="btn btn-primary">সংযুক্ত করুন</button>
                     </div>
                 </form>

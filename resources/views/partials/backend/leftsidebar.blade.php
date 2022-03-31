@@ -14,6 +14,15 @@
     </li>
 
     <hr class="sidebar-divider">
+    @can('admin.category.index')
+        <li class="nav-item {{ Route::is('admin.category.*') ? 'active' : '' }}">
+            <a class="nav-link"
+                href="{{ route('admin.category.index') }}">
+                <i class="far fa-fw fa-window-maximize"></i>
+                <span>নিউজ ক্যাটাগরি</span>
+            </a>
+        </li>
+    @endcan
     <li class="nav-item">
         <a class="nav-link collapsed {{ Route::is('admin.news.*') ? '' : 'collapsed' }}" href="javascript:void(0)"
             data-toggle="collapse" data-target="#news">
