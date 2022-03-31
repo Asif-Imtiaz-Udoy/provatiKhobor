@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Motamot;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\News;
 use Illuminate\Http\Request;
 use Auth;
@@ -24,7 +25,8 @@ class MotamotController extends Controller
         if (!Auth::user()->can('admin.motamot.create')) {
             return redirect()->route('admin.error');
         }
-        return view('backend.motamot.create');
+        $categories = Category::orderBy('id', 'DESC')->get();
+        return view('backend.motamot.create', compact('categories'));
     }
 
     public function edit($id)
@@ -32,8 +34,9 @@ class MotamotController extends Controller
         if (!Auth::user()->can('admin.motamot.edit')) {
             return redirect()->route('admin.error');
         }
+        $categories = Category::orderBy('id', 'DESC')->get();
         $news = News::findOrFail(intval($id));
-        return view('backend.motamot.edit', compact('news'));
+        return view('backend.motamot.edit', compact('news', 'categories'));
     }
 
     public function destroy($id)

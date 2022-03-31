@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Backend\News;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\News;
-use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
@@ -39,9 +38,8 @@ class NewsController extends Controller
         if (!Auth::user()->can('admin.news.create')) {
             return redirect()->route('admin.error');
         }
-        $sub_categories = SubCategory::orderBy('id', 'DESC')->get();
         $categories = Category::orderBy('id', 'DESC')->get();
-        return view('backend.news.create', compact('categories', 'sub_categories'));
+        return view('backend.news.create', compact('categories'));
     }
 
     /**
@@ -61,22 +59,23 @@ class NewsController extends Controller
             $request->all(),
             [
                 'title' => 'required',
-                'sub_title' => 'required',
                 'thumbnail' => 'required',
-                'image_caption' => 'required',
-                'news_body' => 'required',
-                'lead_news' => 'numeric',
-                'news_box' => 'numeric',
                 'reporter' => 'string',
-                'type' => 'numeric',
-                'tag' => 'string'
+                'news_body' => 'required',
+                'category_id' => 'required',
             ]
         );
+
+        if (News::where('slug', $request->title)->exists()) {
+            $slug = str_replace(' ', '-', $request->title) . rand(0, 99);
+        } else {
+            $slug = str_replace(' ', '-', $request->title);
+        }
 
         if ($request->has('thumbnail')) {
             $image = $request->file('thumbnail');
             $thumbnail = time() . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(185, 248)->save('images/news/' . $thumbnail);
+            Image::make($image)->resize(1200, 625)->save('images/news/' . $thumbnail);
         } else {
             $validator->validated();
         }
@@ -85,8 +84,12 @@ class NewsController extends Controller
             array_merge(
                 [
                     "news_image" => $thumbnail,
-                    'sub_category' => $request->sub_category,
-                    'category_id' => $request->category_id,
+                    'slug' => $slug,
+                    'sub_title' => $request->sub_title,
+                    'image_caption' => $request->image_caption,
+                    'lead_news' => $request->lead_news,
+                    'news_box' => $request->news_box,
+                    'type' => $request->type,
                 ],
                 $validator->validated()
             )
@@ -131,10 +134,9 @@ class NewsController extends Controller
         if (!Auth::user()->can('admin.news.edit')) {
             return redirect()->route('admin.error');
         }
-        $sub_categories = SubCategory::orderBy('id', 'DESC')->get();
         $categories = Category::orderBy('id', 'DESC')->get();
         $news = News::findOrFail(intval($id));
-        return view('backend.news.edit', compact('news', 'categories', 'sub_categories'));
+        return view('backend.news.edit', compact('news', 'categories'));
     }
 
     /**
@@ -156,14 +158,10 @@ class NewsController extends Controller
             $request->all(),
             [
                 'title' => 'required',
-                'sub_title' => 'required',
                 'thumbnail' => 'required',
-                'image_caption' => 'required',
+                'reporter' => 'required',
                 'news_body' => 'required',
-                'lead_news' => 'numeric',
-                'news_box' => 'numeric',
-                'reporter' => 'string',
-                'type' => 'numeric',
+                'category_id' => 'required',
             ]
         );
 
@@ -181,16 +179,48 @@ class NewsController extends Controller
             $thumbnail = $news->news_image;
         }
 
-        $news->update(
-            array_merge(
-                [
-                    "news_image" => $thumbnail,
-                    'sub_category' => $request->sub_category,
-                    'category_id' => $request->category_id,
-                ],
-                $validator->validated()
-            )
-        );
+        if ($news->slug == $request->title) {
+
+            $news->update(
+                array_merge(
+                    [
+                        "news_image" => $thumbnail,
+                        'sub_category' => $request->sub_category,
+                        'slug' => $news->slug,
+                        'sub_title' => $request->sub_title,
+                        'image_caption' => $request->image_caption,
+                        'lead_news' => $request->lead_news,
+                        'news_box' => $request->news_box,
+                        'type' => $request->type,
+                        'tag' => $request->tag,
+                    ],
+                    $validator->validated()
+                )
+            );
+        } else {
+            if (News::where('slug', $request->title)->exists()) {
+                $slug = str_replace(' ', '-', $request->title) . rand(0, 99);
+            } else {
+                $slug = str_replace(' ', '-', $request->title);
+            }
+            $news->update(
+                array_merge(
+                    [
+                        "news_image" => $thumbnail,
+                        'slug' => $slug,
+                        'sub_category' => $request->sub_category,
+                        'sub_title' => $request->sub_title,
+                        'image_caption' => $request->image_caption,
+                        'lead_news' => $request->lead_news,
+                        'news_box' => $request->news_box,
+                        'type' => $request->type,
+                        'tag' => $request->tag,
+                    ],
+                    $validator->validated()
+                )
+            );
+        }
+
         if ($news->type == 0) {
             return redirect()->route('admin.news.index')->with('success', 'সংবাদটি সফলভাবে আপডেট করা হয়েছে');
         } elseif ($news->type == 1) {
@@ -218,9 +248,7 @@ class NewsController extends Controller
         if (file_exists('images/news/' . $news->news_image)) {
             unlink('images/news/' . $news->news_image);
         }
-
         $news->delete();
-
         return redirect()->route('admin.news.index')->with('success', 'সংবাদটি সফলভাবে মুছে ফেলা হয়েছে');
     }
 }

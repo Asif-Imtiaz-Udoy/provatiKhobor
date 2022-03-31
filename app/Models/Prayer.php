@@ -14,7 +14,5 @@ class Prayer extends Model
         'ashor',
         'magriv',
         'esha',
-        'sunrise',
-        'sunset'
     ];
 }

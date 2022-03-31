@@ -29,11 +29,6 @@ Route::name('admin.')->group(function () {
         // category route ============
         Route::resource('category', CategoryController::class, ['names' => 'category']);
 
-        Route::post('/subCategory/store', [SubCategoryController::class, 'store'])->name('subCategory.store');
-        Route::get('/subCategory/edit/{id}', [SubCategoryController::class, 'edit'])->name('subCategory.edit');
-        Route::PUT('/subCategory/update/{id}', [SubCategoryController::class, 'update'])->name('subCategory.update');
-        Route::DELETE('/subCategory/delete/{id}', [SubCategoryController::class, 'destroy'])->name('subCategory.destroy');
-
         // news route=================
         Route::resource('news', NewsController::class, ['names' => 'news']);
 

@@ -20,8 +20,6 @@ class CreatePrayersTable extends Migration
             $table->string('ashor');
             $table->string('magriv');
             $table->string('esha');
-            $table->string('sunrise');
-            $table->string('sunset');
             $table->timestamps();
         });
     }

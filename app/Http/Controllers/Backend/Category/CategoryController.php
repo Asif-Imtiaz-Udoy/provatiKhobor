@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Backend\Category;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use App\Models\SubCategory;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -22,10 +21,8 @@ class CategoryController extends Controller
         if (!Auth::user()->can('admin.category.index')) {
             return redirect()->route('admin.error');
         }
-
-        $sub_categories = SubCategory::orderBy('id', 'DESC')->get();
         $categories = Category::orderBy('id', 'DESC')->get();
-        return view('backend.category.index', compact('categories', 'sub_categories'));
+        return view('backend.category.index', compact('categories'));
     }
 
     /**
@@ -57,9 +54,16 @@ class CategoryController extends Controller
             $request->all(),
             [
                 'name' => 'required',
-
+                'slug' => 'required'
             ]
         );
+
+        //category slug
+        if (Category::where('slug', $request->name)->exists()) {
+            $slug = str_replace(' ', '-', $request->name) . rand(0, 99);
+        } else {
+            $slug = str_replace(' ', '-', $request->name);
+        }
 
         Category::create(
 
@@ -67,6 +71,7 @@ class CategoryController extends Controller
                 [
                     "feature" => $request->feature,
                     'order_id' => $request->order_id,
+                    'slug' => $slug,
                 ],
 
                 $validator->validated()
@@ -125,20 +130,44 @@ class CategoryController extends Controller
             $request->all(),
             [
                 'name' => 'required',
+                'slug' => 'required'
             ]
         );
 
-        $category->update(
+        //category slug
+        if ($category->name == $request->name) {
+            $category->update(
 
-            array_merge(
-                [
-                    "feature" => $request->feature,
-                    'order_id' => $request->order_id,
-                ],
+                array_merge(
+                    [
+                        "feature" => $request->feature,
+                        'order_id' => $request->order_id,
+                        'slug' => $category->slug,
+                    ],
 
-                $validator->validated()
-            )
-        );
+                    $validator->validated()
+                )
+            );
+        } else {
+            if (Category::where('slug', $request->name)->exists()) {
+                $slug = str_replace(' ', '-', $request->name) . rand(0, 99);
+            } else {
+                $slug = str_replace(' ', '-', $request->name);
+            }
+            $category->update(
+
+                array_merge(
+                    [
+                        "feature" => $request->feature,
+                        'order_id' => $request->order_id,
+                        'slug' => $slug,
+                    ],
+
+                    $validator->validated()
+                )
+            );
+        }
+
 
         return redirect()->route('admin.category.index')->with('success', 'ক্যাটগরি সফলভাবে আপডেট করা হয়েছে');
     }

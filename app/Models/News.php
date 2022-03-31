@@ -14,6 +14,7 @@ class News extends Model
         'category_id',
         'title',
         'sub_title',
+        'slug',
         'news_image',
         'image_caption',
         'news_body',
@@ -21,7 +22,7 @@ class News extends Model
         'news_box',
         'type',
         'reporter',
-        'sub_category'
+        'view_count',
     ];
 
     public function category()
