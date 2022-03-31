@@ -55,8 +55,6 @@
                             @endif
                         @endforeach
                     @endif
-
-
                 </ul>
                 <ul class="social-links mb-0">
                     <li><a href="#"><i class="zmdi zmdi-facebook"></i></a></li>
@@ -77,9 +75,10 @@
                     <span>শিরোনামঃ</span>
                 </div>
                 <marquee direction="left">
-                    @foreach ($newses as $news)
+                    {{ $newses }}
+                    {{-- @foreach ($newses as $news)
                         <span><i class="zmdi zmdi-dot-circle"></i>{{ $news->title }}</span>
-                    @endforeach
+                    @endforeach --}}
                 </marquee>
             </div>
         </div>
