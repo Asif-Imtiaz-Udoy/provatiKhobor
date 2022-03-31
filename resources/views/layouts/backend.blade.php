@@ -79,7 +79,7 @@
     <script src="{{ asset('assets/backend/plugins/dropify/js/dropify.min.js') }}"></script>
 
     {{-- tinymce editor --}}
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/01hpguney4y6p573i5gsdxxhmdxb8y1jfris4zaq5d2s3vm2/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
     @if (Route::is('admin.home'))
         <script src="{{ asset('assets/backend/vendor/chart.js/Chart.min.js') }}"></script>
