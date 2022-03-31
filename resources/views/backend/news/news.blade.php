@@ -36,8 +36,7 @@
                                     <tr>
                                         <td class="text-center">{{ $count++ }}</td>
                                         <td class="text-center">{{ $news->title }}</td>
-                                        <td class="text-center"><img style="width: 200px; hegiht: 100px;"
-                                                src="{{ url('/images/news/' . $news->news_image) }}" alt=""></td>
+                                        <td width="60" class="text-center"><img class="img-fluid" src="{{ url('/images/news/' . $news->news_image) }}" alt=""></td>
                                         <td class="text-center">
                                             <a class="btn btn-sm btn-link text-primary"
                                                 href="{{ route('admin.news.edit', $news->id) }}"><i

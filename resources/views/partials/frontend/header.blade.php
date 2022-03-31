@@ -22,38 +22,28 @@
                     </li>
                     @if (!empty($categories))
                         @foreach ($categories as $key => $category)
-                            @if ($key < 10)
-                                @if ($category->sub->count() > 0)
-                                    <li class="nav-item dropdown ">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            {{ $category->name }}
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            @foreach ($category->sub as $sub_cat)
-                                                <li><a class="dropdown-item" href="#">{{ $sub_cat->sub_name }}</a>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    </li>
-                                @else
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">{{ $category->name }}</a>
-                                    </li>
-                                @endif
-                            @else
-                                <li class="nav-item dropdown has-megamenu">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        অন্যান্য
-                                    </a>
-                                    <ul class="dropdown-menu megamenu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="#">{{ $category->name }}</a></li>
-
-                                    </ul>
+                            @if ($key < 7)
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">{{ $category->name }}</a>
                                 </li>
                             @endif
                         @endforeach
+                        <li class="nav-item dropdown has-megamenu">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                অন্যান্য
+                            </a>
+                            <div class="dropdown-menu megamenu" role="menu">
+                                <div class="container d-flex justify-content-between flex-wrap">
+                                    @foreach ($categories as $key => $category)
+                                        @if ($key >= 7)
+                                            <a class="dropdown-item w-25 text-center"
+                                                href="#">{{ $category->name }}</a>
+                                        @endif
+                                    @endforeach
+                                </div>
+                            </div>
+                        </li>
                     @endif
                 </ul>
                 <ul class="social-links mb-0">
@@ -75,10 +65,11 @@
                     <span>শিরোনামঃ</span>
                 </div>
                 <marquee direction="left">
-                    {{ $newses }}
-                    {{-- @foreach ($newses as $news)
-                        <span><i class="zmdi zmdi-dot-circle"></i>{{ $news->title }}</span>
-                    @endforeach --}}
+                    @if (!empty($categories))
+                        @foreach ($newses as $news)
+                            <span><i class="zmdi zmdi-dot-circle"></i>{{ $news }}</span>
+                        @endforeach
+                    @endif
                 </marquee>
             </div>
         </div>
