@@ -315,10 +315,12 @@
             <div class="container">
                 <div class="row">
                     @foreach ($features as $key => $feature)
-                        @php$categoryNewses = App\Models\News::where('category_id', $feature->id)
-                                ->latest()
-                                ->limit(4)
-                            ->get(); @endphp
+                        <?php
+                        $categoryNewses = App\Models\News::where('category_id', $feature->id)
+                            ->latest()
+                            ->limit(4)
+                            ->get();
+                        ?>
                         @if ($key >= 3)
                             <div class="col-lg-3 position-relative">
                                 <div class="feature-slider">
