@@ -134,7 +134,7 @@
                                     @if ($advertisement->ad_category == 3)
                                         <a href="{{ $advertisement->link }}">
                                             <img class="img-fluid"
-                                                src="{{ url('images/news/' . $news->news_image) }}" alt="Job Notice">
+                                                src="{{ url('images/advertisement/' . $news->news_image) }}" alt="Job Notice">
                                         </a>
                                     @endif
                                 @endforeach
