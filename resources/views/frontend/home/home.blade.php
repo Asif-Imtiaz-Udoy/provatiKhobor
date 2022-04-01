@@ -113,7 +113,7 @@
                             @foreach ($latest_newses as $news)
                                 <div class="list-news-item bg-white ptb-10">
                                     <div class="thumbnail">
-                                        <a href="{{ $advertisement->link }}">
+                                        <a href="#">
                                             <img class="img-fluid w-100"
                                                 src="{{ url('images/news/' . $news->news_image) }}" alt="news image">
                                         </a>
