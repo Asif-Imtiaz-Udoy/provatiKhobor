@@ -17,14 +17,15 @@ class HomeController extends Controller
         $latest_newses = News::latest('created_at')->limit(5)->get();
         $news_boxes = News::where('news_box', 1)->latest()->limit(3)->get();
         $features = Category::where('feature', 1)->get();
-        $photos = Multimedia::orderBy('id', 'DESC')->limit(10)->get();
+        $photos = Multimedia::orderBy('id', 'DESC')->where('category', 1)->limit(10)->get();
+        $videos = Multimedia::orderBy('id', 'DESC')->where('category', 2)->limit(4)->get();
         $opinions = News::where('type', 1)->latest('created_at')->limit(4)->get();
         $successfuls = News::where('type', 2)->latest('created_at')->limit(3)->get();
         $develops = News::where('type', 4)->latest('created_at')->limit(3)->get();
         $breakings = News::where('type', 3)->latest('created_at')->limit(3)->get();
         $prayer = Prayer::latest()->first();
 
-        return view('frontend.home.home', compact('lead_newses', 'news_boxes', 'latest_newses', 'features', 'photos', 'opinions', 'successfuls', 'develops', 'prayer', 'breakings'));
+        return view('frontend.home.home', compact('lead_newses', 'news_boxes', 'latest_newses', 'features', 'photos', 'videos', 'opinions', 'successfuls', 'develops', 'prayer', 'breakings'));
     }
 
 

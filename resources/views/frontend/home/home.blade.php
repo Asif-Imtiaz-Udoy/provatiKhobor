@@ -135,6 +135,35 @@
     </section>
     <!------ Advertisement end ------>
 
+        <!------ Video start ------>
+        @if (!empty($videos))
+        <section class="video mt-30">
+            <div class="container">
+                <div class="row">
+                    @foreach ($videos as $video)
+                    <div class="col-lg-3">
+                        <div class="video-player py-1 px-4 bg-dark text-center">
+                            <iframe class="w-75 align-middle" src="{{ $video->video_link }}" name="myframe" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+        @endif
+        <!------ Video end ------>
+
+    <!------ Advertisement start ------>
+    <section class="advertisement mt-30">
+        <div class="container">
+            <a href="#">
+                <img class="w-100 img-fluid" src="{{ asset('assets/frontend/images/test/advertise.png') }}"
+                    alt="Advertisement">
+            </a>
+        </div>
+    </section>
+    <!------ Advertisement end ------>
+
     <!------ Successful start ------>
     @if (!empty($successfuls))
         <section class="successful mt-30">
