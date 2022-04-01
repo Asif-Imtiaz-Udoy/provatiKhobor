@@ -42,6 +42,7 @@
                                         {{ $add->ad_category == 9 ? 'top right section of news details' : '' }}
                                         {{ $add->ad_category == 10 ? 'bottom of the news details page' : '' }}
                                         {{ $add->ad_category == 11 ? 'top right sidebar of category details page' : '' }}
+                                        {{ $add->ad_category == 12 ? 'under the category news section' : '' }}
 
                                     </td>
 
@@ -100,6 +101,7 @@
                                         <option value="9">top right section of news details page</option>
                                         <option value="10">bottom of the news details page</option>
                                         <option value="11">top right sidebar of category details page</option>
+                                        <option value="12">under the category news section</option>
                                     </select>
                                     @if ($errors->has('ad_category'))
                                         <span style="color:red">{{ $errors->first('ad_category') }}</span>

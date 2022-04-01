@@ -51,16 +51,21 @@
                                                 </h3>
                                                 <h5 class="price mt-0 pb-2">বিজ্ঞাপনের ধরন : <span class="col-amber">
                                                         {{ $advertisement->ad_category == 1 ? 'top left sidebar' : '' }}
-                                                        {{ $advertisement->ad_category == 2 ? 'under main lead news' : '' }}
-                                                        {{ $advertisement->ad_category == 3 ? 'under first news section' : '' }}
-                                                        {{ $advertisement->ad_category == 4 ? 'under sofol person' : '' }}
-                                                        {{ $advertisement->ad_category == 5 ? 'under motamot' : '' }}
-                                                        {{ $advertisement->ad_category == 6 ? 'under sport' : '' }}
-                                                        {{ $advertisement->ad_category == 7 ? 'top of photo gallery' : '' }}
-                                                        {{ $advertisement->ad_category == 8 ? 'bottom ot photo gallery' : '' }}
+                                                        {{ $advertisement->ad_category == 2 ? 'top left sidebar mini' : '' }}
+                                                        {{ $advertisement->ad_category == 3 ? 'job/notice/advertisemen' : '' }}
+                                                        {{ $advertisement->ad_category == 4 ? 'top of the sofol news section' : '' }}
+                                                        {{ $advertisement->ad_category == 5 ? 'under the sofol news section' : '' }}
+                                                        {{ $advertisement->ad_category == 6 ? 'under unnoyoner ongshidar section' : '' }}
+                                                        {{ $advertisement->ad_category == 7 ? 'under motamot section' : '' }}
+                                                        {{ $advertisement->ad_category == 8 ? 'Under the photo gallery section' : '' }}
+                                                        {{ $advertisement->ad_category == 9 ? 'top right section of news details page' : '' }}
+                                                        {{ $advertisement->ad_category == 10 ? 'bottom of the news details page' : '' }}
+                                                        {{ $advertisement->ad_category == 11 ? 'top right sidebar of category details page' : '' }}
+                                                        {{ $advertisement->ad_category == 12 ? 'under the category news section' : '' }}
+
                                                     </span></h5>
                                                 <h5 class="price mt-0 pb-2">বিজ্ঞাপনদাতা : <span
-                                                        class="col-amber">{{ $advertisement->vendo }}</span>
+                                                        class="col-amber">{{ $advertisement->vendor }}</span>
                                                 </h5>
                                                 <h5 class="price mt-0 pb-2">স্ক্রিপ্ট : <span
                                                         class="col-amber">{{ $advertisement->add_script == true ? $advertisement->add_script : 'নাই' }}</span>

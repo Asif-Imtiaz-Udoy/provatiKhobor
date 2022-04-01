@@ -5,7 +5,7 @@
         <div class="col-lg-12">
             <div class="card font-kalpurush mb-4">
                 <div class="card-header d-flex justify-content-between align-items-center bg-primary">
-                    <h5 class="text-white">সংবাদ সংযুক্ত করুন</h5>
+                    <h5 class="text-white">খাস খবর এডিট করুন</h5>
                 </div>
                 <div class="table-responsive p-3">
                     <form action="{{ route('admin.news.update', $news->id) }}" method="post"

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend\Home;
 
 use App\Http\Controllers\Controller;
+use App\Models\Advertisement;
 use App\Models\Category;
 use App\Models\Multimedia;
 use App\Models\News;
@@ -22,8 +23,9 @@ class HomeController extends Controller
         $opinions = News::where('type', 1)->latest('created_at')->limit(4)->get();
         $successfuls = News::where('type', 2)->latest('created_at')->limit(3)->get();
         $develops = News::where('type', 4)->latest('created_at')->limit(3)->get();
-        $breakings = News::where('type', 3)->latest('created_at')->limit(3)->get();
+        $advertisements = Advertisement::all();
         $prayer = Prayer::latest()->first();
+        $breakings = News::where('type', 3)->latest('created_at')->limit(2)->get();
 
         return view('frontend.home.home', compact('lead_newses', 'news_boxes', 'latest_newses', 'features', 'photos', 'videos', 'opinions', 'successfuls', 'develops', 'prayer', 'breakings'));
     }

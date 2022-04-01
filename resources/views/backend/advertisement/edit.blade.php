@@ -42,6 +42,9 @@
                                         <option value="11" {{ $advertisement->ad_category == 11 ? 'selected' : '' }}>top
                                             right sidebar of category details page</option>
 
+                                        <option value="12" {{ $advertisement->ad_category == 12 ? 'selected' : '' }}>under
+                                            the category news section</option>
+
                                     </select>
                                     @if ($errors->has('ad_category'))
                                         <span style="color:red">{{ $errors->first('ad_category') }}</span>
@@ -82,7 +85,7 @@
                             {{-- --------add type input script field start --}}
                             <div class="col-5" id="add_script_div"
                                 style="{{ $advertisement->add_type == 2 ? 'display:block' : 'display:none' }}"">
-                                                        <div class="      form-group">
+                                                            <div class="       form-group">
                                 <label for="add_script">বিজ্ঞাপন স্ক্রিপ্ট</label>
                                 <textarea class="form-control summernote" name="add_script" id="add_script">{!! $advertisement->add_script !!}</textarea>
                                 @if ($errors->has('add_script'))
