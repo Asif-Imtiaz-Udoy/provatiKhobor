@@ -50,7 +50,7 @@
                                         <div class="feature-slider h-100">
                                             @foreach ($lead_newses as $lead)
                                                 <div style="height: 380px;" class="lead-news">
-                                                    <a href="#">
+                                                    <a href="{{ route('newsDetail', $lead->slug) }}">
                                                         <img class="h-100 img-fluid"
                                                             src="{{ url('images/news/' . $lead->news_image) }}"
                                                             alt="lead news">
@@ -134,7 +134,8 @@
                                     @if ($advertisement->ad_category == 3)
                                         <a href="{{ $advertisement->link }}">
                                             <img class="img-fluid"
-                                                src="{{ url('images/advertisement/' . $advertisement->add_image) }}" alt="Job Notice">
+                                                src="{{ url('images/advertisement/' . $advertisement->add_image) }}"
+                                                alt="Job Notice">
                                         </a>
                                     @endif
                                 @endforeach
@@ -146,7 +147,7 @@
         </div>
     </section>
 
-    
+
     <!------ Lead news end ------>
 
     <!------ Advertisement start ------>
@@ -166,23 +167,25 @@
     @endif
     <!------ Advertisement end ------>
 
-        <!------ Video start ------>
-        @if (!empty($videos))
+    <!------ Video start ------>
+    @if (!empty($videos))
         <section class="video mt-30">
             <div class="container">
                 <div class="row">
                     @foreach ($videos as $video)
-                    <div class="col-lg-3">
-                        <div class="video-player py-1 px-4 bg-dark text-center">
-                            <iframe class="w-75 align-middle" src="{{ $video->video_link }}" name="myframe" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="col-lg-3">
+                            <div class="video-player py-1 px-4 bg-dark text-center">
+                                <iframe class="w-75 align-middle" src="{{ $video->video_link }}" name="myframe"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
                         </div>
-                    </div>
                     @endforeach
                 </div>
             </div>
         </section>
-        @endif
-        <!------ Video end ------>
+    @endif
+    <!------ Video end ------>
 
     <!------ Advertisement start ------>
     <section class="advertisement mt-30">
@@ -358,7 +361,7 @@
                                 <div class="feature-slider">
                                     @foreach ($categoryNewses as $categoryNews)
                                         <div class="p-3 pb-1 mb-2 text-center">
-                                            <a href="{{ $advertisement->link }}">
+                                            <a href="{{ $categoryNews->slug }}">
                                                 <img class="img-fluid"
                                                     src="{{ url('images/news/' . $categoryNews->news_image) }}"
                                                     alt="News Box">
@@ -374,8 +377,8 @@
             </div>
         </div>
     </section>
-    
-    
+
+
 
     <!------ Feature Category end ------>
 
