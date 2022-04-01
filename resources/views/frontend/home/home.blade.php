@@ -61,28 +61,30 @@
                                     </div>
                                 </div>
                                 @if (!empty($breakings))
-                                <div class="row bg-white py-3">
-                                    <div class="breaking-heading">
-                                        <h5 class="text-center text-main">খাস খবর</h5>
-                                    </div>
-                                    @foreach ($breakings as $breaking)
-                                    <div class="col-lg-6">
-                                        <div class="px-1 py-2 bg-white d-flex align-items-center justify-content-between border-top border-bottom border-2">
-                                            <a href="#">
-                                                <div class="thumbnail-rounded rounded-circle overflow-hidden">
-                                                    <img class="h-100 img-fluid"
-                                                        src="{{ url('images/news/'.$breaking->news_image) }}"
-                                                        alt="thumbnail">
-                                                </div>
-                                            </a>
-                                            <div class="details">
-                                                <p class="lh-1 mb-0 text-left fs-6 text-main">{{ $breaking->title }}</p>
-                                                <a class="text-info" href="#">{{ $breaking->reporter }}</a>
-                                            </div>
+                                    <div class="row bg-white py-3">
+                                        <div class="breaking-heading">
+                                            <h5 class="text-center text-main">খাস খবর</h5>
                                         </div>
+                                        @foreach ($breakings as $breaking)
+                                            <div class="col-lg-6">
+                                                <div
+                                                    class="px-1 py-2 bg-white d-flex align-items-center justify-content-between border-top border-bottom border-2">
+                                                    <a href="#">
+                                                        <div class="thumbnail-rounded rounded-circle overflow-hidden">
+                                                            <img class="h-100 img-fluid"
+                                                                src="{{ url('images/news/' . $breaking->news_image) }}"
+                                                                alt="thumbnail">
+                                                        </div>
+                                                    </a>
+                                                    <div class="details">
+                                                        <p class="lh-1 mb-0 text-left fs-6 text-main">
+                                                            {{ $breaking->title }}</p>
+                                                        <a class="text-info" href="#">{{ $breaking->reporter }}</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
                                     </div>
-                                    @endforeach
-                                </div>
                                 @endif
                             </div>
                         @endif
@@ -95,7 +97,7 @@
                                                 src="{{ url('images/news/' . $news_box->news_image) }}" alt="News Box">
                                             <h6 class="mb-1 text-center text-dark">{{ $news_box->title }}</h6>
                                         </a>
-                                        <p class="fs-6 lh-1 px-2 mb-0">{!! mb_substr(strip_tags($news_box->news_body), 0, 50, "UTF-8") !!}...</p>
+                                        <p class="fs-6 lh-1 px-2 mb-0">{!! mb_substr(strip_tags($news_box->news_body), 0, 50, 'UTF-8') !!}...</p>
                                     </div>
                                 @endforeach
                             </div>
@@ -309,21 +311,28 @@
 
     <!------ Feature Category start ------>
     @if (!empty($features))
-    <section class="mt-30">
-        <div class="container">
-            <div class="row">
-                @foreach ($features as $key => $feature)
-                <?php $categoryNewses = App\Models\News::where('category_id', $feature->id)->latest()->limit(4)->get(); ?>
-                    @if ($key >= 3)
-                    <div class="col-lg-3 position-relative">
-                        <div class="feature-slider">
-                            @foreach ($categoryNewses as $categoryNews)
-                            <div class="p-3 pb-1 mb-2 text-center">
-                                <a href="#">
-                                    <img class="img-fluid" src="{{ url('images/news/'.$categoryNews->news_image) }}"
-                                        alt="News Box">
-                                    <h5 class="text-center mb-0">{{ $categoryNews->title }}</h5>
-                                </a>
+        <section class="mt-30">
+            <div class="container">
+                <div class="row">
+                    @foreach ($features as $key => $feature)
+                        @php$categoryNewses = App\Models\News::where('category_id', $feature->id)
+                                ->latest()
+                                ->limit(4)
+                            ->get(); @endphp
+                        @if ($key >= 3)
+                            <div class="col-lg-3 position-relative">
+                                <div class="feature-slider">
+                                    @foreach ($categoryNewses as $categoryNews)
+                                        <div class="p-3 pb-1 mb-2 text-center">
+                                            <a href="{{ $advertisement->link }}">
+                                                <img class="img-fluid"
+                                                    src="{{ url('images/news/' . $categoryNews->news_image) }}"
+                                                    alt="News Box">
+                                                <h5 class="text-center mb-0">{{ $categoryNews->title }}</h5>
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                </div>
                             </div>
                         @endif
                     @endforeach
