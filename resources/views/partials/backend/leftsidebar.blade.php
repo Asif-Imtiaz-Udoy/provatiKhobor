@@ -54,14 +54,6 @@
             </div>
         </div>
     </li>
-    @can('admin.category.index')
-        <li class="nav-item {{ Route::is('admin.category.*') ? 'active' : '' }}">
-            <a class="nav-link collapsed" href="{{ route('admin.category.index') }}">
-                <i class="far fa-fw fa-window-maximize"></i>
-                <span>নিউজ ক্যাটাগরি</span>
-            </a>
-        </li>
-    @endcan
     @can('admin.advertisement.index')
         <li class="nav-item {{ Route::is('admin.advertisement.*') ? 'active' : '' }}">
             <a class="nav-link collapsed " href="{{ route('admin.advertisement.index') }}">
