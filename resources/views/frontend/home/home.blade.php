@@ -39,7 +39,8 @@
                                         <div class="d-flex flex-column justify-content-center">
                                             @foreach ($lead_newses as $lead)
                                                 <div class="news-heading">
-                                                    <p class="text-center border-bottom"><a href="news-details.html">
+                                                    <p class="text-center border-bottom"><a
+                                                            href="{{ route('newsDetail', $lead->slug) }}">
                                                             {{ $lead->title }}</a>
                                                     </p>
                                                 </div>
@@ -69,7 +70,7 @@
                                             <div class="col-lg-6">
                                                 <div
                                                     class="px-1 py-2 bg-white d-flex align-items-center justify-content-between border-top border-bottom border-2">
-                                                    <a href="#">
+                                                    <a href="{{ route('newsDetail', $breaking->slug) }}">
                                                         <div class="thumbnail-rounded rounded-circle overflow-hidden">
                                                             <img class="h-100 img-fluid"
                                                                 src="{{ url('images/news/' . $breaking->news_image) }}"
@@ -78,7 +79,9 @@
                                                     </a>
                                                     <div class="details">
                                                         <p class="lh-1 mb-0 text-left fs-6 text-main">
-                                                            <a href="#">{{ $breaking->title }}</a></p>
+                                                            <a
+                                                                href="{{ route('newsDetail', $breaking->slug) }}">{{ $breaking->title }}</a>
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -91,7 +94,7 @@
                             <div class="col-lg-4">
                                 @foreach ($news_boxes as $news_box)
                                     <div class="news-box bg-white pb-1 mb-2">
-                                        <a href="#">
+                                        <a href="{{ route('newsDetail', $news_box->slug) }}">
                                             <img class="img-fluid"
                                                 src="{{ url('images/news/' . $news_box->news_image) }}" alt="News Box">
                                             <h6 class="mb-1 text-center text-dark">{{ $news_box->title }}</h6>
@@ -112,12 +115,13 @@
                             @foreach ($latest_newses as $news)
                                 <div class="list-news-item bg-white ptb-10">
                                     <div class="thumbnail">
-                                        <a href="#">
+                                        <a href="{{ route('newsDetail', $news->slug) }}">
                                             <img class="img-fluid w-100"
                                                 src="{{ url('images/news/' . $news->news_image) }}" alt="news image">
                                         </a>
                                     </div>
-                                    <a class="text-left lh-1" href="#">{{ $news->title }}</a>
+                                    <a class="text-left lh-1"
+                                        href="{{ route('newsDetail', $news->slug) }}">{{ $news->title }}</a>
                                 </div>
                                 <div class="w-100 d-flex justify-content-center py-2">
                                     <div class="divider"></div>
@@ -187,14 +191,20 @@
     <!------ Video end ------>
 
     <!------ Advertisement start ------>
-    <section class="advertisement mt-30">
-        <div class="container">
-            <a href="#">
-                <img class="w-100 img-fluid" src="{{ asset('assets/frontend/images/test/advertise.png') }}"
-                    alt="Advertisement">
-            </a>
-        </div>
-    </section>
+    @if (!empty($advertisements))
+        @foreach ($advertisements as $key => $advertisement)
+            @if ($advertisement->ad_category == 12)
+                <section class="advertisement mt-30">
+                    <div class="container">
+                        <a href="{{ $advertisement->link }}">
+                            <img class="w-100 img-fluid"
+                                src="{{ url('images/advertisement/' . $advertisement->add_image) }}" alt="Advertisement">
+                        </a>
+                    </div>
+                </section>
+            @endif
+        @endforeach
+    @endif
     <!------ Advertisement end ------>
 
     <!------ Successful start ------>
@@ -212,10 +222,11 @@
                                 <div class="successful-item bg-white d-flex align-items-center justify-content-around">
                                     <div class="details">
                                         <p class="lh-1 mb-0">{{ $successful->title }}</p>
-                                        <a class="text-info" href="#">{{ $successful->reporter }}</a>
+                                        <a class="text-info"
+                                            href="{{ route('newsDetail', $successful->slug) }}">{{ $successful->reporter }}</a>
                                         <p class="lh-1 mb-0 fs-6">{!! mb_substr($successful->news_body, 0, 200) !!}</p>
                                     </div>
-                                    <a href="#">
+                                    <a href="{{ route('newsDetail', $successful->slug) }}">
                                         <div class="thumbnail rounded-circle overflow-hidden">
                                             <img class="h-100 img-fluid"
                                                 src="{{ url('images/news/' . $successful->news_image) }}"
@@ -264,11 +275,12 @@
                                 <div class="develop-item d-flex align-items-center">
                                     <div class="details bg-white w-75 h-100 p-3">
                                         <p class="lh-1 mb-0">{{ $develop->title }}</p>
-                                        <a class="text-info" href="#">{{ $develop->reporter }}</a>
+                                        <a class="text-info"
+                                            href="{{ route('newsDetail', $develop->slug) }}">{{ $develop->reporter }}</a>
                                         <p class="lh-1 mb-0 fs-6">{!! mb_substr($develop->news_body, 0, 200) !!}</p>
                                     </div>
                                     <div class="thumbnail overflow-hidden text-center w-25 h-100">
-                                        <a href="#">
+                                        <a href="{{ route('newsDetail', $develop->slug) }}">
                                             <img class="w-100 h-100"
                                                 src="{{ url('images/news/' . $develop->news_image) }}" alt="thumbnail">
                                         </a>
@@ -310,11 +322,12 @@
                         @foreach ($opinions as $opinion)
                             <div class="col-lg-3">
                                 <div class="p-3 pb-1 mb-2">
-                                    <a href="#">
+                                    <a href="{{ route('newsDetail', $opinion->slug) }}">
                                         <img class="img-fluid"
                                             src="{{ url('images/news/' . $opinion->news_image) }}" alt="News Box">
                                     </a>
-                                    <a href="#" class="p-2">{{ $opinion->title }}</a>
+                                    <a href="{{ route('newsDetail', $opinion->slug) }}"
+                                        class="p-2">{{ $opinion->title }}</a>
                                 </div>
                             </div>
                         @endforeach
@@ -360,7 +373,7 @@
                                 <div class="feature-slider">
                                     @foreach ($categoryNewses as $categoryNews)
                                         <div class="p-3 pb-1 mb-2 text-center">
-                                            <a href="{{ $categoryNews->slug }}">
+                                            <a href="{{ route('newsDetail', $categoryNews->slug) }}">
                                                 <img class="img-fluid"
                                                     src="{{ url('images/news/' . $categoryNews->news_image) }}"
                                                     alt="News Box">
@@ -413,7 +426,7 @@
                                 <div class="feature-slider">
                                     @foreach ($categoryNewses as $categoryNews)
                                         <div class="p-3 pb-1 mb-2 text-center">
-                                            <a href="#">
+                                            <a href="{{ route('newsDetail', $categoryNews->slug) }}">
                                                 <img class="img-fluid"
                                                     src="{{ url('images/news/' . $categoryNews->news_image) }}"
                                                     alt="News Box">
@@ -423,7 +436,8 @@
                                     @endforeach
                                 </div>
                                 <div class="text-center">
-                                    <a class="bg-main px-3 py-1 text-white" href="#">
+                                    <a class="bg-main px-3 py-1 text-white"
+                                        href="{{ route('newsDetail', $feature->slug) }}">
                                         {{ $feature->name }}
                                     </a>
                                 </div>
@@ -530,7 +544,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
         </section>
     @endif

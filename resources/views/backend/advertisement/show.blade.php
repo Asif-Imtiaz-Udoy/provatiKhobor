@@ -61,7 +61,7 @@
                                                         {{ $advertisement->ad_category == 9 ? 'top right section of news details page' : '' }}
                                                         {{ $advertisement->ad_category == 10 ? 'bottom of the news details page' : '' }}
                                                         {{ $advertisement->ad_category == 11 ? 'top right sidebar of category details page' : '' }}
-                                                        {{ $advertisement->ad_category == 12 ? 'under the category news section' : '' }}
+                                                        {{ $advertisement->ad_category == 12 ? 'under the video section' : '' }}
 
                                                     </span></h5>
                                                 <h5 class="price mt-0 pb-2">বিজ্ঞাপনদাতা : <span
