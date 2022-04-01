@@ -32,10 +32,9 @@
                                 <tr>
                                     <td class="text-center">{{ $loop->index + 1 }}</td>
                                     <td class="text-center">{{ $media->caption }}</td>
-                                    <td class="text-center">
+                                    <td width="60" class="text-center">
                                         @if ($media->photo)
-                                            <img class="w-50 "
-                                                src="{{ url('/images/multimedia/' . $media->photo) }}" alt="">
+                                            <img class="img-fluid" src="{{ url('/images/multimedia/' . $media->photo) }}" alt="">
                                         @elseif($media->video_link)
                                             {!! $media->video_link !!}
                                         @else
