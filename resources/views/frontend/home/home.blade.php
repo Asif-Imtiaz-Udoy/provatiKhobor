@@ -198,6 +198,7 @@
     <!------ Advertisement end ------>
 
     <!------ Develope start ------>
+    @if (!empty($develops))
     <section class="develop-partner mt-30">
         <div class="container">
             <div class="row">
@@ -206,58 +207,28 @@
                     <a href="#" class="extra lh-1 border border-3"><i class="zmdi zmdi-long-arrow-right"></i></a>
                 </div>
                 <div class="row py-3">
+                    @foreach ($develops as $develop)
                     <div class="col-lg-4 mt-3">
                         <div class="develop-item d-flex align-items-center">
                             <div class="details bg-white w-75 h-100 p-3">
-                                <p class="lh-1 mb-0">বিনম্র শ্রদ্ধা ও ভালোবাসা</p>
-                                <a class="text-info" href="#">মাহমুদ আহমেদ</a>
-                                <p class="lh-1 mb-0 fs-6">আমার বাংলা নিয়ে প্রথম কাজ করবার সুযোগ তৈরি হয়েছিল অভ্র নামক এক
-                                    যুগান্তকারী বাংলা সফ্‌টওয়্যার হাতে পাবার মধ্য দিয়ে। এর পর একে একে বাংলা উইকিপিডিয়া</p>
+                                <p class="lh-1 mb-0">{{ $develop->title }}</p>
+                                <a class="text-info" href="#">{{ $develop->reporter }}</a>
+                                <p class="lh-1 mb-0 fs-6">{!! mb_substr($develop->news_body, 0, 200) !!}</p>
                             </div>
                             <div class="thumbnail overflow-hidden text-center w-25 h-100">
                                 <a href="#">
-                                    <img class="w-100 h-100" src="{{ url('assets/frontend/images/test/news-1.jpg') }}"
+                                    <img class="w-100 h-100" src="{{ url('images/news/'.$develop->news_image) }}"
                                         alt="thumbnail">
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 mt-3">
-                        <div class="develop-item d-flex align-items-center">
-                            <div class="details bg-white w-75 h-100 p-3">
-                                <p class="lh-1 mb-0">বিনম্র শ্রদ্ধা ও ভালোবাসা</p>
-                                <a class="text-info" href="#">মাহমুদ আহমেদ</a>
-                                <p class="lh-1 mb-0 fs-6">আমার বাংলা নিয়ে প্রথম কাজ করবার সুযোগ তৈরি হয়েছিল অভ্র নামক এক
-                                    যুগান্তকারী বাংলা সফ্‌টওয়্যার হাতে পাবার মধ্য দিয়ে। এর পর একে একে বাংলা উইকিপিডিয়া</p>
-                            </div>
-                            <div class="thumbnail overflow-hidden text-center w-25 h-100">
-                                <a href="#">
-                                    <img class="w-100 h-100" src="{{ url('assets/frontend/images/test/news-1.jpg') }}"
-                                        alt="thumbnail">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 mt-3">
-                        <div class="develop-item d-flex align-items-center">
-                            <div class="details bg-white w-75 h-100 p-3">
-                                <p class="lh-1 mb-0">বিনম্র শ্রদ্ধা ও ভালোবাসা</p>
-                                <a class="text-info" href="#">মাহমুদ আহমেদ</a>
-                                <p class="lh-1 mb-0 fs-6">আমার বাংলা নিয়ে প্রথম কাজ করবার সুযোগ তৈরি হয়েছিল অভ্র নামক এক
-                                    যুগান্তকারী বাংলা সফ্‌টওয়্যার হাতে পাবার মধ্য দিয়ে। এর পর একে একে বাংলা উইকিপিডিয়া</p>
-                            </div>
-                            <div class="thumbnail overflow-hidden text-center w-25 h-100">
-                                <a href="#">
-                                    <img class="w-100 h-100"
-                                        src="{{ url('assets/frontend/images/test/news-1.jpg') }}" alt="thumbnail">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </section>
+    @endif
     <!------ Develope end ------>
 
     <!------ Advertisement start ------>
@@ -306,40 +277,40 @@
     </section>
     <!------ Advertisement end ------>
 
-        <!------ Feature Category start ------>
-        @if (!empty($features))
-        <section class="mt-30">
-            <div class="container">
-                <div class="row">
-                    @foreach ($features as $key => $feature)
-                    <?php $categoryNewses = App\Models\News::where('category_id', $feature->id)->latest()->limit(4)->get(); ?>
-                        @if ($key < 4)
-                        <div class="col-lg-3 position-relative">
-                            <div class="feature-slider">
-                                @foreach ($categoryNewses as $categoryNews)
-                                <div class="p-3 pb-1 mb-2 text-center">
-                                    <a href="#">
-                                        <img class="img-fluid" src="{{ url('images/news/'.$categoryNews->news_image) }}"
-                                            alt="News Box">
-                                        <h5 class="text-center mb-0">{{ $categoryNews->title }}</h5>
-                                    </a>
-                                </div>
-                                @endforeach
-                            </div>
-                            <div class="text-center">
-                                <a class="bg-main px-3 py-1 text-white" href="#">
-                                    {{ $feature->name }}
+    <!------ Feature Category start ------>
+    @if (!empty($features))
+    <section class="mt-30">
+        <div class="container">
+            <div class="row">
+                @foreach ($features as $key => $feature)
+                <?php $categoryNewses = App\Models\News::where('category_id', $feature->id)->latest()->limit(4)->get(); ?>
+                    @if ($key > 3)
+                    <div class="col-lg-3 position-relative">
+                        <div class="feature-slider">
+                            @foreach ($categoryNewses as $categoryNews)
+                            <div class="p-3 pb-1 mb-2 text-center">
+                                <a href="#">
+                                    <img class="img-fluid" src="{{ url('images/news/'.$categoryNews->news_image) }}"
+                                        alt="News Box">
+                                    <h5 class="text-center mb-0">{{ $categoryNews->title }}</h5>
                                 </a>
                             </div>
+                            @endforeach
                         </div>
-                        @endif
-                    @endforeach
-                </div>
+                        <div class="text-center">
+                            <a class="bg-main px-3 py-1 text-white" href="#">
+                                {{ $feature->name }}
+                            </a>
+                        </div>
+                    </div>
+                    @endif
+                @endforeach
             </div>
-            </div>
-        </section>
-        @endif
-        <!------ Feature Category end ------>
+        </div>
+        </div>
+    </section>
+    @endif
+    <!------ Feature Category end ------>
 
     <!------ Advertisement start ------>
     <section class="advertisement mt-30">
@@ -359,7 +330,7 @@
             <div class="row">
                 @foreach ($features as $key => $feature)
                 <?php $categoryNewses = App\Models\News::where('category_id', $feature->id)->latest()->limit(4)->get(); ?>
-                    @if ($key > 3 && $key < 7)
+                    @if ($key < 3)
                     <div class="col-lg-3 position-relative">
                         <div class="feature-slider">
                             @foreach ($categoryNewses as $categoryNews)
@@ -472,7 +443,7 @@
                         <div class="swiper-wrapper">
                             @foreach ($photos as $photo)
                             <div class="swiper-slide">
-                                <img class="img-fluid" src="{{ url('images/news/'.$photo->photo) }}" />
+                                <img class="img-fluid" src="{{ url('images/multimedia/'.$photo->photo) }}" />
                             </div>
                             @endforeach
                         </div>

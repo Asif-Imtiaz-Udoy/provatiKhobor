@@ -20,9 +20,10 @@ class HomeController extends Controller
         $photos = Multimedia::orderBy('id', 'DESC')->limit(10)->get();
         $opinions = News::where('type', 1)->latest('created_at')->limit(4)->get();
         $successfuls = News::where('type', 2)->latest('created_at')->limit(3)->get();
+        $develops = News::where('type', 3)->latest('created_at')->limit(3)->get();
         $prayer = Prayer::latest()->first();
 
-        return view('frontend.home.home', compact('lead_newses', 'news_boxes', 'latest_newses', 'features', 'photos', 'opinions', 'successfuls', 'prayer'));
+        return view('frontend.home.home', compact('lead_newses', 'news_boxes', 'latest_newses', 'features', 'photos', 'opinions', 'successfuls', 'develops', 'prayer'));
     }
 
 
