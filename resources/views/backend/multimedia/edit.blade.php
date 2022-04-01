@@ -83,7 +83,7 @@
         $(document).ready(function() {
             $('.delete').click(function() {
                 let id = $(this).attr('id');
-                $url = "{{ route('admin.subCagtegory.destroy', '') }}" + "/" + id
+                $url = "{{ route('admin.multimedia.destroy', '') }}" + "/" + id
                 $('#deleteForm').attr('action', $url);
             });
 
