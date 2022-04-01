@@ -310,10 +310,11 @@
     <!------ Advertisement end ------>
 
     <!------ Feature Category start ------>
-    @if (!empty($features))
-        <section class="mt-30">
-            <div class="container">
-                <div class="row">
+
+    <section class="mt-30">
+        <div class="container">
+            <div class="row">
+                @if (!empty($features))
                     @foreach ($features as $key => $feature)
                         <?php
                         $categoryNewses = App\Models\News::where('category_id', $feature->id)
@@ -338,11 +339,11 @@
                             </div>
                         @endif
                     @endforeach
-                </div>
+                @endif
             </div>
-            </div>
-        </section>
-    @endif
+        </div>
+    </section>
+
     <!------ Feature Category end ------>
 
     <!------ Advertisement start ------>
