@@ -11,16 +11,14 @@
                                 <li>
                                     <a href="{{ route('home') }}">প্রচ্ছদ</a>
                                 </li>
-                                <li>
-                                    <a href="javascript:void(0)">জাতীয়</a>
-                                </li>
                             </ul>
                             <div class="details-title">
                                 <h1>{{ $news->title }}</h1>
                             </div>
                             <div class="news-info d-flex">
                                 <div class="author-img">
-                                    <img class="img-fluid" src="assets/images/home/favicon.jpg" alt="#">
+                                    <img class="img-fluid" src="{{ asset('assets/frontend/images/logo/logo.png') }}"
+                                        alt="#">
                                 </div>
                                 <div id="print-logo" class="d-flex justify-content-between mb-20 d-none">
                                     <img src="{{ url('frontend/assets/images/home/logo.png') }}" alt="logo">
@@ -31,7 +29,7 @@
                                         </div>
                                         <div class="reporter">
                                             <p class="mb-0">
-                                                {{ $news->reporter_id == null ? 'NL24 News' : $news->reporter['name'] }}
+                                                {{ $news->reporter_id == null ? 'প্রভাতী খবর' : $news->reporter['name'] }}
                                             </p>
                                             <p>{{ bangla_date(strtotime($news->created_at), 'en') }},&nbsp;&nbsp;{{ $news->created_at->format('g:i A') }}
                                             </p>
@@ -88,36 +86,23 @@
                                     <span>সম্পর্কিত</span>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
-                                <div class="single-news mb-10">
-                                    <div class="thumbnail">
-                                        <img class="img-fluid w-100" src="assets/images/test/news-1.jpg" alt="news image">
+                            @if (!empty($relatedNewses))
+                                @foreach ($relatedNewses as $key => $relatedNews)
+                                    <div class="col-lg-4">
+                                        <div class="single-news mb-10">
+                                            <div class="thumbnail">
+                                                <img class="img-fluid w-100"
+                                                    src="{{ url('/images/news', $relatedNews->news_image) }}"
+                                                    alt="news image">
+                                            </div>
+                                            <div class="single-news-title">
+                                                <a href="{{ route('newsDetail', $relatedNews->slug) }}"
+                                                    class="mtb-10">{{ $relatedNews->title }}</a>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="single-news-title">
-                                        <a class="mtb-10">দেশে ফেসবুক ব্যবহারকারী ৪ কোটি ৮০ লাখ</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="single-news mb-10">
-                                    <div class="thumbnail">
-                                        <img class="img-fluid w-100" src="assets/images/test/news-1.jpg" alt="news image">
-                                    </div>
-                                    <div class="single-news-title">
-                                        <a class="mtb-10">দেশে ফেসবুক ব্যবহারকারী ৪ কোটি ৮০ লাখ</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="single-news mb-10">
-                                    <div class="thumbnail">
-                                        <img class="img-fluid w-100" src="assets/images/test/news-1.jpg" alt="news image">
-                                    </div>
-                                    <div class="single-news-title">
-                                        <a class="mtb-10">দেশে ফেসবুক ব্যবহারকারী ৪ কোটি ৮০ লাখ</a>
-                                    </div>
-                                </div>
-                            </div>
+                                @endforeach
+                            @endif
                         </div>
                         <!------ Related news start ------>
 
@@ -128,36 +113,24 @@
                                     <span>আরও</span>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
-                                <div class="single-news mb-10">
-                                    <div class="thumbnail">
-                                        <img class="img-fluid w-100" src="assets/images/test/news-1.jpg" alt="news image">
+                            @if (!empty($latestNewses))
+                                @foreach ($latestNewses as $key => $latestNews)
+                                    <div class="col-lg-4">
+                                        <div class="single-news mb-10">
+                                            <div class="thumbnail">
+                                                <img class="img-fluid w-100"
+                                                    src="{{ url('/images/news', $latestNews->news_image) }}"
+                                                    alt="news image">
+                                            </div>
+                                            <div class="single-news-title">
+                                                <a href="{{ route('newsDetail', $latestNews->slug) }}"
+                                                    class="mtb-10">{{ $latestNews->title }}</a>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="single-news-title">
-                                        <a class="mtb-10">দেশে ফেসবুক ব্যবহারকারী ৪ কোটি ৮০ লাখ</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="single-news mb-10">
-                                    <div class="thumbnail">
-                                        <img class="img-fluid w-100" src="assets/images/test/news-1.jpg" alt="news image">
-                                    </div>
-                                    <div class="single-news-title">
-                                        <a class="mtb-10">দেশে ফেসবুক ব্যবহারকারী ৪ কোটি ৮০ লাখ</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="single-news mb-10">
-                                    <div class="thumbnail">
-                                        <img class="img-fluid w-100" src="assets/images/test/news-1.jpg" alt="news image">
-                                    </div>
-                                    <div class="single-news-title">
-                                        <a class="mtb-10">দেশে ফেসবুক ব্যবহারকারী ৪ কোটি ৮০ লাখ</a>
-                                    </div>
-                                </div>
-                            </div>
+                                @endforeach
+                            @endif
+
                         </div>
                         <!------ More news start ------>
                     </div>

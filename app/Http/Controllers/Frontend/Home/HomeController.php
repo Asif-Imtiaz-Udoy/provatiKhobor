@@ -30,12 +30,4 @@ class HomeController extends Controller
         return view('frontend.home.home', compact('lead_newses', 'news_boxes', 'latest_newses', 'features', 'photos', 'videos', 'opinions', 'successfuls', 'develops', 'prayer', 'breakings'));
     }
 
-
-
-
-    public function newsDetail($id)
-    {
-        $news = News::findOrFail(intval($id))->first();
-        return view('frontend.news.detail', compact('news'));
-    }
 }
