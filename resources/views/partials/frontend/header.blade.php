@@ -23,7 +23,7 @@
                     </li>
                     @if (!empty($categories))
                         @foreach ($categories as $key => $category)
-                            @if ($key < 7)
+                            @if ($key < 8)
                                 <li class="nav-item">
                                     <a class="nav-link"
                                         href="{{ route('categoryDetails', $category->slug) }}">{{ $category->name }}</a>

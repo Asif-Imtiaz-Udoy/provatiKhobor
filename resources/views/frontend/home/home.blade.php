@@ -5,7 +5,7 @@
     <section class="lead">
         <div class="container">
             <div class="row">
-                <div class="col-lg-2">
+                {{-- <div class="col-lg-2">
                     @if (!empty($advertisements))
                         @foreach ($advertisements as $key => $advertisement)
                             @if ($advertisement->ad_category == 1)
@@ -29,8 +29,8 @@
                             @endif
                         @endforeach
                     @endif
-                </div>
-                <div class="col-lg-8">
+                </div> --}}
+                <div class="col-lg-10">
                     <div class="row">
                         @if (!empty($lead_newses))
                             <div class="col-lg-8">
@@ -78,8 +78,7 @@
                                                     </a>
                                                     <div class="details">
                                                         <p class="lh-1 mb-0 text-left fs-6 text-main">
-                                                            {{ $breaking->title }}</p>
-                                                        <a class="text-info" href="#">{{ $breaking->reporter }}</a>
+                                                            <a href="#">{{ $breaking->title }}</a></p>
                                                     </div>
                                                 </div>
                                             </div>
