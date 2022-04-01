@@ -19,3 +19,4 @@ Auth::routes(['register' => false]);
 
 Route::get('/', [App\Http\Controllers\Frontend\Home\HomeController::class, 'index'])->name('home');
 Route::get('/news-detail/{id}', [App\Http\Controllers\Frontend\Home\HomeController::class, 'newsDetail'])->name('newsDetail');
+Route::get('category/{slug}', [App\Http\Controllers\Frontend\Details\DetailsController::class, 'categoryDetails'])->name('categoryDetails');

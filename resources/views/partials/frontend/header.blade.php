@@ -24,7 +24,8 @@
                         @foreach ($categories as $key => $category)
                             @if ($key < 7)
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">{{ $category->name }}</a>
+                                    <a class="nav-link"
+                                        href="{{ route('categoryDetails', $category->slug) }}">{{ $category->name }}</a>
                                 </li>
                             @endif
                         @endforeach
@@ -38,7 +39,7 @@
                                     @foreach ($categories as $key => $category)
                                         @if ($key >= 7)
                                             <a class="dropdown-item w-25 text-center"
-                                                href="#">{{ $category->name }}</a>
+                                                href="{{ route('categoryDetails', $category->slug) }}">{{ $category->name }}</a>
                                         @endif
                                     @endforeach
                                 </div>
