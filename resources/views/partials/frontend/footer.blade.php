@@ -15,12 +15,12 @@
                     </div>
                     <div class="d-flex align-items-end pb-10">
                         <div class="card-body">
-                            {!! QrCode::size(150)->generate('https://www.provatikhobor.com') !!}
+                            {!! QrCode::size(100)->generate('https://www.provatikhobor.com') !!}
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5 editor-border d-flex align-items-end pb-10">
+            <div class="col-lg-5 editor-border d-flex align-items-end pb-5">
                 <p class="mb-0">ভারপ্রাপ্ত সম্পাদকঃ মোঃ সাজ্জাদ হোসেন <br>
                     প্রকাশক জিয়াউল হক বিএস প্রিন্টিং প্রেস ৫২/২ সার্কুলার রোড <br>
                     মোবাইলঃ ০১৭১০-১১২২৩৩ </p>
