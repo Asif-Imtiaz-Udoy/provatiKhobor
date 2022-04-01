@@ -26,7 +26,7 @@ class HomeController extends Controller
         $prayer = Prayer::latest()->first();
         $breakings = News::where('type', 3)->latest('created_at')->limit(2)->get();
 
-        return view('frontend.home.home', compact('lead_newses', 'news_boxes', 'latest_newses', 'features', 'photos', 'opinions', 'successfuls', 'develops', 'prayer', 'advertisements'));
+        return view('frontend.home.home', compact('lead_newses', 'news_boxes', 'latest_newses', 'features', 'photos', 'opinions', 'successfuls', 'develops', 'prayer', 'advertisements', 'breakings'));
     }
 
 
