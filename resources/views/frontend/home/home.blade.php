@@ -6,14 +6,29 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-2">
-                    <a href="#">
-                        <img class="w-100 mb-20 img-fluid" src="{{ url('assets/frontend/images/test/advertise-1.png') }}"
-                            alt="Advertisement">
-                    </a>
-                    <a href="#">
-                        <img class="w-100 img-fluid" src="{{ url('assets/frontend/images/test/advertise-3.png') }}"
-                            alt="Advertisement">
-                    </a>
+                    @if (!empty($advertisements))
+                        @foreach ($advertisements as $key => $advertisement)
+                            @if ($advertisement->ad_category == 1)
+                                <a href="{{ $advertisement->link }}">
+                                    <img class="w-100 mb-20 img-fluid"
+                                        src="{{ url('images/advertisement/' . $advertisement->add_image) }}"
+                                        alt="Advertisement">
+                                </a>
+                            @endif
+                        @endforeach
+                    @endif
+
+                    @if (!empty($advertisements))
+                        @foreach ($advertisements as $key => $advertisement)
+                            @if ($advertisement->ad_category == 2)
+                                <a href="#">
+                                    <img class="w-100 img-fluid"
+                                        src="{{ url('images/advertisement/' . $advertisement->add_image) }}"
+                                        alt="Advertisement">
+                                </a>
+                            @endif
+                        @endforeach
+                    @endif
                 </div>
                 <div class="col-lg-8">
                     <div class="row">
@@ -113,7 +128,7 @@
                             @foreach ($latest_newses as $news)
                                 <div class="list-news-item bg-white ptb-10">
                                     <div class="thumbnail">
-                                        <a href="#">
+                                        <a href="{{ $advertisement->link }}">
                                             <img class="img-fluid w-100"
                                                 src="{{ url('images/news/' . $news->news_image) }}" alt="news image">
                                         </a>
@@ -129,10 +144,16 @@
                             <div class="latest-heading">
                                 <h6 class="text-center bg-section mb-0">চাকরি/নোটিশ/বিজ্ঞাপন</h6>
                             </div>
-                            <a href="#">
-                                <img class="img-fluid" src="{{ url('assets/frontend/images/test/job.png') }}"
-                                    alt="Job Notice">
-                            </a>
+                            @if (!empty($advertisements))
+                                @foreach ($advertisements as $key => $advertisement)
+                                    @if ($advertisement->ad_category == 3)
+                                        <a href="{{ $advertisement->link }}">
+                                            <img class="img-fluid"
+                                                src="{{ url('images/news/' . $news->news_image) }}" alt="Job Notice">
+                                        </a>
+                                    @endif
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                 @endif
@@ -142,14 +163,20 @@
     <!------ Lead news end ------>
 
     <!------ Advertisement start ------>
-    <section class="advertisement mt-30">
-        <div class="container">
-            <a href="#">
-                <img class="w-100 img-fluid" src="{{ asset('assets/frontend/images/test/advertise.png') }}"
-                    alt="Advertisement">
-            </a>
-        </div>
-    </section>
+    @if (!empty($advertisements))
+        @foreach ($advertisements as $key => $advertisement)
+            @if ($advertisement->ad_category == 4)
+                <section class="advertisement mt-30">
+                    <div class="container">
+                        <a href="{{ $advertisement->link }}">
+                            <img class="w-100 img-fluid"
+                                src="{{ url('images/advertisement/' . $advertisement->add_image) }}" alt="Advertisement">
+                        </a>
+                    </div>
+                </section>
+            @endif
+        @endforeach
+    @endif
     <!------ Advertisement end ------>
 
     <!------ Successful start ------>
@@ -173,7 +200,8 @@
                                     <a href="#">
                                         <div class="thumbnail rounded-circle overflow-hidden">
                                             <img class="h-100 img-fluid"
-                                                src="{{ url('images/news/' . $successful->news_image) }}" alt="thumbnail">
+                                                src="{{ url('images/news/' . $successful->news_image) }}"
+                                                alt="thumbnail">
                                         </div>
                                     </a>
                                 </div>
@@ -187,284 +215,324 @@
     <!------ Successful end ------>
 
     <!------ Advertisement start ------>
-    <section class="advertisement mt-30">
-        <div class="container">
-            <a href="#">
-                <img class="w-100 img-fluid" src="{{ asset('assets/frontend/images/test/advertise.png') }}"
-                    alt="Advertisement">
-            </a>
-        </div>
-    </section>
+    @if (!empty($advertisements))
+        @foreach ($advertisements as $key => $advertisement)
+            @if ($advertisement->ad_category == 5)
+                <section class="advertisement mt-30">
+                    <div class="container">
+                        <a href="{{ $advertisement->link }}">
+                            <img class="w-100 img-fluid"
+                                src="{{ url('images/advertisement/' . $advertisement->add_image) }}" alt="Advertisement">
+                        </a>
+                    </div>
+                </section>
+            @endif
+        @endforeach
+    @endif
     <!------ Advertisement end ------>
 
     <!------ Develope start ------>
     @if (!empty($develops))
-    <section class="develop-partner mt-30">
-        <div class="container">
-            <div class="row">
-                <div class="sec-heading border-top border-3 position-relative">
-                    <h3>উন্নয়ন অংশীদার</h3>
-                    <a href="#" class="extra lh-1 border border-3"><i class="zmdi zmdi-long-arrow-right"></i></a>
-                </div>
-                <div class="row py-3">
-                    @foreach ($develops as $develop)
-                    <div class="col-lg-4 mt-3">
-                        <div class="develop-item d-flex align-items-center">
-                            <div class="details bg-white w-75 h-100 p-3">
-                                <p class="lh-1 mb-0">{{ $develop->title }}</p>
-                                <a class="text-info" href="#">{{ $develop->reporter }}</a>
-                                <p class="lh-1 mb-0 fs-6">{!! mb_substr($develop->news_body, 0, 200) !!}</p>
-                            </div>
-                            <div class="thumbnail overflow-hidden text-center w-25 h-100">
-                                <a href="#">
-                                    <img class="w-100 h-100" src="{{ url('images/news/'.$develop->news_image) }}"
-                                        alt="thumbnail">
-                                </a>
-                            </div>
-                        </div>
+        <section class="develop-partner mt-30">
+            <div class="container">
+                <div class="row">
+                    <div class="sec-heading border-top border-3 position-relative">
+                        <h3>উন্নয়ন অংশীদার</h3>
+                        <a href="#" class="extra lh-1 border border-3"><i class="zmdi zmdi-long-arrow-right"></i></a>
                     </div>
-                    @endforeach
+                    <div class="row py-3">
+                        @foreach ($develops as $develop)
+                            <div class="col-lg-4 mt-3">
+                                <div class="develop-item d-flex align-items-center">
+                                    <div class="details bg-white w-75 h-100 p-3">
+                                        <p class="lh-1 mb-0">{{ $develop->title }}</p>
+                                        <a class="text-info" href="#">{{ $develop->reporter }}</a>
+                                        <p class="lh-1 mb-0 fs-6">{!! mb_substr($develop->news_body, 0, 200) !!}</p>
+                                    </div>
+                                    <div class="thumbnail overflow-hidden text-center w-25 h-100">
+                                        <a href="#">
+                                            <img class="w-100 h-100"
+                                                src="{{ url('images/news/' . $develop->news_image) }}" alt="thumbnail">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
     @endif
     <!------ Develope end ------>
 
     <!------ Advertisement start ------>
-    <section class="advertisement mt-30">
-        <div class="container">
-            <a href="#">
-                <img class="w-100 img-fluid" src="{{ asset('assets/frontend/images/test/advertise.png') }}"
-                    alt="Advertisement">
-            </a>
-        </div>
-    </section>
+    @if (!empty($advertisements))
+        @foreach ($advertisements as $key => $advertisement)
+            @if ($advertisement->ad_category == 6)
+                <section class="advertisement mt-30">
+                    <div class="container">
+                        <a href="{{ $advertisement->link }}">
+                            <img class="w-100 img-fluid"
+                                src="{{ url('images/advertisement/' . $advertisement->add_image) }}" alt="Advertisement">
+                        </a>
+                    </div>
+                </section>
+            @endif
+        @endforeach
+    @endif
     <!------ Advertisement end ------>
 
     <!------ Opinion start ------>
     @if (!empty($opinions))
-    <section class="mt-30">
-        <div class="container">
-            <div class="bg-section">
-                <h4 class="ps-3">মতামত</h4>
-                <div class="row">
-                    @foreach ($opinions as $opinion)
-                    <div class="col-lg-3">
-                        <div class="p-3 pb-1 mb-2">
-                            <a href="#">
-                                <img class="img-fluid" src="{{ url('images/news/'.$opinion->news_image) }}" alt="News Box">
-                            </a>
-                            <a href="#" class="p-2">{{ $opinion->title }}</a>
-                        </div>
+        <section class="mt-30">
+            <div class="container">
+                <div class="bg-section">
+                    <h4 class="ps-3">মতামত</h4>
+                    <div class="row">
+                        @foreach ($opinions as $opinion)
+                            <div class="col-lg-3">
+                                <div class="p-3 pb-1 mb-2">
+                                    <a href="#">
+                                        <img class="img-fluid"
+                                            src="{{ url('images/news/' . $opinion->news_image) }}" alt="News Box">
+                                    </a>
+                                    <a href="#" class="p-2">{{ $opinion->title }}</a>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
-                    @endforeach
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
     @endif
     <!------ Opinion end ------>
 
     <!------ Advertisement start ------>
-    <section class="advertisement mt-30">
-        <div class="container">
-            <a href="#">
-                <img class="w-100 img-fluid" src="{{ asset('assets/frontend/images/test/advertise.png') }}"
-                    alt="Advertisement">
-            </a>
-        </div>
-    </section>
+    @if (!empty($advertisements))
+        @foreach ($advertisements as $key => $advertisement)
+            @if ($advertisement->ad_category == 7)
+                <section class="advertisement mt-30">
+                    <div class="container">
+                        <a href="{{ $advertisement->link }}">
+                            <img class="w-100 img-fluid"
+                                src="{{ url('images/advertisement/' . $advertisement->add_image) }}" alt="Advertisement">
+                        </a>
+                    </div>
+                </section>
+            @endif
+        @endforeach
+    @endif
     <!------ Advertisement end ------>
 
     <!------ Feature Category start ------>
     @if (!empty($features))
-    <section class="mt-30">
-        <div class="container">
-            <div class="row">
-                @foreach ($features as $key => $feature)
-                <?php $categoryNewses = App\Models\News::where('category_id', $feature->id)->latest()->limit(4)->get(); ?>
-                    @if ($key > 3)
-                    <div class="col-lg-3 position-relative">
-                        <div class="feature-slider">
-                            @foreach ($categoryNewses as $categoryNews)
-                            <div class="p-3 pb-1 mb-2 text-center">
-                                <a href="#">
-                                    <img class="img-fluid" src="{{ url('images/news/'.$categoryNews->news_image) }}"
-                                        alt="News Box">
-                                    <h5 class="text-center mb-0">{{ $categoryNews->title }}</h5>
-                                </a>
+        <section class="mt-30">
+            <div class="container">
+                <div class="row">
+                    @foreach ($features as $key => $feature)
+                        <?php $categoryNewses = App\Models\News::where('category_id', $feature->id)
+                            ->latest()
+                            ->limit(4)
+                            ->get(); ?>
+                        @if ($key > 3)
+                            <div class="col-lg-3 position-relative">
+                                <div class="feature-slider">
+                                    @foreach ($categoryNewses as $categoryNews)
+                                        <div class="p-3 pb-1 mb-2 text-center">
+                                            <a href="#">
+                                                <img class="img-fluid"
+                                                    src="{{ url('images/news/' . $categoryNews->news_image) }}"
+                                                    alt="News Box">
+                                                <h5 class="text-center mb-0">{{ $categoryNews->title }}</h5>
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="text-center">
+                                    <a class="bg-main px-3 py-1 text-white" href="#">
+                                        {{ $feature->name }}
+                                    </a>
+                                </div>
                             </div>
-                            @endforeach
-                        </div>
-                        <div class="text-center">
-                            <a class="bg-main px-3 py-1 text-white" href="#">
-                                {{ $feature->name }}
-                            </a>
-                        </div>
-                    </div>
-                    @endif
-                @endforeach
+                        @endif
+                    @endforeach
+                </div>
             </div>
-        </div>
-        </div>
-    </section>
+            </div>
+        </section>
     @endif
     <!------ Feature Category end ------>
 
     <!------ Advertisement start ------>
-    <section class="advertisement mt-30">
-        <div class="container">
-            <a href="#">
-                <img class="w-100 img-fluid" src="{{ asset('assets/frontend/images/test/advertise.png') }}"
-                    alt="Advertisement">
-            </a>
-        </div>
-    </section>
+    @if (!empty($advertisements))
+        @foreach ($advertisements as $key => $advertisement)
+            @if ($advertisement->ad_category == 12)
+                <section class="advertisement mt-30">
+                    <div class="container">
+                        <a href="{{ $advertisement->link }}">
+                            <img class="w-100 img-fluid"
+                                src="{{ url('images/advertisement/' . $advertisement->add_image) }}" alt="Advertisement">
+                        </a>
+                    </div>
+                </section>
+            @endif
+        @endforeach
+    @endif
     <!------ Advertisement end ------>
 
     <!------ Feature Category start ------>
     @if (!empty($features))
-    <section class="mt-30">
-        <div class="container">
-            <div class="row">
-                @foreach ($features as $key => $feature)
-                <?php $categoryNewses = App\Models\News::where('category_id', $feature->id)->latest()->limit(4)->get(); ?>
-                    @if ($key < 3)
-                    <div class="col-lg-3 position-relative">
-                        <div class="feature-slider">
-                            @foreach ($categoryNewses as $categoryNews)
-                            <div class="p-3 pb-1 mb-2 text-center">
-                                <a href="#">
-                                    <img class="img-fluid" src="{{ url('images/news/'.$categoryNews->news_image) }}"
-                                        alt="News Box">
-                                    <h5 class="text-center mb-0">{{ $categoryNews->title }}</h5>
-                                </a>
-                            </div>
-                            @endforeach
-                        </div>
-                        <div class="text-center">
-                            <a class="bg-main px-3 py-1 text-white" href="#">
-                                {{ $feature->name }}
-                            </a>
-                        </div>
-                    </div>
-                    @endif
-                @endforeach
-                <div class="col-lg-3">
-                    <aside>
-                        @if (!empty($prayer))
-                        <div class="card">
-                            <div class="card-header">
-                                <p class="mb-0 text-center">নামাজের সময়সূচি</p>
-                            </div>
-                            <div class="card-body p-0">
-                                <table class="table table-success table-bordered border-white">
-                                    <tbody>
-                                        <tr>
-                                            <td rowspan="5" class="text-center align-middle">
+        <section class="mt-30">
+            <div class="container">
+                <div class="row">
+                    @foreach ($features as $key => $feature)
+                        <?php $categoryNewses = App\Models\News::where('category_id', $feature->id)
+                            ->latest()
+                            ->limit(4)
+                            ->get(); ?>
+                        @if ($key < 3)
+                            <div class="col-lg-3 position-relative">
+                                <div class="feature-slider">
+                                    @foreach ($categoryNewses as $categoryNews)
+                                        <div class="p-3 pb-1 mb-2 text-center">
+                                            <a href="#">
                                                 <img class="img-fluid"
-                                                    src="{{ url('assets/frontend/images/test/prayer.png') }}"
-                                                    alt="Prayer">
-                                            </td>
-                                            <td class="text-center">ফজর</td>
-                                            <td class="text-center">{{ $prayer->fozor }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">জোহর</td>
-                                            <td class="text-center">{{ $prayer->johor }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">আছর</td>
-                                            <td class="text-center">{{ $prayer->ashor }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">মাগরিব</td>
-                                            <td class="text-center">{{ $prayer->magriv }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">এশা</td>
-                                            <td class="text-center">{{ $prayer->esha }}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                                    src="{{ url('images/news/' . $categoryNews->news_image) }}"
+                                                    alt="News Box">
+                                                <h5 class="text-center mb-0">{{ $categoryNews->title }}</h5>
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="text-center">
+                                    <a class="bg-main px-3 py-1 text-white" href="#">
+                                        {{ $feature->name }}
+                                    </a>
+                                </div>
                             </div>
-                        </div>
                         @endif
-                        <div class="border p-2 bg-section">
-                            <p class="pt-20"> আপনার ভোট আপনি দিন যাকে খুশি তাকে দিন। নিচের ভোটে অংশগ্রহণ করুন
-                                মূল্যবান মতামত দিন।
-                            </p>
-                            <div class="pb-3 d-flex justify-content-center">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                        id="inlineRadio1" value="option1">
-                                    <label class="form-check-label" for="inlineRadio1">হ্যা</label>
+                    @endforeach
+                    <div class="col-lg-3">
+                        <aside>
+                            @if (!empty($prayer))
+                                <div class="card">
+                                    <div class="card-header">
+                                        <p class="mb-0 text-center">নামাজের সময়সূচি</p>
+                                    </div>
+                                    <div class="card-body p-0">
+                                        <table class="table table-success table-bordered border-white">
+                                            <tbody>
+                                                <tr>
+                                                    <td rowspan="5" class="text-center align-middle">
+                                                        <img class="img-fluid"
+                                                            src="{{ url('assets/frontend/images/test/prayer.png') }}"
+                                                            alt="Prayer">
+                                                    </td>
+                                                    <td class="text-center">ফজর</td>
+                                                    <td class="text-center">{{ $prayer->fozor }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center">জোহর</td>
+                                                    <td class="text-center">{{ $prayer->johor }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center">আছর</td>
+                                                    <td class="text-center">{{ $prayer->ashor }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center">মাগরিব</td>
+                                                    <td class="text-center">{{ $prayer->magriv }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center">এশা</td>
+                                                    <td class="text-center">{{ $prayer->esha }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                        id="inlineRadio2" value="option2">
-                                    <label class="form-check-label" for="inlineRadio2">না</label>
+                            @endif
+                            <div class="border p-2 bg-section">
+                                <p class="pt-20"> আপনার ভোট আপনি দিন যাকে খুশি তাকে দিন। নিচের ভোটে অংশগ্রহণ করুন
+                                    মূল্যবান মতামত দিন।
+                                </p>
+                                <div class="pb-3 d-flex justify-content-center">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="inlineRadio1" value="option1">
+                                        <label class="form-check-label" for="inlineRadio1">হ্যা</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="inlineRadio2" value="option2">
+                                        <label class="form-check-label" for="inlineRadio2">না</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="inlineRadio2" value="option2">
+                                        <label class="form-check-label" for="inlineRadio2">মন্তব্য নাই</label>
+                                    </div>
                                 </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                        id="inlineRadio2" value="option2">
-                                    <label class="form-check-label" for="inlineRadio2">মন্তব্য নাই</label>
-                                </div>
-                            </div>
 
-                            <div class="pb-3 d-flex justify-content-center">
-                                <button class="btn btn-success mr-20">মতামত দিন</button> <button
-                                    class="btn btn-danger">জরিপের
-                                    ফলাফল</button>
+                                <div class="pb-3 d-flex justify-content-center">
+                                    <button class="btn btn-success mr-20">মতামত দিন</button> <button
+                                        class="btn btn-danger">জরিপের
+                                        ফলাফল</button>
+                                </div>
                             </div>
-                        </div>
-                    </aside>
+                        </aside>
+                    </div>
                 </div>
             </div>
-        </div>
-        </div>
-    </section>
+            </div>
+        </section>
     @endif
     <!------ Feature Category end ------>
 
     <!------ Photo gallery start ------>
     @if (!empty($photos))
-    <section class="photo-gallery mt-30">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 m-auto">
-                    <div class="title d-flex justify-content-between align-items-center">
-                        <div class="swiper-prev"><i class="zmdi zmdi-caret-left"></i></div>
-                        <h2 class="mb-0">ফটো গ্যালারি</h2>
-                        <div class="swiper-next"><i class="zmdi zmdi-caret-right"></i></div>
-                    </div>
-                    <div class="swiper mySwiper ptb-30">
-                        <div class="swiper-wrapper">
-                            @foreach ($photos as $photo)
-                            <div class="swiper-slide">
-                                <img class="img-fluid" src="{{ url('images/multimedia/'.$photo->photo) }}" />
+        <section class="photo-gallery mt-30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 m-auto">
+                        <div class="title d-flex justify-content-between align-items-center">
+                            <div class="swiper-prev"><i class="zmdi zmdi-caret-left"></i></div>
+                            <h2 class="mb-0">ফটো গ্যালারি</h2>
+                            <div class="swiper-next"><i class="zmdi zmdi-caret-right"></i></div>
+                        </div>
+                        <div class="swiper mySwiper ptb-30">
+                            <div class="swiper-wrapper">
+                                @foreach ($photos as $photo)
+                                    <div class="swiper-slide">
+                                        <img class="img-fluid"
+                                            src="{{ url('images/multimedia/' . $photo->photo) }}" />
+                                    </div>
+                                @endforeach
                             </div>
-                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
-    </section>
+            </div>
+        </section>
     @endif
     <!------ Photo gallery end ------>
 
 
     <!------ Advertisement start ------>
-    <section class="advertisement mt-30">
-        <div class="container">
-            <a href="#">
-                <img class="w-100 img-fluid" src="{{ asset('assets/frontend/images/test/advertise.png') }}"
-                    alt="Advertisement">
-            </a>
-        </div>
-    </section>
+    @if (!empty($advertisements))
+        @foreach ($advertisements as $key => $advertisement)
+            @if ($advertisement->ad_category == 8)
+                <section class="advertisement mt-30">
+                    <div class="container">
+                        <a href="{{ $advertisement->link }}">
+                            <img class="w-100 img-fluid"
+                                src="{{ url('images/advertisement/' . $advertisement->add_image) }}" alt="Advertisement">
+                        </a>
+                    </div>
+                </section>
+            @endif
+        @endforeach
+    @endif
     <!------ Advertisement end ------>
 @endsection

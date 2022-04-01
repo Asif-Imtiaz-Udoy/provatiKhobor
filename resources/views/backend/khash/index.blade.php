@@ -5,7 +5,7 @@
         <div class="col-lg-12">
             <div class="card font-kalpurush mb-4">
                 <div class="card-header d-flex justify-content-between align-items-center bg-primary">
-                    <h5 class="text-white">মতামত</h5>
+                    <h5 class="text-white">খাস খবর</h5>
                     <a type="button" href="{{ route('admin.khashKhobor.create') }}" class="btn btn-success"><i
                             class="fas fa-plus"></i></a>
                 </div>

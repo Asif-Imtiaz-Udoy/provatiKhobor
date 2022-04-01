@@ -2,9 +2,8 @@
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('home') }}"
         target="_blank">
         <div class="sidebar-brand-icon">
-            <img src="{{ asset('assets/images/test/logo.png') }}">
+            <img src="{{ asset('assets/frontend/images/logo/logo.png') }}">
         </div>
-        <div class="sidebar-brand-text mx-3">{{ config('app.name', 'laravel') }}</div>
     </a>
     <hr class="sidebar-divider my-0">
     <li class="nav-item {{ Route::is('admin.home') ? 'active' : '' }}">
@@ -16,8 +15,7 @@
     <hr class="sidebar-divider">
     @can('admin.category.index')
         <li class="nav-item {{ Route::is('admin.category.*') ? 'active' : '' }}">
-            <a class="nav-link"
-                href="{{ route('admin.category.index') }}">
+            <a class="nav-link" href="{{ route('admin.category.index') }}">
                 <i class="far fa-fw fa-window-maximize"></i>
                 <span>নিউজ ক্যাটাগরি</span>
             </a>
