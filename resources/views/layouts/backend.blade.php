@@ -19,11 +19,8 @@
         type="text/css">
     <link href="{{ asset('assets/backend/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"
         type="text/css">
-
     <!-- Dropify Css -->
     <link rel="stylesheet" href="{{ asset('assets/backend/plugins/dropify/css/dropify.min.css') }}" />
-    
-
     <link href="{{ asset('assets/backend/css/ruang-admin.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/backend/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 </head>
