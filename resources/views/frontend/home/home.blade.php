@@ -401,7 +401,7 @@
                 <section class="advertisement mt-30">
                     <div class="container">
                         <a href="{{ $advertisement->link }}">
-                            <img class="w-100 img-fluid"
+                            <img class="w-100 img-fluid" style="height:250px;"
                                 src="{{ url('images/advertisement/' . $advertisement->add_image) }}" alt="Advertisement">
                         </a>
                     </div>
@@ -425,9 +425,9 @@
                             <div class="col-lg-3 position-relative">
                                 <div class="feature-slider">
                                     @foreach ($categoryNewses as $categoryNews)
-                                        <div class="p-3 pb-1 mb-2 text-center" style="height:250px;">
+                                        <div class="p-3 pb-1 mb-2 text-center">
                                             <a href="{{ route('newsDetail', $categoryNews->id) }}">
-                                                <img class="img-fluid"
+                                                <img class="img-fluid" style="height:250px;"
                                                     src="{{ url('images/news/' . $categoryNews->news_image) }}"
                                                     alt="News Box">
                                                 <h5 class="text-center mb-0">{{ $categoryNews->title }}</h5>
