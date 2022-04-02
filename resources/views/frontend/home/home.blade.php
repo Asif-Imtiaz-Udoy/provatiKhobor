@@ -34,7 +34,7 @@
                     <div class="row">
                         @if (!empty($lead_newses))
                             <div class="col-lg-8">
-                                <div style="height: 70%;" class="row">
+                                <div class="row">
                                     <div class="col-lg-6">
                                         <div class="d-flex flex-column justify-content-center">
                                             @foreach ($lead_newses as $lead)
@@ -62,7 +62,7 @@
                                     </div>
                                 </div>
                                 @if (!empty($breakings))
-                                    <div class="row bg-white py-3">
+                                    <div class="row bg-white py-3 mt-3">
                                         <div class="breaking-heading">
                                             <h5 class="text-center text-main">খাস খবর</h5>
                                         </div>
@@ -179,8 +179,8 @@
                 <div class="row">
                     @foreach ($videos as $video)
                         <div class="col-lg-3">
-                            <div class="video-player py-1 px-4 bg-dark text-center">
-                                <iframe class="w-75 align-middle" src="{{ $video->video_link }}" name="myframe"
+                            <div class="video-player py-1 px-4 bg-dark text-center" style="height: 250px;">
+                                <iframe class="w-75 h-100 align-middle" src="{{ $video->video_link }}" name="myframe"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen></iframe>
                             </div>
@@ -223,6 +223,7 @@
                             <div class="successful-item bg-white d-flex align-items-center justify-content-around">
                                 <div class="details">
                                     <p class="lh-1 mb-0"><b>{{ $successful->title }}</b></p>
+                                    <br>
                                     {{-- <a class="text-info"
                                         href="{{ route('newsDetail', $successful->id) }}">{{ $successful->reporter }}</a> --}}
                                     <p class="lh-1 mb-0 fs-6">{!! mb_substr(strip_tags($successful->news_body), 0, 200, 'UTF-8') !!}</p>
@@ -368,7 +369,7 @@
                             <div class="col-lg-3 position-relative">
                                 <div class="feature-slider">
                                     @foreach ($categoryNewses as $categoryNews)
-                                        <div class="p-3 pb-1 mb-2 text-center">
+                                        <div class="p-3 pb-1 mb-2 text-center" style="height:250px;">
                                             <a href="{{ route('newsDetail', $categoryNews->id) }}">
                                                 <img class="img-fluid"
                                                     src="{{ url('images/news/' . $categoryNews->news_image) }}"
@@ -424,7 +425,7 @@
                             <div class="col-lg-3 position-relative">
                                 <div class="feature-slider">
                                     @foreach ($categoryNewses as $categoryNews)
-                                        <div class="p-3 pb-1 mb-2 text-center">
+                                        <div class="p-3 pb-1 mb-2 text-center" style="height:250px;">
                                             <a href="{{ route('newsDetail', $categoryNews->id) }}">
                                                 <img class="img-fluid"
                                                     src="{{ url('images/news/' . $categoryNews->news_image) }}"

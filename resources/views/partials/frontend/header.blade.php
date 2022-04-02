@@ -20,22 +20,21 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav m-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('home') }}"><i
-                                class="zmdi zmdi-home"></i></a>
+                        <a class="nav-link active fs-5" aria-current="page" href="{{ route('home') }}"><i
+                                class="zmdi zmdi-home "></i></a>
                     </li>
                     @if (!empty($categories))
                         @foreach ($categories as $key => $category)
                             @if ($key < 8)
                                 <li class="nav-item">
-                                    <a class="nav-link"
-                                        href="{{ route('categoryDetails', $category->id) }}">{{ $category->name }}</a>
+                                    <a class="nav-link fs-5" href="{{ route('categoryDetails', $category->id) }}"><b>{{ $category->name }}</b></a>
                                 </li>
                             @endif
                         @endforeach
                         <li class="nav-item dropdown has-megamenu">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            <a class="nav-link dropdown-toggle fs-5" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                অন্যান্য
+                                <B>অন্যান্য</B>
                             </a>
                             <div class="dropdown-menu megamenu" role="menu">
                                 <div class="container d-flex justify-content-between flex-wrap">
