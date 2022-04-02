@@ -508,8 +508,8 @@
                                             </div>
                                             <div class="pb-3 d-flex justify-content-center">
                                                 <button type="submit" class="btn btn-success mr-20">মতামত দিন</button>
-                                                <button typ="button" class="btn btn-danger" id="poll_result">জরিপের
-                                                    ফলাফল</button>
+                                                <a href="javaScript:void(0)" class="btn btn-danger" id="poll_result">জরিপের
+                                                    ফলাফল</a>
                                             </div>
                                         </form>
 
