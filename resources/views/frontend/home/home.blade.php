@@ -223,11 +223,11 @@
                             <div class="successful-item bg-white d-flex align-items-center justify-content-around">
                                 <div class="details">
                                     <p class="lh-1 mb-0">{{ $successful->title }}</p>
-                                    <a class="text-info"
-                                        href="{{ route('newsDetail', $successful->slug) }}">{{ $successful->reporter }}</a>
+                                    {{-- <a class="text-info"
+                                        href="{{ route('newsDetail', $successful->id) }}">{{ $successful->reporter }}</a> --}}
                                     <p class="lh-1 mb-0 fs-6">{!! mb_substr(strip_tags($successful->news_body), 0, 200, 'UTF-8') !!}</p>
                                 </div>
-                                <a href="{{ route('newsDetail', $successful->slug) }}">
+                                <a href="{{ route('newsDetail', $successful->id) }}">
                                     <div class="thumbnail rounded-circle overflow-hidden">
                                         <img class="h-100 img-fluid"
                                             src="{{ url('images/news/' . $successful->news_image) }}" alt="thumbnail">
@@ -274,11 +274,11 @@
                                 <div class="details bg-white w-75 h-100 p-3">
                                     <p class="lh-1 mb-0">{{ $develop->title }}</p>
                                     <a class="text-info"
-                                        href="{{ route('newsDetail', $develop->slug) }}">{{ $develop->reporter }}</a>
+                                        href="{{ route('newsDetail', $develop->id) }}">{{ $develop->reporter }}</a>
                                     <p class="lh-1 mb-0 fs-6">{!! mb_substr(strip_tags($develop->news_body), 0, 120, 'UTF-8') !!}</p>
                                 </div>
                                 <div class="thumbnail overflow-hidden text-center w-25 h-100">
-                                    <a href="{{ route('newsDetail', $develop->slug) }}">
+                                    <a href="{{ route('newsDetail', $develop->id) }}">
                                         <img class="w-100 h-100"
                                             src="{{ url('images/news/' . $develop->news_image) }}" alt="thumbnail">
                                     </a>
@@ -380,7 +380,7 @@
                                 </div>
                                 <div class="text-center">
                                     <a class="bg-main px-3 py-1 text-white"
-                                        href="{{ route('categoryDetails', $feature->slug) }}">
+                                        href="{{ route('categoryDetails', $feature->id) }}">
                                         {{ $feature->name }}
                                     </a>
                                 </div>
