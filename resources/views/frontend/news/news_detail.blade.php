@@ -20,20 +20,22 @@
                                     <img class="img-fluid" src="{{ asset('assets/frontend/images/logo/logo.png') }}"
                                         alt="#">
                                 </div>
-                                <div id="print-logo" class="d-flex justify-content-between mb-20 d-none">
-                                    <img src="{{ url('frontend/assets/images/home/logo.png') }}" alt="logo">
-                                    <div class="news-info d-flex">
-                                        <div class="author-img">
-                                            <img class="img-fluid"
-                                                src="{{ url('frontend/assets/images/home/favicon.jpg') }}" alt="#">
-                                        </div>
-                                        <div class="reporter">
-                                            <p class="mb-0">
-                                                {{ $news->reporter_id == null ? 'প্রভাতী খবর' : $news->reporter['name'] }}
-                                            </p>
-                                            <p>
-                                                {{ bangla_date(strtotime($news->created_at), 'en') }},&nbsp;&nbsp;{{ $news->created_at->format('g:i A') }}
-                                            </p>
+                                <div id="print">
+                                    <div id="print-logo" class="d-flex justify-content-between mb-20 d-none">
+                                        <img src="{{ url('frontend/assets/images/home/logo.png') }}" alt="logo">
+                                        <div class="news-info d-flex">
+                                            <div class="author-img">
+                                                <img class="img-fluid"
+                                                    src="{{ url('frontend/assets/images/home/favicon.jpg') }}" alt="#">
+                                            </div>
+                                            <div class="reporter">
+                                                <p class="mb-0">
+                                                    {{ $news->reporter_id == null ? 'প্রভাতী খবর' : $news->reporter['name'] }}
+                                                </p>
+                                                <p>
+                                                    {{ bangla_date(strtotime($news->created_at), 'en') }},&nbsp;&nbsp;{{ $news->created_at->format('g:i A') }}
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
