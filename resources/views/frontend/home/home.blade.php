@@ -62,7 +62,7 @@
                                     </div>
                                 </div>
                                 @if (!empty($breakings))
-                                    <div class="row bg-white py-3 mt-3">
+                                    <div class="row bg-white py-4 mt-3">
                                         <div class="breaking-heading">
                                             <h5 class="text-center text-main">খাস খবর</h5>
                                         </div>
@@ -98,7 +98,7 @@
                                 @foreach ($news_boxes as $news_box)
                                     <div class="news-box bg-white pb-1 mb-2">
                                         <a href="{{ route('newsDetail', $news_box->id) }}">
-                                            <img class="img-fluid" style="height: 152px;
+                                            <img class="img-fluid" style="height: 155px;
                                                     width: 100%;" src="{{ url('images/news/' . $news_box->news_image) }}"
                                                 alt="News Box">
                                             <h6 class="mb-1 text-center text-dark">{!! mb_substr(strip_tags($news_box->title), 0, 50, 'UTF-8') !!}...</h6>
