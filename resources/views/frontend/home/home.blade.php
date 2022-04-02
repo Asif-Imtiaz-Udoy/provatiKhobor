@@ -79,8 +79,8 @@
                                                     </a>
                                                     <div class="details">
                                                         <p class="lh-1 mb-0 text-left fs-6 text-main" style="font-weight: 500;
-                                                                    text-align: justify;
-                                                                    padding-left: 3px;">
+                                                                            text-align: justify;
+                                                                            padding-left: 3px;">
                                                             <a class="pl-2"
                                                                 href="{{ route('newsDetail', $breaking->id) }}"><b>{!! mb_substr(strip_tags($breaking->title), 0, 35, 'UTF-8') !!}...</b></a>
                                                         </p>
@@ -98,9 +98,10 @@
                                 @foreach ($news_boxes as $news_box)
                                     <div class="news-box bg-white pb-1 mb-2">
                                         <a href="{{ route('newsDetail', $news_box->id) }}">
-                                            <img class="img-fluid"
-                                                src="{{ url('images/news/' . $news_box->news_image) }}" alt="News Box">
-                                            <h6 class="mb-1 text-center text-dark">{{ $news_box->title }}</h6>
+                                            <img class="img-fluid" style="height: 110px;
+                                                    width: 100%;" src="{{ url('images/news/' . $news_box->news_image) }}"
+                                                alt="News Box">
+                                            <h6 class="mb-1 text-center text-dark">{!! mb_substr(strip_tags($news_box->title), 0, 35, 'UTF-8') !!}...</h6>
                                         </a>
                                         {{-- <p class="fs-6 lh-1 px-2 mb-0">{!! mb_substr(strip_tags($news_box->news_body), 0, 50, 'UTF-8') !!}...</p> --}}
                                     </div>
