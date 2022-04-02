@@ -21,7 +21,7 @@
                             @endif
                         </div>
                         <input type="hidden" name="type" value="3">
-                        <div class="form-group row pl-5 pr-5">
+                        {{-- <div class="form-group row pl-5 pr-5">
                             <label for="sub_title" class="col-form-label text-nowrap">সাব-টাইটেল<span
                                     class="text-danger"> *</span></label>
                             <input type="text" class="form-control" name="sub_title" id="sub_title"
@@ -29,7 +29,7 @@
                             @if ($errors->has('sub_title'))
                                 <span style="color:red">{!! $errors->first('sub_title') !!}</span>
                             @endif
-                        </div>
+                        </div> --}}
 
                         <div class="form-group row pl-5 pr-5">
                             <label for="thumbnail" class=" col-form-label text-nowrap"> ছবি <span class="text-danger">

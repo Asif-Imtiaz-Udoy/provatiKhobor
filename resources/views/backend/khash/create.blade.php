@@ -19,7 +19,7 @@
                                 <span style="color:red">{!! $errors->first('title') !!}</span>
                             @endif
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="sub_title" class="col-form-label text-nowrap">সাব-টাইটেল<span
                                     class="text-danger"> *</span></label>
                             <input type="text" class="form-control" name="sub_title" id="sub_title"
@@ -27,7 +27,7 @@
                             @if ($errors->has('sub_title'))
                                 <span style="color:red">{!! $errors->first('sub_title') !!}</span>
                             @endif
-                        </div>
+                        </div> --}}
                         <div class="form-group">
                             <label for="category_id" class=" col-form-label text-nowrap">ক্যাটগরি<span class="text-danger">*</span></label>
                             <select class="custom-select" name="category_id" value="{!! old('category_id') !!}">

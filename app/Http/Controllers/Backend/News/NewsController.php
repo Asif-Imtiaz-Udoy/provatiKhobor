@@ -75,7 +75,9 @@ class NewsController extends Controller
         if ($request->has('thumbnail')) {
             $image = $request->file('thumbnail');
             $thumbnail = time() . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(1200, 625)->save('images/news/' . $thumbnail);
+            Image::make($image)->resize(750, 390)->save('images/news/' . $thumbnail);
+
+            Image::make($image)->resize(750, 390)->insert('images/logo/logo.png', 'bottom-right')->save('images/news/og/'. $thumbnail);
         } else {
             $validator->validated();
         }
@@ -177,6 +179,8 @@ class NewsController extends Controller
             $image = $request->file('thumbnail');
             $thumbnail = time() . '.' . $image->getClientOriginalExtension();
             Image::make($image)->resize(1200, 625)->save('images/news/' . $thumbnail);
+
+            Image::make($image)->resize(750, 390)->insert('images/logo/logo.png', 'bottom-right')->save('images/news/og/'. $thumbnail);
         } else {
             $thumbnail = $news->news_image;
         }
