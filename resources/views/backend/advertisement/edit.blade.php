@@ -43,7 +43,7 @@
                                             right sidebar of category details page</option>
 
                                         <option value="12" {{ $advertisement->ad_category == 12 ? 'selected' : '' }}>under
-                                            the category news section</option>
+                                            the video section</option>
 
                                     </select>
                                     @if ($errors->has('ad_category'))

@@ -31,7 +31,8 @@
                                             <p class="mb-0">
                                                 {{ $news->reporter_id == null ? 'প্রভাতী খবর' : $news->reporter['name'] }}
                                             </p>
-                                            <p>{{ bangla_date(strtotime($news->created_at), 'en') }},&nbsp;&nbsp;{{ $news->created_at->format('g:i A') }}
+                                            <p>
+                                                {{ bangla_date(strtotime($news->created_at), 'en') }},&nbsp;&nbsp;{{ $news->created_at->format('g:i A') }}
                                             </p>
                                         </div>
                                     </div>
