@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @yield('meta')
     <title>Provati Khobor</title>
+    <link rel="icon" href="{{ url('assets/frontend/images/logo/favicon.png') }}" type="image/x-icon"> <!-- Favicon-->
 
     <!-- All css files are included here. -->
     <!-- Bootstrap fremwork main css -->
@@ -25,10 +26,10 @@
     @include('partials.frontend.header')
     <!------ Header end ------>
 
-   @yield('content')
+    @yield('content')
 
     <!------ Footer start ------>
-   @include('partials.frontend.footer')
+    @include('partials.frontend.footer')
     <!------ Footer end ------>
 
 
