@@ -321,7 +321,7 @@
                             <div class="col-lg-3">
                                 <div class="p-3 pb-1 mb-2">
                                     <a href="{{ route('newsDetail', $opinion->id) }}">
-                                        <img class="img-fluid" style="height:300px;"
+                                        <img class="img-fluid" style="height:275px;"
                                             src="{{ url('images/news/' . $opinion->news_image) }}" alt="News Box">
                                     </a>
                                     <a href="{{ route('newsDetail', $opinion->id) }}"
@@ -371,7 +371,7 @@
                                     @foreach ($categoryNewses as $categoryNews)
                                         <div class="p-3 pb-1 mb-2 text-center">
                                             <a href="{{ route('newsDetail', $categoryNews->id) }}">
-                                                <img class="img-fluid" style="height:300px;"
+                                                <img class="img-fluid" style="height:275px;"
                                                     src="{{ url('images/news/' . $categoryNews->news_image) }}"
                                                     alt="News Box">
                                                 <h5 class="text-center mb-0">{{ $categoryNews->title }}</h5>
@@ -427,7 +427,7 @@
                                     @foreach ($categoryNewses as $categoryNews)
                                         <div class="p-3 pb-1 mb-2 text-center">
                                             <a href="{{ route('newsDetail', $categoryNews->id) }}">
-                                                <img class="img-fluid" style="height:300px;"
+                                                <img class="img-fluid" style="height:275px;"
                                                     src="{{ url('images/news/' . $categoryNews->news_image) }}"
                                                     alt="News Box">
                                                 <h5 class="text-center mb-0">{{ $categoryNews->title }}</h5>
