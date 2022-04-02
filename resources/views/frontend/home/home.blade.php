@@ -509,10 +509,10 @@
                                             <div class="pb-3 d-flex justify-content-center">
                                                 <button class="btn btn-success mr-20">মতামত দিন</button>
                                             </div>
+                                            <button typ="button" class="btn btn-danger" id="poll_result">জরিপের
+                                                ফলাফল</button>
                                         </form>
 
-                                        <button typ="button" class="btn btn-danger" id="poll_result">জরিপের
-                                            ফলাফল</button>
                                     </div>
                                     <div id="poll_result_div" class="col-lg-12 side-border d-none">
                                         @php
@@ -522,7 +522,7 @@
                                         <label class="form-label pl-5">হ্যা</label>
                                         <div class="progress bg-white">
                                             <div class="progress-bar" role="progressbar"
-                                                style="width: {{ number_format(($poll->is_yes / $total) * 100, 2, '.', '') }}%;"
+                                                style="width: {{ number_format(($poll->is_yes / ($total = 0 ? 1 : $total)) * 100, 2, '.', '') }}%;"
                                                 aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                                                 {{ number_format(($poll->is_yes / $total) * 100, 2, '.', '') }}%
                                             </div>
