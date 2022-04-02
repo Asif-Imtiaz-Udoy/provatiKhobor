@@ -144,8 +144,6 @@
             </div>
         </div>
     </section>
-
-    
     <!------ Lead news end ------>
 
     <!------ Advertisement start ------>
@@ -340,7 +338,6 @@
     <!------ Advertisement end ------>
 
     <!------ Feature Category start ------>
-
     <section class="mt-30">
         <div class="container">
             <div class="row">
@@ -349,7 +346,7 @@
                         <?php
                         $categoryNewses = App\Models\News::where('category_id', $feature->id)
                             ->latest()
-                            ->limit(4)
+                            ->limit(5)
                             ->get();
                         ?>
                         @if ($key >= 3)
@@ -373,9 +370,6 @@
             </div>
         </div>
     </section>
-    
-    
-
     <!------ Feature Category end ------>
 
     <!------ Advertisement start ------>
@@ -403,7 +397,7 @@
                     @foreach ($features as $key => $feature)
                         <?php $categoryNewses = App\Models\News::where('category_id', $feature->id)
                             ->latest()
-                            ->limit(4)
+                            ->limit(5)
                             ->get(); ?>
                         @if ($key < 3)
                             <div class="col-lg-3 position-relative">
@@ -532,7 +526,6 @@
         </section>
     @endif
     <!------ Photo gallery end ------>
-
 
     <!------ Advertisement start ------>
     @if (!empty($advertisements))
