@@ -79,10 +79,10 @@
                                                     </a>
                                                     <div class="details">
                                                         <p class="lh-1 mb-0 text-left fs-6 text-main" style="font-weight: 500;
-                                                            text-align: justify;
-                                                            padding-left: 3px;">
+                                                                text-align: justify;
+                                                                padding-left: 3px;">
                                                             <a class="pl-2"
-                                                                href="{{ route('newsDetail', $breaking->id) }}"><b>{{ $breaking->title }}</b></a>
+                                                                href="{{ route('newsDetail', $breaking->id) }}">{!! mb_substr(strip_tags($breaking->title), 0, 50, 'UTF-8') !!}...</a>
                                                         </p>
                                                         <p class="fs-6 lh-1 px-2 mb-0 pt-3">{!! mb_substr(strip_tags($breaking->news_body), 0, 100, 'UTF-8') !!}...</p>
                                                     </div>
