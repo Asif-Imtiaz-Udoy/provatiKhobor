@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('meta')
-    <meta property="og:url" content="{{ URL::to('/') }}/news/{{ $news->slug }}" />
+    <meta property="og:url" content="{{ 'https://provati.d3itsolution.com'}}/news/{{ $news->slug }}" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ $news->title }}" />
     <meta property="og:description" content="{!! strip_tags($news->news_body) !!}.." />
