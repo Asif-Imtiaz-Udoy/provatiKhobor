@@ -27,12 +27,10 @@
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-between align-item-center">
-                        <div class="form-group mb-0">
-                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" name="feature" id="feature" value="1" {{ $category->feature == 1 ? 'checked' : '' }}>
-                              <label class="custom-control-label" for="feature">ফিচার</label>
-                            </div>
-                          </div>
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" name="feature" id="feature" value="1" {{ $category->feature == 1 ? 'checked' : '' }}>
+                            <label class="custom-control-label" for="feature">ফিচার</label>
+                        </div>
                           <div>
                             <a type="button" class="btn btn-outline-primary" href="{{ route('admin.category.index') }}">বাতিল
                             </a>

@@ -71,11 +71,21 @@ class MultimediaController extends Controller
             $thumbnail = '';
         }
 
+        $url = $request->video_link;
+        
+        if(strlen($url) > 11)
+        {
+            if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match))
+            {
+                $url = 'http://www.youtube.com/embed/'. $match[1];
+            }
+        }
+
         Multimedia::create(
             array_merge(
                 [
                     "photo" => $thumbnail,
-                    "video_link" => $request->video_link,
+                    "video_link" => $url,
                 ],
                 $validator->validated()
             )

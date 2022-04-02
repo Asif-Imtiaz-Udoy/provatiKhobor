@@ -81,22 +81,20 @@
                                 <input type="text" class="form-control" name="name" id="name">
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group row d-flex">
-                        <label for="order_id" class="col-sm-3 col-form-label text-nowrap">অর্ডার আইডি<span
-                                class="text-danger"> *</span></label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" name="order_id" id="order_id">
-                            </select>
+                        <div class="form-group row d-flex">
+                            <label for="order_id" class="col-sm-3 col-form-label text-nowrap">অর্ডার আইডি<span
+                                    class="text-danger"> *</span></label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="order_id" id="order_id">
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-between align-item-center">
-                        <div class="form-group mb-0">
-                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" name="feature" id="feature" value="1">
-                              <label class="custom-control-label" for="feature">ফিচার</label>
-                            </div>
-                          </div>
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" name="feature" id="feature" value="1">
+                            <label class="custom-control-label" for="feature">ফিচার</label>
+                        </div>
                         <button type="submit" class="btn btn-primary">সংযুক্ত করুন</button>
                     </div>
                 </form>
