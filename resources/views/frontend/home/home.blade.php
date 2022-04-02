@@ -507,10 +507,10 @@
                                                 <label class="form-check-label" for="no_comment">মন্তব্য নাই</label>
                                             </div>
                                             <div class="pb-3 d-flex justify-content-center">
-                                                <button class="btn btn-success mr-20">মতামত দিন</button>
+                                                <button type="submit" class="btn btn-success mr-20">মতামত দিন</button>
+                                                <button typ="button" class="btn btn-danger" id="poll_result">জরিপের
+                                                    ফলাফল</button>
                                             </div>
-                                            <button typ="button" class="btn btn-danger" id="poll_result">জরিপের
-                                                ফলাফল</button>
                                         </form>
 
                                     </div>
