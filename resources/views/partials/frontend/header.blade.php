@@ -2,7 +2,9 @@
     <!-- Logo Section -->
     <div class="container">
         <div class="logo d-flex justify-content-between align-items-center">
-            <img src="{{ url('assets/frontend/images/logo/logo.png') }}" alt="logo">
+            <a href="{{ route('home') }}">
+                <img src="{{ url('assets/frontend/images/logo/logo.png') }}" alt="logo">
+            </a>
             <a href="#">ই-পেপার</a>
         </div>
     </div>

@@ -172,6 +172,10 @@
     @if (!empty($videos))
         <section class="video mt-30">
             <div class="container">
+                <div class="sec-heading border-top border-3 position-relative">
+                    <h3>ভিডিও</h3>
+                    <a href="#" class="extra lh-1 border border-3"><i class="zmdi zmdi-long-arrow-right"></i></a>
+                </div>
                 <div class="row">
                     @foreach ($videos as $video)
                         <div class="col-lg-3">
@@ -209,32 +213,30 @@
     @if (!empty($successfuls))
         <section class="successful mt-30">
             <div class="container">
-                <div class="row">
-                    <div class="sec-heading border-top border-3 position-relative">
-                        <h3>সফল যারা</h3>
-                        <a href="#" class="extra lh-1 border border-3"><i class="zmdi zmdi-long-arrow-right"></i></a>
-                    </div>
-                    <div class="row py-3">
-                        @foreach ($successfuls as $successful)
-                            <div class="col-lg-4 mt-3">
-                                <div class="successful-item bg-white d-flex align-items-center justify-content-around">
-                                    <div class="details">
-                                        <p class="lh-1 mb-0">{{ $successful->title }}</p>
-                                        <a class="text-info"
-                                            href="{{ route('newsDetail', $successful->slug) }}">{{ $successful->reporter }}</a>
-                                        <p class="lh-1 mb-0 fs-6">{!! mb_substr(strip_tags($successful->news_body), 0, 200, 'UTF-8') !!}</p>
-                                    </div>
-                                    <a href="{{ route('newsDetail', $successful->slug) }}">
-                                        <div class="thumbnail rounded-circle overflow-hidden">
-                                            <img class="h-100 img-fluid"
-                                                src="{{ url('images/news/' . $successful->news_image) }}"
-                                                alt="thumbnail">
-                                        </div>
-                                    </a>
+                <div class="sec-heading border-top border-3 position-relative">
+                    <h3>সফল যারা</h3>
+                    <a href="#" class="extra lh-1 border border-3"><i class="zmdi zmdi-long-arrow-right"></i></a>
+                </div>
+                <div class="row py-3">
+                    @foreach ($successfuls as $successful)
+                        <div class="col-lg-4 mt-3">
+                            <div class="successful-item bg-white d-flex align-items-center justify-content-around">
+                                <div class="details">
+                                    <p class="lh-1 mb-0">{{ $successful->title }}</p>
+                                    <a class="text-info"
+                                        href="{{ route('newsDetail', $successful->slug) }}">{{ $successful->reporter }}</a>
+                                    <p class="lh-1 mb-0 fs-6">{!! mb_substr(strip_tags($successful->news_body), 0, 200, 'UTF-8') !!}</p>
                                 </div>
+                                <a href="{{ route('newsDetail', $successful->slug) }}">
+                                    <div class="thumbnail rounded-circle overflow-hidden">
+                                        <img class="h-100 img-fluid"
+                                            src="{{ url('images/news/' . $successful->news_image) }}"
+                                            alt="thumbnail">
+                                    </div>
+                                </a>
                             </div>
-                        @endforeach
-                    </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -262,31 +264,29 @@
     @if (!empty($develops))
         <section class="develop-partner mt-30">
             <div class="container">
-                <div class="row">
-                    <div class="sec-heading border-top border-3 position-relative">
-                        <h3>উন্নয়ন অংশীদার</h3>
-                        <a href="#" class="extra lh-1 border border-3"><i class="zmdi zmdi-long-arrow-right"></i></a>
-                    </div>
-                    <div class="row py-3">
-                        @foreach ($develops as $develop)
-                            <div class="col-lg-4 mt-3">
-                                <div class="develop-item d-flex align-items-center">
-                                    <div class="details bg-white w-75 h-100 p-3">
-                                        <p class="lh-1 mb-0">{{ $develop->title }}</p>
-                                        <a class="text-info"
-                                            href="{{ route('newsDetail', $develop->slug) }}">{{ $develop->reporter }}</a>
-                                        <p class="lh-1 mb-0 fs-6">{!! mb_substr(strip_tags($develop->news_body), 0, 120, 'UTF-8') !!}</p>
-                                    </div>
-                                    <div class="thumbnail overflow-hidden text-center w-25 h-100">
-                                        <a href="{{ route('newsDetail', $develop->slug) }}">
-                                            <img class="w-100 h-100"
-                                                src="{{ url('images/news/' . $develop->news_image) }}" alt="thumbnail">
-                                        </a>
-                                    </div>
+                <div class="sec-heading border-top border-3 position-relative">
+                    <h3>উন্নয়ন অংশীদার</h3>
+                    <a href="#" class="extra lh-1 border border-3"><i class="zmdi zmdi-long-arrow-right"></i></a>
+                </div>
+                <div class="row py-3">
+                    @foreach ($develops as $develop)
+                        <div class="col-lg-4 mt-3">
+                            <div class="develop-item d-flex align-items-center">
+                                <div class="details bg-white w-75 h-100 p-3">
+                                    <p class="lh-1 mb-0">{{ $develop->title }}</p>
+                                    <a class="text-info"
+                                        href="{{ route('newsDetail', $develop->slug) }}">{{ $develop->reporter }}</a>
+                                    <p class="lh-1 mb-0 fs-6">{!! mb_substr(strip_tags($develop->news_body), 0, 120, 'UTF-8') !!}</p>
+                                </div>
+                                <div class="thumbnail overflow-hidden text-center w-25 h-100">
+                                    <a href="{{ route('newsDetail', $develop->slug) }}">
+                                        <img class="w-100 h-100"
+                                            src="{{ url('images/news/' . $develop->news_image) }}" alt="thumbnail">
+                                    </a>
                                 </div>
                             </div>
-                        @endforeach
-                    </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -379,6 +379,12 @@
                                         </div>
                                     @endforeach
                                 </div>
+                                <div class="text-center">
+                                    <a class="bg-main px-3 py-1 text-white"
+                                        href="{{ route('categoryDetails', $feature->slug) }}">
+                                        {{ $feature->name }}
+                                    </a>
+                                </div>
                             </div>
                         @endif
                     @endforeach
@@ -431,7 +437,7 @@
                                 </div>
                                 <div class="text-center">
                                     <a class="bg-main px-3 py-1 text-white"
-                                        href="{{ route('newsDetail', $feature->slug) }}">
+                                        href="{{ route('categoryDetails', $feature->slug) }}">
                                         {{ $feature->name }}
                                     </a>
                                 </div>
