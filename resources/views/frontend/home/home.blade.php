@@ -223,8 +223,8 @@
                             <div class="successful-item bg-white d-flex align-items-center justify-content-around">
                                 <div class="details">
                                     <p class="lh-1 mb-0">{{ $successful->title }}</p>
-                                    <a class="text-info"
-                                        href="{{ route('newsDetail', $successful->id) }}">{{ $successful->reporter }}</a>
+                                    {{-- <a class="text-info"
+                                        href="{{ route('newsDetail', $successful->id) }}">{{ $successful->reporter }}</a> --}}
                                     <p class="lh-1 mb-0 fs-6">{!! mb_substr(strip_tags($successful->news_body), 0, 200, 'UTF-8') !!}</p>
                                 </div>
                                 <a href="{{ route('newsDetail', $successful->id) }}">
