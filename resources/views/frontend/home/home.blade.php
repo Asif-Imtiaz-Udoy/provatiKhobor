@@ -325,7 +325,7 @@
                                             src="{{ url('images/news/' . $opinion->news_image) }}" alt="News Box">
                                     </a>
                                     <a href="{{ route('newsDetail', $opinion->id) }}"
-                                        class="p-2">{{ $opinion->title }}</a>
+                                        class="p-2"><b>{{ $opinion->title }}</b></a>
                                 </div>
                             </div>
                         @endforeach
