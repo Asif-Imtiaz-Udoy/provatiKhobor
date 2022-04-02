@@ -483,71 +483,73 @@
                                     </div>
                                 </div>
                             @endif
-                            <div class="border p-2 bg-section">
-                                <p class="pt-20"> {{ $poll->question }}
-                                </p>
-                                <div class="pb-3 d-flex justify-content-center">
-                                    <form action="{{ route('poll.vote', $poll->id) }}" method="POST">
-                                        @csrf
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="is_yes" id="is_yes"
-                                                value="option1">
-                                            <label class="form-check-label" for="is_yes">হ্যা</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="is_no" id="is_no"
-                                                value="option2">
-                                            <label class="form-check-label" for="is_no">না</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="no_comment" id="no_comment"
-                                                value="option2">
-                                            <label class="form-check-label" for="no_comment">মন্তব্য নাই</label>
-                                        </div>
-                                        <div class="pb-3 d-flex justify-content-center">
-                                            <button class="btn btn-success mr-20">মতামত দিন</button>
-                                        </div>
-                                    </form>
+                            @if (!empty($poll))
+                                <div class="border p-2 bg-section">
+                                    <p class="pt-20"> {{ $poll->question }}
+                                    </p>
+                                    <div class="pb-3 d-flex justify-content-center">
+                                        <form action="{{ route('poll.vote', $poll->id) }}" method="POST">
+                                            @csrf
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="is_yes" id="is_yes"
+                                                    value="option1">
+                                                <label class="form-check-label" for="is_yes">হ্যা</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="is_no" id="is_no"
+                                                    value="option2">
+                                                <label class="form-check-label" for="is_no">না</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="no_comment"
+                                                    id="no_comment" value="option2">
+                                                <label class="form-check-label" for="no_comment">মন্তব্য নাই</label>
+                                            </div>
+                                            <div class="pb-3 d-flex justify-content-center">
+                                                <button class="btn btn-success mr-20">মতামত দিন</button>
+                                            </div>
+                                        </form>
 
-                                    <button typ="button" class="btn btn-danger" id="poll_result">জরিপের
-                                        ফলাফল</button>
-                                </div>
-                                <div id="poll_result_div" class="col-lg-12 side-border d-none">
-                                    @php
-                                        $total = $poll->is_yes + $poll->is_no + $poll->no_comment;
-                                    @endphp
-                                    <span class="d-block pl-5">সর্বমোট ভোটঃ {{ $total }} টি</span>
-                                    <label class="form-label pl-5">হ্যা</label>
-                                    <div class="progress bg-white">
-                                        <div class="progress-bar" role="progressbar"
-                                            style="width: {{ number_format(($poll->is_yes / $total) * 100, 2, '.', '') }}%;"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                            {{ number_format(($poll->is_yes / $total) * 100, 2, '.', '') }}%
+                                        <button typ="button" class="btn btn-danger" id="poll_result">জরিপের
+                                            ফলাফল</button>
+                                    </div>
+                                    <div id="poll_result_div" class="col-lg-12 side-border d-none">
+                                        @php
+                                            $total = $poll->is_yes + $poll->is_no + $poll->no_comment;
+                                        @endphp
+                                        <span class="d-block pl-5">সর্বমোট ভোটঃ {{ $total }} টি</span>
+                                        <label class="form-label pl-5">হ্যা</label>
+                                        <div class="progress bg-white">
+                                            <div class="progress-bar" role="progressbar"
+                                                style="width: {{ number_format(($poll->is_yes / $total) * 100, 2, '.', '') }}%;"
+                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                                {{ number_format(($poll->is_yes / $total) * 100, 2, '.', '') }}%
+                                            </div>
+                                        </div>
+                                        <label class="form-label pl-5">না</label>
+                                        <div class="progress bg-white">
+                                            <div class="progress-bar" role="progressbar"
+                                                style="width: {{ number_format(($poll->is_no / $total) * 100, 2, '.', '') }}%;"
+                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                                {{ number_format(($poll->is_no / $total) * 100, 2, '.', '') }}%</div>
+                                        </div>
+                                        <label class="form-label pl-5">মন্তব্য
+                                            নাই</label>
+                                        <div class="progress bg-white">
+                                            <div class="progress-bar" role="progressbar"
+                                                style="width: {{ number_format(($poll->no_comment / $total) * 100, 2, '.', '') }}%;"
+                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                                {{ number_format(($poll->no_comment / $total) * 100, 2, '.', '') }}%
+                                            </div>
+                                        </div>
+                                        <div class="py-3 d-flex justify-content-center">
+                                            <button type="button" class="btn btn-primary" id="poll_vote">
+                                                ভোট দিন
+                                            </button>
                                         </div>
                                     </div>
-                                    <label class="form-label pl-5">না</label>
-                                    <div class="progress bg-white">
-                                        <div class="progress-bar" role="progressbar"
-                                            style="width: {{ number_format(($poll->is_no / $total) * 100, 2, '.', '') }}%;"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                            {{ number_format(($poll->is_no / $total) * 100, 2, '.', '') }}%</div>
-                                    </div>
-                                    <label class="form-label pl-5">মন্তব্য
-                                        নাই</label>
-                                    <div class="progress bg-white">
-                                        <div class="progress-bar" role="progressbar"
-                                            style="width: {{ number_format(($poll->no_comment / $total) * 100, 2, '.', '') }}%;"
-                                            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                            {{ number_format(($poll->no_comment / $total) * 100, 2, '.', '') }}%
-                                        </div>
-                                    </div>
-                                    <div class="py-3 d-flex justify-content-center">
-                                        <button type="button" class="btn btn-primary" id="poll_vote">
-                                            ভোট দিন
-                                        </button>
-                                    </div>
                                 </div>
-                            </div>
+                            @endif
                         </aside>
                     </div>
                 </div>
