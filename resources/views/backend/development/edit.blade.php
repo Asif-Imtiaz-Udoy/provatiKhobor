@@ -51,14 +51,10 @@
                             @endif
                         </div>
 
-                        <div class="form-group row pl-5 pr-5">
-                            <label for="news_body" class=" col-form-label text-nowrap">নিউজ<span class="text-danger">
+                        <div class="form-group">
+                            <label for="news_body">নিউজ<span class="text-danger">
                                     *</span></label>
-                            <br>
-                            <div>
-                                <textarea type="text" class="form-control tinymce-editor" name="news_body"
-                                    id="news_body">{{ $news->news_body }}</textarea>
-                            </div>
+                            <textarea class="form-control" id="news_body" name="news_body" rows="3">{{ $news->news_body }}</textarea>
                             @if ($errors->has('news_body'))
                                 <span style="color:red">{!! $errors->first('news_body') !!}</span>
                             @endif
@@ -147,7 +143,7 @@
                 toolbar_mode: 'floating',
                 tinycomments_mode: 'embedded',
                 tinycomments_author: 'Author name',
-                height : "480"
+                height: "480"
             });
         });
     </script>
