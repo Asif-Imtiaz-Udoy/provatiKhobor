@@ -16,12 +16,12 @@
                                 @foreach ($latestNewses as $key => $latestNews)
                                     @if ($key == 0)
                                         <div class="feature-news">
-                                            <a href="{{ route('newsDetail', $latestNews->slug) }}">
+                                            <a href="{{ route('newsDetail', $latestNews->id) }}">
                                                 <img class="img-fluid w-100"
                                                     src="{{ url('/images/news', $latestNews->news_image) }}"
                                                     alt="feature-news">
                                             </a>
-                                            <a href="{{ route('newsDetail', $latestNews->slug) }}">
+                                            <a href="{{ route('newsDetail', $latestNews->id) }}">
                                                 <h2 class="mtb-10">{{ $latestNews->title }}</h2>
                                             </a>
                                         </div>
@@ -35,7 +35,7 @@
                                             <div class="col-lg-12 col-md-6">
                                                 <div class="single-news mb-10">
                                                     <div class="thumbnail">
-                                                        <a href="{{ route('newsDetail', $latestNews->slug) }}">
+                                                        <a href="{{ route('newsDetail', $latestNews->id) }}">
                                                             <img class="img-fluid w-100"
                                                                 src="{{ url('/images/news', $latestNews->news_image) }}"
                                                                 alt="news image">
@@ -43,7 +43,7 @@
                                                     </div>
                                                     <div class="single-news-title">
                                                         <a class="mtb-10"
-                                                            href="{{ route('newsDetail', $latestNews->slug) }}">{{ $latestNews->title }}</a>
+                                                            href="{{ route('newsDetail', $latestNews->id) }}">{{ $latestNews->title }}</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -59,7 +59,7 @@
                                     <div class="col-lg-4 col-md-6">
                                         <div class="single-news mb-10">
                                             <div class="thumbnail">
-                                                <a href="{{ route('newsDetail', $latestNews->slug) }}">
+                                                <a href="{{ route('newsDetail', $latestNews->id) }}">
                                                     <img class="img-fluid w-100"
                                                         src="{{ url('/images/news', $latestNews->news_image) }}"
                                                         alt="news image">
@@ -67,7 +67,7 @@
                                             </div>
                                             <div class="single-news-title">
                                                 <a class="mtb-10"
-                                                    href="{{ route('newsDetail', $latestNews->slug) }}">{{ $latestNews->title }}</a>
+                                                    href="{{ route('newsDetail', $latestNews->id) }}">{{ $latestNews->title }}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -85,14 +85,14 @@
                                     @foreach ($popularNewses as $popularNews)
                                         <div class="list-news-item ptb-10">
                                             <div class="thumbnail">
-                                                <a href="{{ route('newsDetail', $popularNews->slug) }}">
+                                                <a href="{{ route('newsDetail', $popularNews->id) }}">
                                                     <img class="img-fluid w-100"
                                                         src="{{ url('/images/news', $popularNews->news_image) }}"
                                                         alt="news image">
                                                 </a>
                                             </div>
                                             <a
-                                                href="{{ route('newsDetail', $popularNews->slug) }}">{{ $popularNews->title }}</a>
+                                                href="{{ route('newsDetail', $popularNews->id) }}">{{ $popularNews->title }}</a>
                                         </div>
                                     @endforeach
                                 @endif

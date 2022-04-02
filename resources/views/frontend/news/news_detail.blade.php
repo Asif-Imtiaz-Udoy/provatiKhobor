@@ -46,16 +46,16 @@
                             <ul class="share d-flex">
                                 <li>
                                     <div id="facebook-share" class="fb-share-button"
-                                        data-href="{{ URL::to('/') }}/news/{{ $news->slug }}"
+                                        data-href="{{ URL::to('/') }}/news/{{ $news->id }}"
                                         data-layout="button_count">
                                     </div>
                                 </li>
                                 <li>
-                                    <a href="https://twitter.com/intent/tweet?text='{{ URL::to('/') }}/news/{{ $news->slug }}'"
+                                    <a href="https://twitter.com/intent/tweet?text='{{ URL::to('/') }}/news/{{ $news->id }}'"
                                         target="_blank"><i class="zmdi zmdi-twitter"></i></a>
                                 </li>
                                 <li>
-                                    <a href="https://web.whatsapp.com/send?text='{{ URL::to('/') }}/news/{{ $news->slug }}'"
+                                    <a href="https://web.whatsapp.com/send?text='{{ URL::to('/') }}/news/{{ $news->id }}'"
                                         target="_blank"><i class="zmdi zmdi-whatsapp"></i></a>
                                 </li>
                                 <li>
@@ -97,7 +97,7 @@
                                                     alt="news image">
                                             </div>
                                             <div class="single-news-title">
-                                                <a href="{{ route('newsDetail', $relatedNews->slug) }}"
+                                                <a href="{{ route('newsDetail', $relatedNews->id) }}"
                                                     class="mtb-10">{{ $relatedNews->title }}</a>
                                             </div>
                                         </div>
@@ -124,7 +124,7 @@
                                                     alt="news image">
                                             </div>
                                             <div class="single-news-title">
-                                                <a href="{{ route('newsDetail', $latestNews->slug) }}"
+                                                <a href="{{ route('newsDetail', $latestNews->id) }}"
                                                     class="mtb-10">{{ $latestNews->title }}</a>
                                             </div>
                                         </div>
