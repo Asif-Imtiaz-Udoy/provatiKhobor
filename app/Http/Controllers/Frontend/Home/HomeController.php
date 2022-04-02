@@ -29,7 +29,7 @@ class HomeController extends Controller
         $breakings = News::where('type', 3)->latest('created_at')->limit(2)->get();
         $poll = Poll::latest()->first();
 
-        return view('frontend.home.home', compact('lead_newses', 'news_boxes', 'poll', 'latest_newses', 'features', 'photos', 'videos', 'opinions', 'successfuls', 'develops', 'prayer', 'breakings'));
+        return view('frontend.home.home', compact('lead_newses', 'news_boxes', 'poll', 'latest_newses', 'features', 'photos', 'videos', 'opinions', 'successfuls', 'develops', 'prayer', 'breakings', 'advertisements'));
     }
 
     public function vote($id, Request $request)
