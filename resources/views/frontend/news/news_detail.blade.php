@@ -1,5 +1,13 @@
 @extends('layouts.frontend')
 
+@section('meta')
+    <meta property="og:url" content="{{ URL::to('/') }}/news/{{ $news->slug }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ $news->title }}" />
+    <meta property="og:description" content="{!! strip_tags($news->description) !!}.." />
+    <meta property="og:image" content="{{ url('images/news/og/', $news->thumbnail) }}" />
+@endsection
+
 @section('content')
     <main>
         <div class="container">
