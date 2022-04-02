@@ -140,7 +140,7 @@
                                 @foreach ($advertisements as $key => $advertisement)
                                     @if ($advertisement->ad_category == 3)
                                         <a href="{{ $advertisement->link }}">
-                                            <img class="img-fluid"
+                                            <img class="img-fluid w-100"
                                                 src="{{ url('images/advertisement/' . $advertisement->add_image) }}"
                                                 alt="Job Notice">
                                         </a>
