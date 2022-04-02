@@ -524,23 +524,24 @@
                                             <div class="progress-bar" role="progressbar"
                                                 style="width: {{ number_format(($poll->is_yes / ($total == 0 ? 1 : $total)) * 100, 2, '.', '') }}%;"
                                                 aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                                {{ number_format(($poll->is_yes / $total) * 100, 2, '.', '') }}%
+                                                {{ number_format(($poll->is_yes / ($total == 0 ? 1 : $total)) * 100, 2, '.', '') }}%
                                             </div>
                                         </div>
                                         <label class="form-label pl-5">না</label>
                                         <div class="progress bg-white">
                                             <div class="progress-bar" role="progressbar"
-                                                style="width: {{ number_format(($poll->is_no / $total) * 100, 2, '.', '') }}%;"
+                                                style="width: {{ number_format(($poll->is_no / ($total == 0 ? 1 : $total)) * 100, 2, '.', '') }}%;"
                                                 aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                                {{ number_format(($poll->is_no / $total) * 100, 2, '.', '') }}%</div>
+                                                {{ number_format(($poll->is_no / ($total == 0 ? 1 : $total)) * 100, 2, '.', '') }}%
+                                            </div>
                                         </div>
                                         <label class="form-label pl-5">মন্তব্য
                                             নাই</label>
                                         <div class="progress bg-white">
                                             <div class="progress-bar" role="progressbar"
-                                                style="width: {{ number_format(($poll->no_comment / $total) * 100, 2, '.', '') }}%;"
+                                                style="width: {{ number_format(($poll->no_comment / ($total == 0 ? 1 : $total)) * 100, 2, '.', '') }}%;"
                                                 aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                                {{ number_format(($poll->no_comment / $total) * 100, 2, '.', '') }}%
+                                                {{ number_format(($poll->no_comment / ($total == 0 ? 1 : $total)) * 100, 2, '.', '') }}%
                                             </div>
                                         </div>
                                         <div class="py-3 d-flex justify-content-center">
