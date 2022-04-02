@@ -55,7 +55,7 @@
                                     *</span></label>
                             <br>
                             <div>
-                                <textarea type="text" class="form-control tinymce-editor" name="news_body" id="news_body"
+                                <textarea type="text" class="form-control" id="news_body" name="news_body" rows="3"
                                     value="{!! old('news_body') !!}"></textarea>
                             </div>
                             @if ($errors->has('news_body'))
@@ -146,7 +146,7 @@
                 toolbar_mode: 'floating',
                 tinycomments_mode: 'embedded',
                 tinycomments_author: 'Author name',
-                height : "480"
+                height: "480"
             });
         });
     </script>

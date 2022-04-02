@@ -29,7 +29,8 @@
                             @endif
                         </div>
                         <div class="form-group">
-                            <label for="category_id" class=" col-form-label text-nowrap">ক্যাটগরি<span class="text-danger">*</span></label>
+                            <label for="category_id" class=" col-form-label text-nowrap">ক্যাটগরি<span
+                                    class="text-danger">*</span></label>
                             <select class="custom-select" name="category_id" value="{!! old('category_id') !!}">
                                 <option selected>ক্যাটাগরি নির্বাচন করুন</option>
                                 @foreach ($categories as $category)
@@ -61,7 +62,8 @@
                         <div class="form-group">
                             <label for="news_body">নিউজ<span class="text-danger">
                                     *</span></label>
-                            <textarea class="form-control" id="news_body" name="news_body" rows="3"></textarea>
+                            <textarea type="text" class="form-control" id="news_body" name="news_body" rows="3"
+                                value="{!! old('news_body') !!}"></textarea>
                             @if ($errors->has('news_body'))
                                 <span style="color:red">{!! $errors->first('news_body') !!}</span>
                             @endif
@@ -77,9 +79,10 @@
                         </div>
                         <div class="d-flex justify-content-between py-2">
                             <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" name="lead_news" id="lead_news" value="1">
+                                <input type="checkbox" class="custom-control-input" name="lead_news" id="lead_news"
+                                    value="1">
                                 <label class="custom-control-label" for="lead_news">লিড নিউজ</label>
-                              </div>
+                            </div>
                             <div class="custom-control custom-switch">
                                 <input type="checkbox" class="custom-control-input" name="news_box" id="news_box" value="1">
                                 <label class="custom-control-label" for="news_box">নিউজ বক্স</label>
@@ -104,7 +107,7 @@
                 toolbar_mode: 'floating',
                 tinycomments_mode: 'embedded',
                 tinycomments_author: 'Author name',
-                height : "480"
+                height: "480"
             });
         });
     </script>
