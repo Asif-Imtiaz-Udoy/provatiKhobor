@@ -82,7 +82,7 @@
                                                                     text-align: justify;
                                                                     padding-left: 3px;">
                                                             <a class="pl-2"
-                                                                href="{{ route('newsDetail', $breaking->id) }}"><b>{!! mb_substr(strip_tags($breaking->title), 0, 50, 'UTF-8') !!}...</b></a>
+                                                                href="{{ route('newsDetail', $breaking->id) }}"><b>{!! mb_substr(strip_tags($breaking->title), 0, 35, 'UTF-8') !!}...</b></a>
                                                         </p>
                                                         <p class="fs-6 lh-1 px-2 mb-0 pt-3">{!! mb_substr(strip_tags($breaking->news_body), 0, 100, 'UTF-8') !!}...</p>
                                                     </div>
