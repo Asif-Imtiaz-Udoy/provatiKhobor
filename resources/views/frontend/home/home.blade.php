@@ -78,7 +78,9 @@
                                                         </div>
                                                     </a>
                                                     <div class="details">
-                                                        <p class="lh-1 mb-0 text-left fs-6 text-main" style="font-weight:500px; text-align: justify; padding-left: 3px;">
+                                                        <p class="lh-1 mb-0 text-left fs-6 text-main" style="font-weight: 500;
+                                                                    text-align: justify;
+                                                                    padding-left: 3px;">
                                                             <a class="pl-2"
                                                                 href="{{ route('newsDetail', $breaking->id) }}"><b>{!! mb_substr(strip_tags($breaking->title), 0, 50, 'UTF-8') !!}...</b></a>
                                                         </p>
