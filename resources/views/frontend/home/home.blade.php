@@ -172,7 +172,7 @@
     @if (!empty($videos))
         <section class="video mt-30">
             <div class="container">
-                <div class="sec-heading border-top border-3 position-relative">
+                <div class="mb-20 sec-heading border-top border-3 position-relative">
                     <h3>ভিডিও</h3>
                     <a href="#" class="extra lh-1 border border-3"><i class="zmdi zmdi-long-arrow-right"></i></a>
                 </div>
@@ -213,7 +213,7 @@
     @if (!empty($successfuls))
         <section class="successful mt-30">
             <div class="container">
-                <div class="sec-heading border-top border-3 position-relative">
+                <div class="mb-20 sec-heading border-top border-3 position-relative">
                     <h3>সফল যারা</h3>
                     <a href="#" class="extra lh-1 border border-3"><i class="zmdi zmdi-long-arrow-right"></i></a>
                 </div>
@@ -264,7 +264,7 @@
     @if (!empty($develops))
         <section class="develop-partner mt-30">
             <div class="container">
-                <div class="sec-heading border-top border-3 position-relative">
+                <div class="mb-20 sec-heading border-top border-3 position-relative">
                     <h3>উন্নয়ন অংশীদার</h3>
                     <a href="#" class="extra lh-1 border border-3"><i class="zmdi zmdi-long-arrow-right"></i></a>
                 </div>
