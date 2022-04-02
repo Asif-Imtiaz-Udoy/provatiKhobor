@@ -58,16 +58,14 @@
                             @if ($errors->has('image_caption'))
                                 <span style="color:red">{!! $errors->first('image_caption') !!}</span>
                             @endif
-                        </div>
-                        <div class="form-group">
-                            <label for="news_body">নিউজ<span class="text-danger">
-                                    *</span></label>
-                            <textarea type="text" class="form-control" id="news_body" name="news_body" rows="3"
-                                value="{!! old('news_body') !!}"></textarea>
-                            @if ($errors->has('news_body'))
-                                <span style="color:red">{!! $errors->first('news_body') !!}</span>
-                            @endif
-                        </div>
+                            <div class="form-group">
+                                <label for="news_body">নিউজ<span class="text-danger">
+                                        *</span></label>
+                                <textarea class="form-control" id="news_body" name="news_body" rows="3"></textarea>
+                                @if ($errors->has('news_body'))
+                                    <span style="color:red">{!! $errors->first('news_body') !!}</span>
+                                @endif
+                            </div>
                         <div class="form-group">
                             <label for="reporter" class=" col-form-label text-nowrap">রিপোর্টার<span class="text-danger">
                                     *</span></label>
