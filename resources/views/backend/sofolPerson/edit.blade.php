@@ -148,7 +148,7 @@
                 toolbar_mode: 'floating',
                 tinycomments_mode: 'embedded',
                 tinycomments_author: 'Author name',
-                height : "480"
+                height: "480"
             });
         });
     </script>
