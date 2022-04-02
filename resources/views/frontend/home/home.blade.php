@@ -84,7 +84,7 @@
                                                             <a class="pl-2"
                                                                 href="{{ route('newsDetail', $breaking->id) }}"><b>{{ $breaking->title }}</b></a>
                                                         </p>
-                                                        <p class="fs-6 lh-1 px-2 mb-0 pt-4">{!! mb_substr(strip_tags($breaking->news_body), 0, 50, 'UTF-8') !!}...</p>
+                                                        <p class="fs-6 lh-1 px-2 mb-0 pt-3">{!! mb_substr(strip_tags($breaking->news_body), 0, 100, 'UTF-8') !!}...</p>
                                                     </div>
                                                 </div>
                                             </div>
