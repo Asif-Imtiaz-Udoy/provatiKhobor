@@ -321,7 +321,7 @@
                             <div class="col-lg-3">
                                 <div class="p-3 pb-1 mb-2">
                                     <a href="{{ route('newsDetail', $opinion->id) }}">
-                                        <img class="img-fluid"
+                                        <img class="img-fluid" style="height:300px;"
                                             src="{{ url('images/news/' . $opinion->news_image) }}" alt="News Box">
                                     </a>
                                     <a href="{{ route('newsDetail', $opinion->id) }}"
