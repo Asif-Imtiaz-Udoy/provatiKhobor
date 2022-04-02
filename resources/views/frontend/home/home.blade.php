@@ -369,7 +369,7 @@
                             <div class="col-lg-3 position-relative">
                                 <div class="feature-slider">
                                     @foreach ($categoryNewses as $categoryNews)
-                                        <div class="p-3 pb-1 mb-2 text-center" style="height:250px;">
+                                        <div class="p-3 pb-1 mb-2 text-center">
                                             <a href="{{ route('newsDetail', $categoryNews->id) }}">
                                                 <img class="img-fluid" style="height:300px;"
                                                     src="{{ url('images/news/' . $categoryNews->news_image) }}"
