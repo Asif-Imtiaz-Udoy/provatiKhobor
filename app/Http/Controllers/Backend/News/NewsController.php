@@ -94,7 +94,7 @@ class NewsController extends Controller
                 $validator->validated()
             )
         );
-
+        
         $news = News::orderBy('updated_at', 'DESC')->first();
 
         if ($news->type == 0) {

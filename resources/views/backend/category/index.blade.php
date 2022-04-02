@@ -82,15 +82,12 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="modal-body">
-                        <div class="form-group row d-flex">
-                            <label for="order_id" class="col-sm-3 col-form-label text-nowrap">অর্ডার আইডি<span
-                                    class="text-danger"> *</span></label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="order_id" id="order_id">
-                                </select>
-                            </div>
+                    <div class="form-group row d-flex">
+                        <label for="order_id" class="col-sm-3 col-form-label text-nowrap">অর্ডার আইডি<span
+                                class="text-danger"> *</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="order_id" id="order_id">
+                            </select>
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-between align-item-center">
