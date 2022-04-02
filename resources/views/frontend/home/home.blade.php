@@ -79,7 +79,7 @@
                                                     </a>
                                                     <div class="details">
                                                         <p class="lh-1 mb-0 text-left fs-6 text-main">
-                                                            <a
+                                                            <a class="pl-2 text-justify"
                                                                 href="{{ route('newsDetail', $breaking->id) }}"><b>{{ $breaking->title }}</b></a>
                                                         </p>
                                                         <p class="fs-6 lh-1 px-2 mb-0 pt-2">{!! mb_substr(strip_tags($breaking->news_body), 0, 50, 'UTF-8') !!}...</p>
@@ -100,7 +100,7 @@
                                                 src="{{ url('images/news/' . $news_box->news_image) }}" alt="News Box">
                                             <h6 class="mb-1 text-center text-dark">{{ $news_box->title }}</h6>
                                         </a>
-                                        <p class="fs-6 lh-1 px-2 mb-0">{!! mb_substr(strip_tags($news_box->news_body), 0, 50, 'UTF-8') !!}...</p>
+                                        {{-- <p class="fs-6 lh-1 px-2 mb-0">{!! mb_substr(strip_tags($news_box->news_body), 0, 50, 'UTF-8') !!}...</p> --}}
                                     </div>
                                 @endforeach
                             </div>
