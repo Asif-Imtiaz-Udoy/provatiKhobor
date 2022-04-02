@@ -9,10 +9,10 @@ use App\Http\Controllers\Backend\KhasKhobor\KhashKhoborController;
 use App\Http\Controllers\Backend\Motamot\MotamotController;
 use App\Http\Controllers\Backend\Multimedia\MultimediaController;
 use App\Http\Controllers\Backend\News\NewsController;
+use App\Http\Controllers\Backend\Poll\PollController;
 use App\Http\Controllers\Backend\Prayer\PrayerController;
 use App\Http\Controllers\Backend\Role\RoleController;
 use App\Http\Controllers\Backend\SofolPerson\SofolPersonController;
-use App\Http\Controllers\Backend\SubCategory\SubCategoryController;
 use App\Http\Controllers\Backend\User\UserController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +32,9 @@ Route::name('admin.')->group(function () {
 
         // news route=================
         Route::resource('news', NewsController::class, ['names' => 'news']);
+
+        // poll route=================
+        Route::resource('poll', PollController::class, ['names' => 'poll']);
 
         // motamot news ===============
         Route::get('motamot', [MotamotController::class, 'index'])->name('motamot');

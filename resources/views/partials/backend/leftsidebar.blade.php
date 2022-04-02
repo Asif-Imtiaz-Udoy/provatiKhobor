@@ -78,6 +78,15 @@
             </a>
         </li>
     @endcan
+
+    @can('admin.poll.index')
+        <li class="nav-item {{ Route::is('admin.poll.*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('admin.poll.index') }}">
+                <i class="far fa-fw fa-window-maximize"></i>
+                <span>ভোট/পুল</span>
+            </a>
+        </li>
+    @endcan
     <hr class="sidebar-divider">
     <div class="sidebar-heading">
         এডমিন এবং অনুমতি

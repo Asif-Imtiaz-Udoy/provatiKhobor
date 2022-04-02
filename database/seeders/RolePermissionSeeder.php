@@ -45,6 +45,15 @@ class RolePermissionSeeder extends Seeder
             'admin.news.update',
             'admin.news.destroy',
 
+
+            'admin.poll.index',
+            'admin.poll.create',
+            'admin.poll.store',
+            'admin.poll.show',
+            'admin.poll.edit',
+            'admin.poll.update',
+            'admin.poll.destroy',
+
             'admin.motamot',
             'admin.motamot.create',
             'admin.motamot.edit',

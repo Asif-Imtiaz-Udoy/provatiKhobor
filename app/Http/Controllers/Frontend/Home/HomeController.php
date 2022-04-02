@@ -7,6 +7,7 @@ use App\Models\Advertisement;
 use App\Models\Category;
 use App\Models\Multimedia;
 use App\Models\News;
+use App\Models\Poll;
 use App\Models\Prayer;
 use Illuminate\Http\Request;
 
@@ -26,8 +27,23 @@ class HomeController extends Controller
         $advertisements = Advertisement::all();
         $prayer = Prayer::latest()->first();
         $breakings = News::where('type', 3)->latest('created_at')->limit(2)->get();
+        $poll = Poll::latest()->first();
 
-        return view('frontend.home.home', compact('lead_newses', 'news_boxes', 'latest_newses', 'features', 'photos', 'videos', 'opinions', 'successfuls', 'develops', 'prayer', 'breakings'));
+        return view('frontend.home.home', compact('lead_newses', 'news_boxes', 'poll', 'latest_newses', 'features', 'photos', 'videos', 'opinions', 'successfuls', 'develops', 'prayer', 'breakings'));
     }
 
+    public function vote($id, Request $request)
+    {
+        $poll = Poll::findOrFail(intval($id));
+
+        if ($request->has('is_yes')) {
+            $poll->increment('is_yes');
+        } elseif ($request->has('is_no')) {
+            $poll->increment('is_no');
+        } else {
+            $poll->increment('no_comment');
+        }
+
+        return redirect()->back();
+    }
 }
