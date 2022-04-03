@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('meta')
-    <meta property="og:url" content="{{ 'https://provati.d3itsolution.com'}}/news/{{ $news->slug }}" />
+    <meta property="og:url" content="{{ URL::to('/') }}/news-detail/{{ $news->id }}" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ $news->title }}" />
     <meta property="og:description" content="{!! strip_tags($news->news_body) !!}.." />
@@ -38,10 +38,22 @@
                                             </div>
                                             <div class="reporter">
                                                 <p class="mb-0">
-                                                    {{ $news->reporter_id == null ? 'প্রভাতী খবর' : $news->reporter['name'] }}
+                                                    {{ $news->reporter_id == null ? 'প্রভাতী খবর' : $news->reporter }}
                                                 </p>
+                                                <p>{{ bangla_date(strtotime($news->created_at), 'en') }},&nbsp;&nbsp;{{ $news->created_at->format('g:i A') }}
+                                                </p>
+                                            </div>
+                                            <div class="news-img">
+                                                <img class="img-fluid w-100"
+                                                    src="{{ url('/images/news', $news->news_image) }}" alt="news image">
+                                            </div>
+                                            <div id="print-title"
+                                                class="details-title d-flex justify-content-center ptb-10 d-none">
+                                                <h1>{{ $news->title }}</h1>
+                                            </div>
+                                            <div class="news-details p-20">
                                                 <p>
-                                                    {{ bangla_date(strtotime($news->created_at), 'en') }},&nbsp;&nbsp;{{ $news->created_at->format('g:i A') }}
+                                                    {!! $news->news_body !!}
                                                 </p>
                                             </div>
                                         </div>
