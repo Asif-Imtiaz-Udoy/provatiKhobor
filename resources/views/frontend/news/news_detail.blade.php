@@ -65,7 +65,7 @@
                             <ul class="share d-flex">
                                 <li>
                                     <div id="facebook-share" class="fb-share-button"
-                                        data-href="{{ URL::to('/') }}/news/{{ $news->id }}"
+                                        data-href="{{ URL::to('/') }}/news-detail/{{ $news->id }}"
                                         data-layout="button_count">
                                     </div>
                                 </li>
