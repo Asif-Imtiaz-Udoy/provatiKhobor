@@ -5,7 +5,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ $news->title }}" />
     <meta property="og:description" content="{!! strip_tags($news->news_body) !!}.." />
-    <meta property="og:image" content="{{ url('images/news/', $news->news_image) }}" />
+    <meta property="og:image" content="{{ url('images/news/og/', $news->news_image) }}" />
 @endsection
 
 @section('content')
