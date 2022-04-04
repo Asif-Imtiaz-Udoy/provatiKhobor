@@ -94,6 +94,9 @@
                         <div class="news-img">
                             <img class="img-fluid w-100" src="{{ url('/images/news', $news->news_image) }}"
                                 alt="news image">
+                            <div class="caption">
+                                <figcaption class="text-center text-muted">{{ $news->image_caption }}া</figcaption>
+                            </div>
                         </div>
                         <div class="news-details p-20">
                             <p>
