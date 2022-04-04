@@ -162,7 +162,7 @@
                 <section class="advertisement mt-30">
                     <div class="container">
                         <a href="{{ $advertisement->link }}">
-                            <img class="w-100 img-fluid"
+                            <img class="w-100 img-fluid" style="height: 169px"
                                 src="{{ url('images/advertisement/' . $advertisement->add_image) }}" alt="Advertisement">
                         </a>
                     </div>
@@ -203,7 +203,7 @@
                 <section class="advertisement mt-30">
                     <div class="container">
                         <a href="{{ $advertisement->link }}">
-                            <img class="w-100 img-fluid"
+                            <img class="w-100 img-fluid" style="height: 169px"
                                 src="{{ url('images/advertisement/' . $advertisement->add_image) }}" alt="Advertisement">
                         </a>
                     </div>
@@ -254,7 +254,7 @@
                 <section class="advertisement mt-30">
                     <div class="container">
                         <a href="{{ $advertisement->link }}">
-                            <img class="w-100 img-fluid"
+                            <img class="w-100 img-fluid" style="height: 169px"
                                 src="{{ url('images/advertisement/' . $advertisement->add_image) }}" alt="Advertisement">
                         </a>
                     </div>
@@ -304,7 +304,7 @@
                 <section class="advertisement mt-30">
                     <div class="container">
                         <a href="{{ $advertisement->link }}">
-                            <img class="w-100 img-fluid"
+                            <img class="w-100 img-fluid" style="height: 169px"
                                 src="{{ url('images/advertisement/' . $advertisement->add_image) }}" alt="Advertisement">
                         </a>
                     </div>
@@ -347,7 +347,7 @@
                 <section class="advertisement mt-30">
                     <div class="container">
                         <a href="{{ $advertisement->link }}">
-                            <img class="w-100 img-fluid"
+                            <img class="w-100 img-fluid" style="height: 169px"
                                 src="{{ url('images/advertisement/' . $advertisement->add_image) }}" alt="Advertisement">
                         </a>
                     </div>
@@ -405,7 +405,7 @@
                 <section class="advertisement mt-30">
                     <div class="container">
                         <a href="{{ $advertisement->link }}">
-                            <img class="w-100 img-fluid"
+                            <img class="w-100 img-fluid" style="height: 169px"
                                 src="{{ url('images/advertisement/' . $advertisement->add_image) }}" alt="Advertisement">
                         </a>
                     </div>
@@ -601,7 +601,7 @@
                 <section class="advertisement mt-30">
                     <div class="container">
                         <a href="{{ $advertisement->link }}">
-                            <img class="w-100 img-fluid"
+                            <img class="w-100 img-fluid" style="height: 169px"
                                 src="{{ url('images/advertisement/' . $advertisement->add_image) }}" alt="Advertisement">
                         </a>
                     </div>
