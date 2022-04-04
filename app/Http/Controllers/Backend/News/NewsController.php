@@ -256,6 +256,9 @@ class NewsController extends Controller
         if (file_exists('images/news/' . $news->news_image)) {
             unlink('images/news/' . $news->news_image);
         }
+        if (file_exists('images/news/og/' . $news->news_image)) {
+            unlink('images/news/og/' . $news->news_image);
+        }
         $news->delete();
         return redirect()->route('admin.news.index')->with('success', 'সংবাদটি সফলভাবে মুছে ফেলা হয়েছে');
     }

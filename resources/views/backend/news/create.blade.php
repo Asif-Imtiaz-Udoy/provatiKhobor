@@ -66,27 +66,29 @@
                                     <span style="color:red">{!! $errors->first('news_body') !!}</span>
                                 @endif
                             </div>
-                        <div class="form-group">
-                            <label for="reporter" class=" col-form-label text-nowrap">রিপোর্টার<span class="text-danger">
-                                    *</span></label>
-                            <input type="text" class="form-control" name="reporter" id="reporter"
-                                value="{!! old('reporter') !!}">
-                            @if ($errors->has('reporter'))
-                                <span style="color:red">{!! $errors->first('reporter') !!}</span>
-                            @endif
-                        </div>
-                        <div class="d-flex justify-content-between py-2">
-                            <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" name="lead_news" id="lead_news"
-                                    value="1">
-                                <label class="custom-control-label" for="lead_news">লিড নিউজ</label>
+                            <div class="form-group">
+                                <label for="reporter" class=" col-form-label text-nowrap">রিপোর্টার<span
+                                        class="text-danger">
+                                        *</span></label>
+                                <input type="text" class="form-control" name="reporter" id="reporter"
+                                    value="{!! old('reporter') !!}">
+                                @if ($errors->has('reporter'))
+                                    <span style="color:red">{!! $errors->first('reporter') !!}</span>
+                                @endif
                             </div>
-                            <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" name="news_box" id="news_box" value="1">
-                                <label class="custom-control-label" for="news_box">নিউজ বক্স</label>
+                            <div class="d-flex justify-content-between py-2">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" name="lead_news" id="lead_news"
+                                        value="1">
+                                    <label class="custom-control-label" for="lead_news">লিড নিউজ</label>
+                                </div>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" name="news_box" id="news_box"
+                                        value="1">
+                                    <label class="custom-control-label" for="news_box">নিউজ বক্স</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">সংযুক্ত করুন</button>
                             </div>
-                            <button type="submit" class="btn btn-primary">সংযুক্ত করুন</button>
-                        </div>
                     </form>
                 </div>
             </div>
@@ -95,17 +97,49 @@
 @endsection
 @section('scripts')
     <script>
-        $('.dropify').dropify();
-
         $(document).ready(function() {
+            $('.dropify').dropify();
+
             tinymce.init({
-                selector: 'textarea',
-                plugins: 'a11ychecker advcode casechange export formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
-                toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter pageembed permanentpen table',
-                toolbar_mode: 'floating',
-                tinycomments_mode: 'embedded',
-                tinycomments_author: 'Author name',
-                height: "480"
+                selector: "textarea",
+                height: 600,
+                relative_urls: false,
+                paste_data_images: true,
+                image_title: true,
+                automatic_uploads: true,
+                images_upload_url: "{{ route('admin.post.image.upload') }}",
+                file_picker_types: "image",
+                plugins: [
+                    "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+                    "searchreplace wordcount visualblocks visualchars code fullscreen",
+                    "insertdatetime media nonbreaking save table contextmenu directionality",
+                    "emoticons template paste textcolor colorpicker textpattern"
+                ],
+                toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+                toolbar2: "print preview media | forecolor backcolor emoticons",
+                // override default upload handler to simulate successful upload
+                file_picker_callback: function(cb, value, meta) {
+                    var input = document.createElement("input");
+                    input.setAttribute("type", "file");
+                    input.setAttribute("accept", "image/*");
+                    input.onchange = function() {
+                        var file = this.files[0];
+
+                        var reader = new FileReader();
+                        reader.readAsDataURL(file);
+                        reader.onload = function() {
+                            var id = "blobid" + new Date().getTime();
+                            var blobCache = tinymce.activeEditor.editorUpload.blobCache;
+                            var base64 = reader.result.split(",")[1];
+                            var blobInfo = blobCache.create(id, file, base64);
+                            blobCache.add(blobInfo);
+                            cb(blobInfo.blobUri(), {
+                                title: file.name
+                            });
+                        };
+                    };
+                    input.click();
+                }
             });
         });
     </script>

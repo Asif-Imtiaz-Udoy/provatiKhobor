@@ -26,12 +26,13 @@ Route::name('admin.')->group(function () {
 
     Route::middleware(['auth'])->group(function () {
         Route::get('/', [HomeController::class, 'index'])->name('home');
-
+        
         // category route ============
         Route::resource('category', CategoryController::class, ['names' => 'category']);
 
         // news route=================
         Route::resource('news', NewsController::class, ['names' => 'news']);
+        Route::post('news/post/image/upload', [HomeController::class, 'uploadImage'])->name('post.image.upload');
 
         // poll route=================
         Route::resource('poll', PollController::class, ['names' => 'poll']);

@@ -11,4 +11,10 @@ class HomeController extends Controller
     {
         return view('backend.home.home');
     }
+
+    public function uploadImage(Request $request)
+    {
+        $imgpath = $request->file('file')->store('post', 'public');
+        return response()->json(['location' => "/storage/$imgpath"]);
+    }
 }
