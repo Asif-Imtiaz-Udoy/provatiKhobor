@@ -142,7 +142,7 @@ class AdvertisementController extends Controller
             //image upload
             $image = $request->file('thumbnail');
             $thumbnail = time() . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(1200, 169)->save('images/advertisement/' . $thumbnail);
+            Image::make($image)->resize(1200, 200)->save('images/advertisement/' . $thumbnail);
         } else {
             $thumbnail = $advertisement->add_image;
         }
