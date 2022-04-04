@@ -40,63 +40,61 @@
 -----------------------------------*/
 
 (function ($) {
-  "use strict";
-
-  /*-------------------------------------------
-    01. Sticky Menu
-  --------------------------------------------- */
-  var win = $(window);
-  var menu = $("#menu");
-  win.on('scroll', function () {
-    var scroll = win.scrollTop();
-    if (scroll < 92) {
-      menu.removeClass("sticky");
-    } else {
-      menu.addClass("sticky");
-    }
-  });
+    "use strict";
 
     /*-------------------------------------------
-    02. Initialize Slick
-  --------------------------------------------- */
-  $('.feature-slider').slick({
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    prevArrow: '<div class="left-arrows lh-1"><button type="button" class="prev-arrow bg-secondary lh-0"><i class="zmdi zmdi-arrow-left"></i></button></div>',
-    nextArrow: '<div class="right-arrows lh-1"><button type="button" class="next-arrow bg-secondary lh-0"><i class="zmdi zmdi-arrow-right"></i></button></div>',
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: {
-          arrows: false
+      01. Sticky Menu
+    --------------------------------------------- */
+    var win = $(window);
+    var menu = $("#menu");
+    win.on('scroll', function () {
+        var scroll = win.scrollTop();
+        if (scroll < 92) {
+            menu.removeClass("sticky");
+        } else {
+            menu.addClass("sticky");
         }
-      },
-    ]
-  });
+    });
 
-  /*-------------------------------------------
+    /*-------------------------------------------
+      02. Initialize Slick
+    --------------------------------------------- */
+    $('.feature-slider').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        prevArrow: '<div class="left-arrows lh-1"><button type="button" class="prev-arrow bg-secondary lh-0"><i class="zmdi zmdi-arrow-left"></i></button></div>',
+        nextArrow: '<div class="right-arrows lh-1"><button type="button" class="next-arrow bg-secondary lh-0"><i class="zmdi zmdi-arrow-right"></i></button></div>',
+        responsive: [{
+            breakpoint: 992,
+            settings: {
+                arrows: false
+            }
+        }, ]
+    });
+
+    /*-------------------------------------------
     03. Initialize Swiper
   --------------------------------------------- */
-  var swiper = new Swiper(".mySwiper", {
-    effect: "coverflow",
-    grabCursor: true,
-    centeredSlides: true,
-    slidesPerView: "auto",
-    navigation: {
-      nextEl: ".swiper-next",
-      prevEl: ".swiper-prev",
-    },
-    loop: true,
-    coverflowEffect: {
-      rotate: 0,
-      stretch: 0,
-      depth: 1200,
-      modifier: 1,
-      slideShadows: false,
-    },
-    autoplay: {
-      delay: 3000,
-    },
-  });
+    var swiper = new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        navigation: {
+            nextEl: ".swiper-next",
+            prevEl: ".swiper-prev",
+        },
+        loop: true,
+        coverflowEffect: {
+            rotate: 0,
+            stretch: 0,
+            depth: 1200,
+            modifier: 1,
+            slideShadows: false,
+        },
+        autoplay: {
+            delay: 3000,
+        },
+    });
 })(jQuery);
