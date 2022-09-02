@@ -27,7 +27,8 @@
                         @foreach ($categories as $key => $category)
                             @if ($key < 8)
                                 <li class="nav-item">
-                                    <a class="nav-link fs-5" href="{{ route('categoryDetails', $category->id) }}"><b>{{ $category->name }}</b></a>
+                                    <a class="nav-link fs-5"
+                                        href="{{ route('categoryDetails', $category->id) }}"><b>{{ $category->name }}</b></a>
                                 </li>
                             @endif
                         @endforeach
@@ -67,10 +68,11 @@
                 <div class="top-news-left">
                     <span>শিরোনামঃ</span>
                 </div>
-                <marquee direction="left">
-                    @if (!empty($categories))
+                <marquee direction="left" style="background: linear-gradient(90deg, #c65430 0%, #d0944d 30%, #c76577 70%, #c34d4b 100%);">
+                    @if (!empty($newses))
                         @foreach ($newses as $news)
-                            <span><i class="zmdi zmdi-dot-circle"></i>{{ $news }}</span>
+                            <span><a href="{{ route('newsDetail', $news->id) }}"><i
+                                        class="zmdi zmdi-dot-circle"></i>{{ $news->title }}</a></span>
                         @endforeach
                     @endif
                 </marquee>

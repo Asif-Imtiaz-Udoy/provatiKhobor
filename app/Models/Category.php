@@ -15,4 +15,9 @@ class Category extends Model
         'feature'
     ];
 
+    // public function news()
+    // {
+    //     return $this->hasMany('App\Models\News', 'category_id');
+    // }
+
 }
