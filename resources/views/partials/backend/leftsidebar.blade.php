@@ -36,39 +36,39 @@
                         href="{{ route('admin.news.index') }}">সংবাদ</a>
                 @endcan
                 @can('admin.motamot')
-                    <a class="collapse-item {{ Route::is('admin.motamot') ? 'active' : '' }}"
-                        href="{{ route('admin.motamot') }}">মতামত</a>
+                    {{-- <a class="collapse-item {{ Route::is('admin.motamot') ? 'active' : '' }}"
+                        href="{{ route('admin.motamot') }}">মতামত</a> --}}
                 @endcan
                 @can('admin.sofolPerson')
-                    <a class="collapse-item {{ Route::is('admin.sofolPerson') ? 'active' : '' }}"
-                        href="{{ route('admin.sofolPerson') }}">সফল যারা</a>
+                    {{-- <a class="collapse-item {{ Route::is('admin.sofolPerson') ? 'active' : '' }}"
+                        href="{{ route('admin.sofolPerson') }}">সফল যারা</a> --}}
                 @endcan
                 @can('admin.khashKhobor')
-                    <a class="collapse-item {{ Route::is('admin.khashKhobor') ? 'active' : '' }}"
-                        href="{{ route('admin.khashKhobor') }}">খাস খবর</a>
+                    {{-- <a class="collapse-item {{ Route::is('admin.khashKhobor') ? 'active' : '' }}"
+                        href="{{ route('admin.khashKhobor') }}">খাস খবর</a> --}}
                 @endcan
                 @can('admin.development')
-                    <a class="collapse-item {{ Route::is('admin.development') ? 'active' : '' }}"
-                        href="{{ route('admin.development') }}">উন্নয়নের অংশীদার</a>
+                    {{-- <a class="collapse-item {{ Route::is('admin.development') ? 'active' : '' }}"
+                        href="{{ route('admin.development') }}">উন্নয়নের অংশীদার</a> --}}
                 @endcan
             </div>
         </div>
     </li>
     @can('admin.advertisement.index')
-        <li class="nav-item {{ Route::is('admin.advertisement.*') ? 'active' : '' }}">
+        {{-- <li class="nav-item {{ Route::is('admin.advertisement.*') ? 'active' : '' }}">
             <a class="nav-link collapsed " href="{{ route('admin.advertisement.index') }}">
                 <i class="far fa-fw fa-window-maximize"></i>
                 <span>বিজ্ঞাপন</span>
             </a>
-        </li>
+        </li> --}}
     @endcan
     @can('admin.prayer.index')
-        <li class="nav-item {{ Route::is('admin.prayer.*') ? 'active' : '' }}">
+        {{-- <li class="nav-item {{ Route::is('admin.prayer.*') ? 'active' : '' }}">
             <a class="nav-link collapsed" href="{{ route('admin.prayer.index') }}">
                 <i class="far fa-fw fa-window-maximize"></i>
                 <span>নামাজের সময় সূচী</span>
             </a>
-        </li>
+        </li> --}}
     @endcan
     @can('admin.multimedia.index')
         <li class="nav-item {{ Route::is('admin.multimedia.*') ? 'active' : '' }}">
@@ -80,12 +80,12 @@
     @endcan
 
     @can('admin.poll.index')
-        <li class="nav-item {{ Route::is('admin.poll.*') ? 'active' : '' }}">
+        {{-- <li class="nav-item {{ Route::is('admin.poll.*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin.poll.index') }}">
                 <i class="far fa-fw fa-window-maximize"></i>
                 <span>ভোট/পুল</span>
             </a>
-        </li>
+        </li> --}}
     @endcan
     <hr class="sidebar-divider">
     <div class="sidebar-heading">

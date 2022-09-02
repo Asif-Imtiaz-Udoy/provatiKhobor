@@ -66,6 +66,9 @@ class NewsController extends Controller
             ]
         );
 
+        $category = Category::findOrFail(intval($request->category_id));
+
+
         if (News::where('slug', $request->title)->exists()) {
             $slug = str_replace(' ', '-', $request->title) . rand(0, 99);
         } else {
@@ -77,10 +80,11 @@ class NewsController extends Controller
             $thumbnail = time() . '.' . $image->getClientOriginalExtension();
             Image::make($image)->resize(750, 390)->save('images/news/' . $thumbnail);
 
-            Image::make($image)->resize(750, 390)->insert('images/logo/logo.png', 'bottom-right')->save('images/news/og/'. $thumbnail);
+            Image::make($image)->resize(750, 390)->insert('images/logo/logo.png', 'bottom-right')->save('images/news/og/' . $thumbnail);
         } else {
             $validator->validated();
         }
+
 
         News::create(
             array_merge(
@@ -92,11 +96,12 @@ class NewsController extends Controller
                     'lead_news' => $request->lead_news,
                     'news_box' => $request->news_box,
                     'type' => $request->type,
+                    'category_slug' => $category->slug
                 ],
                 $validator->validated()
             )
         );
-        
+
         $news = News::orderBy('updated_at', 'DESC')->first();
 
         if ($news->type == 0) {
@@ -168,6 +173,7 @@ class NewsController extends Controller
                 'category_id' => 'required',
             ]
         );
+        $category = Category::findOrFail(intval($request->category_id));
 
         if ($request->hasfile('thumbnail')) {
             $img_path = 'images/news/' . $news->news_image;
@@ -180,7 +186,7 @@ class NewsController extends Controller
             $thumbnail = time() . '.' . $image->getClientOriginalExtension();
             Image::make($image)->resize(1200, 625)->save('images/news/' . $thumbnail);
 
-            Image::make($image)->resize(750, 390)->insert('images/logo/logo.png', 'bottom-right')->save('images/news/og/'. $thumbnail);
+            Image::make($image)->resize(750, 390)->insert('images/logo/logo.png', 'bottom-right')->save('images/news/og/' . $thumbnail);
         } else {
             $thumbnail = $news->news_image;
         }
@@ -199,6 +205,7 @@ class NewsController extends Controller
                         'news_box' => $request->news_box,
                         'type' => $request->type,
                         'tag' => $request->tag,
+                        'category_slug' => $category->slug
                     ],
                     $validator->validated()
                 )
@@ -221,6 +228,7 @@ class NewsController extends Controller
                         'news_box' => $request->news_box,
                         'type' => $request->type,
                         'tag' => $request->tag,
+                        'category_slug' => $category->slug
                     ],
                     $validator->validated()
                 )
@@ -235,7 +243,7 @@ class NewsController extends Controller
             return redirect()->route('admin.sofolPerson')->with('success', 'সংবাদটি সফলভাবে আপডেট করা হয়েছে');
         } elseif ($news->type == 3) {
             return redirect()->route('admin.khashKhobor')->with('success', 'সংবাদটি সফলভাবে আপডেট করা হয়েছে');
-        }elseif ($news->type == 4) {
+        } elseif ($news->type == 4) {
             return redirect()->route('admin.development')->with('success', 'সংবাদটি সফলভাবে আপডেট করা হয়েছে');
         }
     }

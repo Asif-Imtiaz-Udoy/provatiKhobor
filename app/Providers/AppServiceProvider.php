@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('partials.frontend.header', function ($view) {
             $view->with('categories', Category::orderBy('order_id', 'ASC')->get());
-            $view->with('newses', News::orderBy('id', 'DESC')->limit(5)->pluck('title'));
+            $view->with('newses', News::orderBy('id', 'DESC')->limit(5)->get());
         });
     }
 }

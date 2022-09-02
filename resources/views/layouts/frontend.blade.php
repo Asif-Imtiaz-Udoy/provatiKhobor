@@ -9,21 +9,26 @@
     <meta designer="Asif imtiaz udoy &amp; Md. Muttakin molla" content="www.muttakin.d3itsolution.com">
     <meta name="title" content="Provati Khobor: Bangla news portal">
     <meta name="url" content="http://provatikhobor.com/">
-    <meta name="keyword" content="alesha mart, all bangla newspaper, bangla newspaper, sumanbd, bangla web tools, dhaka post, jago news,ajker potrika,evaly,legue1, psg, newspaper,news paper,bd newspaper, bangla news, bangla newspaper, bengali newspaper,bangladesh newspaper,bangla news paper,bangladeshi newspaper,news paper bangladesh,daily news paper in bangladesh,daily newspapers of bangladesh,daily newspaper,Daily newspaper,Current News,current news,bengali daily newspaper,daily News,The Daily Prothom Alo, Prothom Alo, Prothom, provatikhobor, provati">
+    <meta name="keyword"
+        content="alesha mart, all bangla newspaper, bangla newspaper, sumanbd, bangla web tools, dhaka post, jago news,ajker potrika,evaly,legue1, psg, newspaper,news paper,bd newspaper, bangla news, bangla newspaper, bengali newspaper,bangladesh newspaper,bangla news paper,bangladeshi newspaper,news paper bangladesh,daily news paper in bangladesh,daily newspapers of bangladesh,daily newspaper,Daily newspaper,Current News,current news,bengali daily newspaper,daily News,The Daily Prothom Alo, Prothom Alo, Prothom, provatikhobor, provati">
     @yield('meta')
     <title>Provati Khobor</title>
-    <link rel="icon" href="{{ url('assets/frontend/images/logo/favicon.png') }}" type="image/x-icon"> <!-- Favicon-->
+    <link rel="icon" href="{{ url('assets/frontend/images/logo/favicon.png') }}" type="image/x-icon">
+    <!-- Favicon-->
 
     <!-- All css files are included here. -->
     <!-- Bootstrap fremwork main css -->
     {{-- asset('assets/backend/vendor --}}
-    <link rel="stylesheet" href="{{ asset('assets/frontend/plugins/bootstrap/css/bootstrap.min.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" rel="stylesheet">
     <!-- Swiper css -->
     <link rel="stylesheet" href="{{ asset('assets/frontend/plugins/swiper/swiper.min.css') }}">
     <!-- Slick css -->
     <link rel="stylesheet" href="{{ asset('assets/frontend/plugins/slick/slick.css') }}">
     <!-- Theme main style -->
     <link rel="stylesheet" href="{{ asset('assets/frontend/css/style.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/css/app.min.css') }}">
 </head>
 
 <body>
