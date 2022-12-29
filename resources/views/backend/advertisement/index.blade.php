@@ -90,18 +90,18 @@
                                     <select class="form-control" name="ad_category" id="ad_category">
                                         <option value="" selected disabled>--select category--</option>
 
-                                        <option value="1">top left sidebar</option>
-                                        <option value="2">top left sidebar mini</option>
-                                        <option value="3">job/notice/advertisemen</option>
-                                        <option value="4">top of the sofol news section</option>
-                                        <option value="5">under the sofol news section</option>
-                                        <option value="6">under unnoyoner ongshidar section</option>
-                                        <option value="7">under motamot section</option>
-                                        <option value="8">Under the photo gallery section</option>
-                                        <option value="9">top right section of news details page</option>
-                                        <option value="10">bottom of the news details page</option>
-                                        <option value="11">top right sidebar of category details page</option>
-                                        <option value="12">under the video section</option>
+                                        <option value="1">pop-up Add</option>
+                                        <!--<option value="2">top left sidebar mini</option>-->
+                                        <!--<option value="3">job/notice/advertisemen</option>-->
+                                        <!--<option value="4">top of the sofol news section</option>-->
+                                        <!--<option value="5">under the sofol news section</option>-->
+                                        <!--<option value="6">under unnoyoner ongshidar section</option>-->
+                                        <!--<option value="7">under motamot section</option>-->
+                                        <!--<option value="8">Under the photo gallery section</option>-->
+                                        <!--<option value="9">top right section of news details page</option>-->
+                                        <!--<option value="10">bottom of the news details page</option>-->
+                                        <!--<option value="11">top right sidebar of category details page</option>-->
+                                        <!--<option value="12">under the video section</option>-->
                                     </select>
                                     @if ($errors->has('ad_category'))
                                         <span style="color:red">{{ $errors->first('ad_category') }}</span>

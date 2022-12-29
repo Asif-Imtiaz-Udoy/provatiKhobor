@@ -19,31 +19,30 @@
                                     <select class="form-control" name="ad_category" id="ad_category">
 
 
-                                        <option value="1" {{ $advertisement->ad_category == 1 ? 'selected' : '' }}>top
-                                            left sidebar</option>
-                                        <option value="2" {{ $advertisement->ad_category == 2 ? 'selected' : '' }}>top
-                                            left sidebar mini</option>
-                                        <option value="3" {{ $advertisement->ad_category == 3 ? 'selected' : '' }}>
-                                            job/notice/advertisemen</option>
-                                        <option value="4" {{ $advertisement->ad_category == 4 ? 'selected' : '' }}>top of
-                                            the sofol news section</option>
-                                        <option value="5" {{ $advertisement->ad_category == 5 ? 'selected' : '' }}>under
-                                            the sofol news section</option>
-                                        <option value="6" {{ $advertisement->ad_category == 6 ? 'selected' : '' }}>under
-                                            unnoyoner ongshidar section</option>
-                                        <option value="7" {{ $advertisement->ad_category == 7 ? 'selected' : '' }}>under
-                                            motamot section</option>
-                                        <option value="8" {{ $advertisement->ad_category == 8 ? 'selected' : '' }}>Under
-                                            the photo gallery section</option>
-                                        <option value="9" {{ $advertisement->ad_category == 9 ? 'selected' : '' }}>top
-                                            right section of news details page</option>
-                                        <option value="10" {{ $advertisement->ad_category == 10 ? 'selected' : '' }}>
-                                            bottom of the news details page</option>
-                                        <option value="11" {{ $advertisement->ad_category == 11 ? 'selected' : '' }}>top
-                                            right sidebar of category details page</option>
+                                        <option value="1" {{ $advertisement->ad_category == 1 ? 'selected' : '' }}>pop-up add</option>
+                                        <!--<option value="2" {{ $advertisement->ad_category == 2 ? 'selected' : '' }}>top-->
+                                        <!--    left sidebar mini</option>-->
+                                        <!--<option value="3" {{ $advertisement->ad_category == 3 ? 'selected' : '' }}>-->
+                                        <!--    job/notice/advertisemen</option>-->
+                                        <!--<option value="4" {{ $advertisement->ad_category == 4 ? 'selected' : '' }}>top of-->
+                                        <!--    the sofol news section</option>-->
+                                        <!--<option value="5" {{ $advertisement->ad_category == 5 ? 'selected' : '' }}>under-->
+                                        <!--    the sofol news section</option>-->
+                                        <!--<option value="6" {{ $advertisement->ad_category == 6 ? 'selected' : '' }}>under-->
+                                        <!--    unnoyoner ongshidar section</option>-->
+                                        <!--<option value="7" {{ $advertisement->ad_category == 7 ? 'selected' : '' }}>under-->
+                                        <!--    motamot section</option>-->
+                                        <!--<option value="8" {{ $advertisement->ad_category == 8 ? 'selected' : '' }}>Under-->
+                                        <!--    the photo gallery section</option>-->
+                                        <!--<option value="9" {{ $advertisement->ad_category == 9 ? 'selected' : '' }}>top-->
+                                        <!--    right section of news details page</option>-->
+                                        <!--<option value="10" {{ $advertisement->ad_category == 10 ? 'selected' : '' }}>-->
+                                        <!--    bottom of the news details page</option>-->
+                                        <!--<option value="11" {{ $advertisement->ad_category == 11 ? 'selected' : '' }}>top-->
+                                        <!--    right sidebar of category details page</option>-->
 
-                                        <option value="12" {{ $advertisement->ad_category == 12 ? 'selected' : '' }}>under
-                                            the video section</option>
+                                        <!--<option value="12" {{ $advertisement->ad_category == 12 ? 'selected' : '' }}>under-->
+                                        <!--    the video section</option>-->
 
                                     </select>
                                     @if ($errors->has('ad_category'))

@@ -9077,7 +9077,7 @@ body {
     font-size: 16px;
     line-height: 1.8;
     font-weight: 400;
-    background: #fcf1e7
+    /* background: #fcf1e7 */
 }
 
 h1,
@@ -9351,4 +9351,8 @@ footer .editor-border {
 
 .details .news-details img {
     max-width: 100%
+}
+
+.youtube-image{
+    width: 195px;
 }

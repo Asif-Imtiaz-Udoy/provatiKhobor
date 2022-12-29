@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,6 +13,7 @@ class News extends Model
     protected $fillable = [
 
         'category_id',
+        'prodesh_id',
         'category_slug',
         'title',
         'sub_title',
@@ -30,4 +32,13 @@ class News extends Model
     {
         return $this->belongsTo('App\Models\Category', 'category_id');
     }
+    public function prodesh()
+    {
+        return $this->belongsTo('App\Models\Prodesh', 'prodesh_id');
+    }
+
+    // public function getDateAttribute()
+    // {
+    //     return Carbon::createFromFormat(format::'Y-m-d', $this->attributes['created_at'])
+    // }
 }

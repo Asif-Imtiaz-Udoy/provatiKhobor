@@ -98,6 +98,14 @@ class RolePermissionSeeder extends Seeder
             'admin.multimedia.edit',
             'admin.multimedia.update',
             'admin.multimedia.destroy',
+
+            'admin.prodesh.index',
+            'admin.prodesh.create',
+            'admin.prodesh.store',
+            'admin.prodesh.show',
+            'admin.prodesh.edit',
+            'admin.prodesh.update',
+            'admin.prodesh.destroy',
             
             'admin.user.index',
             'admin.user.create',

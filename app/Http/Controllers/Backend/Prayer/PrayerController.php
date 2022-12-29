@@ -121,11 +121,11 @@ class PrayerController extends Controller
      */
     public function destroy($id)
     {
-        if (!Auth::user()->can('admin.prayer.destroy')) {
-            return redirect()->route('admin.error');
-        }
+        // if (!Auth::user()->can('admin.prayer.destroy')) {
+        //     return redirect()->route('admin.error');
+        // }
         $prayer = Prayer::findOrFail(intval($id));
         $prayer->delete();
-        return redirect()->route('admin.prayer.index')->with('success', 'নামাজের সময়সূচি সফলভাবে মুছে ফেলা হয়েছে করা হয়েছে');
+        return redirect()->route('admin.prodesh.index')->with('success', 'নামাজের সময়সূচি সফলভাবে মুছে ফেলা হয়েছে করা হয়েছে');
     }
 }

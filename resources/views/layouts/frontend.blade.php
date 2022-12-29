@@ -5,14 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta developer="Md. muttakin molla &amp; Asif imtiaz udoy" content="www.muttakin.d3itsolution.com">
-    <meta designer="Asif imtiaz udoy &amp; Md. Muttakin molla" content="www.muttakin.d3itsolution.com">
-    <meta name="title" content="Provati Khobor: Bangla news portal">
-    <meta name="url" content="http://provatikhobor.com/">
+     <meta name="title" content="Ion_Tv">
+    <meta name="url" content="https://iontv.co.uk//">
     <meta name="keyword"
         content="alesha mart, all bangla newspaper, bangla newspaper, sumanbd, bangla web tools, dhaka post, jago news,ajker potrika,evaly,legue1, psg, newspaper,news paper,bd newspaper, bangla news, bangla newspaper, bengali newspaper,bangladesh newspaper,bangla news paper,bangladeshi newspaper,news paper bangladesh,daily news paper in bangladesh,daily newspapers of bangladesh,daily newspaper,Daily newspaper,Current News,current news,bengali daily newspaper,daily News,The Daily Prothom Alo, Prothom Alo, Prothom, provatikhobor, provati">
     @yield('meta')
-    <title>Provati Khobor</title>
+    <title>Ion News</title>
     <link rel="icon" href="{{ url('assets/frontend/images/logo/favicon.png') }}" type="image/x-icon">
     <!-- Favicon-->
 
@@ -47,6 +45,9 @@
     <!-- All js files are included here. -->
     <!-- jquery -->
     <script src="{{ asset('assets/frontend/plugins/jquery/jquery-v3.3.1.min.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <!-- Bootstrap framework js -->
     <script src="{{ asset('assets/frontend/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
     <!-- Swiper JS -->

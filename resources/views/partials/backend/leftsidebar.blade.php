@@ -1,6 +1,5 @@
 <ul class="navbar-nav sidebar sidebar-light accordion font-kalpurush" id="accordionSidebar">
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('home') }}"
-        target="_blank">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('home') }}" target="_blank">
         <div class="sidebar-brand-icon">
             <img src="{{ asset('assets/frontend/images/logo/logo.png') }}">
         </div>
@@ -28,7 +27,7 @@
             <span>সকল সংবাদ</span>
         </a>
         <div id="news"
-            class="collapse {{ Route::is('admin.news.*') ||route::is('admin.motamot') ||route::is('admin.motamot.create') ||route::is('admin.motamot.edit') ||route::is('admin.sofolPerson') ||route::is('admin.sofolPerson.create') ||route::is('admin.sofolPerson.edit') ||route::is('admin.development') ||route::is('admin.development.create') ||route::is('admin.development.edit') ||Route::is('admin.khashKhobor') ||Route::is('admin.khashKhobor.create') ||Route::is('admin.khashKhobor.edit')? 'show': '' }}"
+            class="collapse {{ Route::is('admin.news.*') || route::is('admin.motamot') || route::is('admin.motamot.create') || route::is('admin.motamot.edit') || route::is('admin.sofolPerson') || route::is('admin.sofolPerson.create') || route::is('admin.sofolPerson.edit') || route::is('admin.development') || route::is('admin.development.create') || route::is('admin.development.edit') || Route::is('admin.khashKhobor') || Route::is('admin.khashKhobor.create') || Route::is('admin.khashKhobor.edit') ? 'show' : '' }}"
             aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 @can('admin.news.index')
@@ -55,12 +54,12 @@
         </div>
     </li>
     @can('admin.advertisement.index')
-        {{-- <li class="nav-item {{ Route::is('admin.advertisement.*') ? 'active' : '' }}">
+        <li class="nav-item {{ Route::is('admin.advertisement.*') ? 'active' : '' }}">
             <a class="nav-link collapsed " href="{{ route('admin.advertisement.index') }}">
                 <i class="far fa-fw fa-window-maximize"></i>
                 <span>বিজ্ঞাপন</span>
             </a>
-        </li> --}}
+        </li>
     @endcan
     @can('admin.prayer.index')
         {{-- <li class="nav-item {{ Route::is('admin.prayer.*') ? 'active' : '' }}">
@@ -80,12 +79,20 @@
     @endcan
 
     @can('admin.poll.index')
-        {{-- <li class="nav-item {{ Route::is('admin.poll.*') ? 'active' : '' }}">
+        <li class="nav-item {{ Route::is('admin.poll.*') ? 'active' : '' }}">
             <a class="nav-link" href="{{ route('admin.poll.index') }}">
                 <i class="far fa-fw fa-window-maximize"></i>
                 <span>ভোট/পুল</span>
             </a>
-        </li> --}}
+        </li>
+    @endcan
+    @can('admin.prodesh.index')
+        <li class="nav-item {{ Route::is('admin.prodesh.*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('admin.prodesh.index') }}">
+                <i class="far fa-fw fa-window-maximize"></i>
+                <span>প্রদেশ</span>
+            </a>
+        </li>
     @endcan
     <hr class="sidebar-divider">
     <div class="sidebar-heading">
@@ -98,8 +105,7 @@
                 <i class="fas fa-shield-alt"></i>
                 <span>সকল এডমিন এবং পারমিশন</span>
             </a>
-            <div id="up_report"
-                class="collapse {{ Route::is('admin.user.*') || Route::is('admin.role.*') ? 'show' : '' }}"
+            <div id="up_report" class="collapse {{ Route::is('admin.user.*') || Route::is('admin.role.*') ? 'show' : '' }}"
                 aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     @can('admin.user.index')
@@ -119,7 +125,8 @@
         Log Out
     </div>
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+        <a class="nav-link" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">
             <i class="fas fa-fw fa-power-off"></i>
             <span>Log Out</span></a>

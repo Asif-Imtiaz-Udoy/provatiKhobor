@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\News;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\News;
+use App\Models\Prodesh;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
@@ -25,6 +26,7 @@ class NewsController extends Controller
 
         $categories = Category::orderBy('id', 'DESC')->get();
         $newses = News::orderBy('id', 'DESC')->get();
+
         return view('backend.news.news', compact('newses', 'categories'));
     }
 
@@ -39,7 +41,8 @@ class NewsController extends Controller
             return redirect()->route('admin.error');
         }
         $categories = Category::orderBy('id', 'DESC')->get();
-        return view('backend.news.create', compact('categories'));
+        $prodeshes = Prodesh::orderBy('id', 'DESC')->get();
+        return view('backend.news.create', compact('categories', 'prodeshes'));
     }
 
     /**
@@ -90,6 +93,7 @@ class NewsController extends Controller
             array_merge(
                 [
                     "news_image" => $thumbnail,
+                    "prodesh_id" => $request->prodesh_id,
                     'slug' => $slug,
                     'sub_title' => $request->sub_title,
                     'image_caption' => $request->image_caption,
@@ -145,7 +149,8 @@ class NewsController extends Controller
         }
         $categories = Category::orderBy('id', 'DESC')->get();
         $news = News::findOrFail(intval($id));
-        return view('backend.news.edit', compact('news', 'categories'));
+        $prodeshes = Prodesh::orderBy('id', 'DESC')->get();
+        return view('backend.news.edit', compact('news', 'categories', 'prodeshes'));
     }
 
     /**
@@ -198,6 +203,7 @@ class NewsController extends Controller
                     [
                         "news_image" => $thumbnail,
                         'sub_category' => $request->sub_category,
+                        'prodesh_id' => $request->prodesh_id,
                         'slug' => $news->slug,
                         'sub_title' => $request->sub_title,
                         'image_caption' => $request->image_caption,
@@ -222,6 +228,7 @@ class NewsController extends Controller
                         "news_image" => $thumbnail,
                         'slug' => $slug,
                         'sub_category' => $request->sub_category,
+                        'prodesh_id' => $request->prodesh_id,
                         'sub_title' => $request->sub_title,
                         'image_caption' => $request->image_caption,
                         'lead_news' => $request->lead_news,

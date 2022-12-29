@@ -20,15 +20,7 @@
                                 <span style="color:red">{!! $errors->first('title') !!}</span>
                             @endif
                         </div>
-                        {{-- <div class="form-group">
-                            <label for="sub_title" class="col-form-label text-nowrap">সাব-টাইটেল<span
-                                    class="text-danger"> *</span></label>
-                            <input type="text" class="form-control" name="sub_title" id="sub_title"
-                                value="{{ $news->sub_title }}">
-                            @if ($errors->has('sub_title'))
-                                <span style="color:red">{!! $errors->first('sub_title') !!}</span>
-                            @endif
-                        </div> --}}
+                        
                         <div class="form-group">
                             <label for="category_id" class=" col-form-label text-nowrap">ক্যাটগরি<span class="text-danger">*</span></label>
                             <select class="custom-select" name="category_id" value="{!! old('category_id') !!}">
@@ -39,6 +31,18 @@
                             </select>
                             @if ($errors->has('category_id'))
                                 <span style="color:red">{!! $errors->first('category_id') !!}</span>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <label for="prodesh_id" class=" col-form-label text-nowrap">প্রদেশ<span class="text-danger">*</span></label>
+                            <select class="custom-select" name="prodesh_id" value="{!! old('prodesh_id') !!}">
+                                <option selected>প্রদেশ নির্বাচন করুন</option>
+                                @foreach ($prodeshes as $prodesh)
+                                    <option value="{{ $prodesh->id }}" {{ $prodesh->id == $news->prodesh_id ? 'selected' : '' }}>{{ $prodesh->name }}</option>
+                                @endforeach
+                            </select>
+                            @if ($errors->has('prodesh_id'))
+                                <span style="color:red">{!! $errors->first('prodesh_id') !!}</span>
                             @endif
                         </div>
                         <div class="form-group">

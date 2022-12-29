@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\Multimedia\MultimediaController;
 use App\Http\Controllers\Backend\News\NewsController;
 use App\Http\Controllers\Backend\Poll\PollController;
 use App\Http\Controllers\Backend\Prayer\PrayerController;
+use App\Http\Controllers\Backend\Prodesh\ProdeshCotroller;
 use App\Http\Controllers\Backend\Role\RoleController;
 use App\Http\Controllers\Backend\SofolPerson\SofolPersonController;
 use App\Http\Controllers\Backend\User\UserController;
@@ -64,6 +65,9 @@ Route::name('admin.')->group(function () {
 
         // advertisement route=================
         Route::resource('advertisement', AdvertisementController::class, ['names' => 'advertisement']);
+
+
+        Route::resource('prodesh', ProdeshCotroller::class, ['names' => 'prodesh']);
 
         // prayer route=================
         Route::resource('prayer', PrayerController::class, ['names' => 'prayer']);

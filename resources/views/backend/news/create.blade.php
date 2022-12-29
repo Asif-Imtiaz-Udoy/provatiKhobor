@@ -42,6 +42,19 @@
                             @endif
                         </div>
                         <div class="form-group">
+                            <label for="prodesh_id" class=" col-form-label text-nowrap">প্রদেশ<span
+                                    class="text-danger">*</span></label>
+                            <select class="custom-select" name="prodesh_id" value="{!! old('prodesh_id') !!}">
+                                <option selected>প্রদেশ নির্বাচন করুন</option>
+                                @foreach ($prodeshes as $podesh)
+                                    <option value="{{ $podesh->id }}">{{ $podesh->name }}</option>
+                                @endforeach
+                            </select>
+                            @if ($errors->has('podesh_id'))
+                                <span style="color:red">{!! $errors->first('podesh_id') !!}</span>
+                            @endif
+                        </div>
+                        <div class="form-group">
                             <label for="thumbnail" class=" col-form-label text-nowrap"> ছবি <span class="text-danger">
                                     *</span></label>
                             <input type="file" class="form-control dropify" name="thumbnail" id="thumbnail"

@@ -9,12 +9,14 @@ use App\Models\Multimedia;
 use App\Models\News;
 use App\Models\Poll;
 use App\Models\Prayer;
+use App\Models\Prodesh;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
+
         $main_lead_newses = News::where('lead_news', 1)->latest('created_at')->limit(1)->get();
         $lead_newses = News::where('lead_news', 1)->latest('created_at')->limit(8)->get();
         $latest_newses = News::latest('created_at')->limit(5)->get();
@@ -27,7 +29,7 @@ class HomeController extends Controller
         $relegiousNews = News::where('category_slug', 'ধর্ম')->latest('created_at')->limit(3)->get();
         $jobs = News::where('category_slug', 'জবস')->latest('created_at')->limit(3)->get();
 
-        $news_boxes = News::where('news_box', 1)->latest()->limit(3)->get();
+        $news_boxes = News::where('news_box', 1)->latest()->limit(14)->get();
         $features = Category::where('feature', 1)->get();
         $photos = Multimedia::orderBy('id', 'DESC')->where('category', 1)->limit(10)->get();
         $videos = Multimedia::where('category', 2)->latest('created_at')->limit(5)->get();
@@ -38,8 +40,9 @@ class HomeController extends Controller
         $prayer = Prayer::latest()->first();
         $breakings = News::where('type', 3)->latest('created_at')->limit(2)->get();
         $poll = Poll::latest()->first();
+        $prodeshes = Prodesh::orderBy('id', 'DESC')->get();
 
-        return view('frontend.home.home', compact('nationals', 'internationals', 'lifestyles', 'itnews', 'relegiousNews', 'jobs', 'main_lead_newses', 'lead_newses', 'plays', 'entertainments', 'news_boxes', 'poll', 'latest_newses', 'features', 'photos', 'videos', 'opinions', 'successfuls', 'develops', 'prayer', 'breakings', 'advertisements'));
+        return view('frontend.home.home', compact('nationals', 'prodeshes', 'internationals', 'lifestyles', 'itnews', 'relegiousNews', 'jobs', 'main_lead_newses', 'lead_newses', 'plays', 'entertainments', 'news_boxes', 'poll', 'latest_newses', 'features', 'photos', 'videos', 'opinions', 'successfuls', 'develops', 'prayer', 'breakings', 'advertisements'));
     }
 
     public function vote($id, Request $request)
@@ -56,4 +59,5 @@ class HomeController extends Controller
 
         return redirect()->back();
     }
+
 }

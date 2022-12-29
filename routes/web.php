@@ -20,5 +20,7 @@ Auth::routes(['register' => false]);
 Route::get('/', [App\Http\Controllers\Frontend\Home\HomeController::class, 'index'])->name('home');
 Route::get('/news-detail/{id}', [App\Http\Controllers\Frontend\Details\DetailsController::class, 'newsDetail'])->name('newsDetail');
 Route::get('category/{id}', [App\Http\Controllers\Frontend\Details\DetailsController::class, 'categoryDetails'])->name('categoryDetails');
+Route::post('prodesh', [App\Http\Controllers\Frontend\Details\DetailsController::class, 'prodesh'])->name('prodesh');
+Route::post('date', [App\Http\Controllers\Frontend\Details\DetailsController::class, 'date'])->name('date');
 //Vote route
 Route::post('/poll/{id}', [\App\Http\Controllers\Frontend\Home\HomeController::class, 'vote'])->name('poll.vote');
